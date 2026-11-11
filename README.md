@@ -34,7 +34,7 @@ Tout dans une seule archive (sans l'addon retiré) : [wowvision-forever-addons.z
 - Quatre d'entre eux ont été intégrés à WowVision lui-même (pull requests 112, 113, 114 et 121) ; avec un WowVision récent ils se mettent en retrait et ne font rien, et restent utiles avec une version plus ancienne.
 - État honnête : plusieurs addons ont été utilisés en jeu avant d'être publiés ; les autres, et les changements les plus récents, ne sont vérifiés que par des tests hors jeu. Le README de chaque addon dit où il en est.
 - Le français et l'anglais sont de l'auteur ; l'allemand est une traduction de l'auteur, non vérifiée par un germanophone.
-- Publié sous licence MIT (voir [LICENSE](LICENSE) ; une copie est dans chaque archive). Quelques addons reprennent des parties du code de WowVision, qui ne déclare aucune licence ; ces parties restent sous les conditions de ses auteurs.
+- Publié sous licence MIT (voir [LICENSE](LICENSE) et [NOTICE](NOTICE) ; des copies sont dans chaque archive). Quelques addons reprennent des parties du code de WowVision, qui ne déclare aucune licence ; ces parties restent sous les conditions de ses auteurs.
 
 ### Pour celles et ceux qui travaillent sur les addons
 
@@ -76,7 +76,7 @@ Everything in one archive (without the retired addon): [wowvision-forever-addons
 - Four of them were merged into WowVision itself (pull requests 112, 113, 114 and 121); with a recent WowVision they step aside and do nothing, and stay useful with an older version.
 - Honest status: several addons were used in the game before they were published; others, and the newest changes, are checked by offline tests only. Each addon's README says where it stands.
 - French and English are the author's own wording; German is a translation by the author and has not been checked by a native speaker.
-- Released under the MIT licence (see [LICENSE](LICENSE); a copy is in every archive). A few addons adapt parts of WowVision's own code, which declares no licence; those parts stay under its authors' terms.
+- Released under the MIT licence (see [LICENSE](LICENSE) and [NOTICE](NOTICE); copies are in every archive). A few addons adapt parts of WowVision's own code, which declares no licence; those parts stay under its authors' terms.
 
 ### For people who work on the addons
 
@@ -118,7 +118,7 @@ Alles in einem Archiv (ohne das eingestellte Addon): [wowvision-forever-addons.z
 - Vier davon wurden in WowVision selbst übernommen (Pull Requests 112, 113, 114 und 121); mit einem aktuellen WowVision halten sie sich zurück und tun nichts, mit einer älteren Version bleiben sie nützlich.
 - Ehrlicher Stand: Mehrere Addons wurden im Spiel benutzt, bevor sie veröffentlicht wurden; andere und die neuesten Änderungen sind nur durch Tests außerhalb des Spiels geprüft. Die README jedes Addons sagt, wo es steht.
 - Französisch und Englisch stammen vom Autor; das Deutsche ist eine Übersetzung des Autors und nicht von Muttersprachlern geprüft.
-- Veröffentlicht unter der MIT-Lizenz (siehe [LICENSE](LICENSE); eine Kopie liegt in jedem Archiv). Einige Addons übernehmen Teile des Codes von WowVision, das keine Lizenz angibt; diese Teile bleiben unter den Bedingungen seiner Autoren.
+- Veröffentlicht unter der MIT-Lizenz (siehe [LICENSE](LICENSE) und [NOTICE](NOTICE); Kopien liegen in jedem Archiv). Einige Addons übernehmen Teile des Codes von WowVision, das keine Lizenz angibt; diese Teile bleiben unter den Bedingungen seiner Autoren.
 
 ### Für alle, die an den Addons arbeiten
 

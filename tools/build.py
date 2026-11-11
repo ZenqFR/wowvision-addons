@@ -58,12 +58,13 @@ def add_to_zip(archive, name, files):
         info.external_attr = 0o644 << 16
         with open(path, "rb") as handle:
             archive.writestr(info, handle.read(), compresslevel=9)
-    # every archive carries the licence of the repository
-    info = zipfile.ZipInfo(name + "/LICENSE", date_time=FIXED_DATE)
-    info.compress_type = zipfile.ZIP_DEFLATED
-    info.external_attr = 0o644 << 16
-    with open(os.path.join(ROOT, "LICENSE"), "rb") as handle:
-        archive.writestr(info, handle.read(), compresslevel=9)
+    # every archive carries the licence of the repository, and the notice about what was taken from WowVision
+    for extra in ("LICENSE", "NOTICE"):
+        info = zipfile.ZipInfo(name + "/" + extra, date_time=FIXED_DATE)
+        info.compress_type = zipfile.ZIP_DEFLATED
+        info.external_attr = 0o644 << 16
+        with open(os.path.join(ROOT, extra), "rb") as handle:
+            archive.writestr(info, handle.read(), compresslevel=9)
 
 
 def sha256(path):

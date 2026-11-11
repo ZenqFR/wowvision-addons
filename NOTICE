@@ -1,0 +1,15 @@
+WowVision addons for WoW: Forever
+
+The MIT licence in the file LICENSE covers what was written for this repository.
+
+A few addons here adapt parts of the code of WowVision
+(https://github.com/wow-vision/WowVision), for example the pet training window,
+which follows WowVision's own trainer window. WowVision declares no licence: the
+parts taken from it stay under whatever terms its authors give, and are not
+relicensed by this repository.
+
+Several of these addons were sent to WowVision as pull requests and merged
+there (wow-vision/WowVision#112, #113, #114 and #121).
+
+Not affiliated with or endorsed by Blizzard Entertainment. World of Warcraft is a
+trademark of Blizzard Entertainment, Inc.
