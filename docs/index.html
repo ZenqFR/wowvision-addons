@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>WowVision addons for WoW: Forever</title>
+<meta name="description" content="Free addons for blind and visually impaired players of World of Warcraft: Forever, made to work with the WowVision screen reader addon. Download, preview and hear what each one says. In English, French and German.">
+<link rel="canonical" href="https://zenqfr.github.io/wowvision-addons/">
+<meta name="robots" content="index, follow">
+<meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#0b0806">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230b0806'/%3E%3Cpath d='M32 8c4 9 14 14 14 27a14 14 0 0 1-28 0c0-6 3-9 6-13 1 4 3 6 5 6-2-7-1-14 3-20z' fill='%23f2c75c'/%3E%3Cpath d='M32 30c2 5 7 7 7 13a7 7 0 0 1-14 0c0-4 3-6 4-9 1 2 2 3 3 3z' fill='%23ff8a2a'/%3E%3C/svg%3E">
+<meta property="og:type" content="website">
+<meta property="og:title" content="WowVision addons for WoW: Forever">
+<meta property="og:description" content="Free addons for blind and visually impaired players of World of Warcraft: Forever, made for the WowVision screen reader addon.">
+<meta property="og:url" content="https://zenqfr.github.io/wowvision-addons/">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="fr_FR">
+<meta property="og:locale:alternate" content="de_DE">
+<meta name="twitter:card" content="summary">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- the icons, drawn for this page (no game artwork) -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <symbol id="i-compass" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M15.6 8.4l-2.1 5.1-5.1 2.1 2.1-5.1z"/></symbol>
+    <symbol id="i-bag" viewBox="0 0 24 24"><path d="M7 8h10l1.6 11a1 1 0 0 1-1 1.1H6.4a1 1 0 0 1-1-1.1z"/><path d="M9 8V6.6a3 3 0 0 1 6 0V8"/><path d="M9 13h6"/></symbol>
+    <symbol id="i-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3.4"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4"/></symbol>
+    <symbol id="i-scales" viewBox="0 0 24 24"><path d="M12 4v16M7 20h10M5 7.5h14"/><path d="M5 7.5l-3 7a3.3 3.3 0 0 0 6 0zM19 7.5l-3 7a3.3 3.3 0 0 0 6 0z"/></symbol>
+    <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3.4 3.2 3.4 14.8 0 18M12 3c-3.4 3.2-3.4 14.8 0 18"/></symbol>
+    <symbol id="i-scroll" viewBox="0 0 24 24"><path d="M8 4h9a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H7"/><path d="M8 4a2 2 0 0 0-2 2v12a2 2 0 0 0 1 1.7"/><path d="M5 8h3M5 12h3M10 9h6M10 13h6"/></symbol>
+    <symbol id="i-paw" viewBox="0 0 24 24"><ellipse cx="12" cy="16.2" rx="4.6" ry="3.6"/><circle cx="5.8" cy="11.2" r="1.8"/><circle cx="9.8" cy="6.8" r="1.8"/><circle cx="14.2" cy="6.8" r="1.8"/><circle cx="18.2" cy="11.2" r="1.8"/></symbol>
+    <symbol id="i-lens" viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6"/><path d="M15 15l6 6"/></symbol>
+    <symbol id="i-heart" viewBox="0 0 24 24"><path d="M12 20s-7.2-4.5-7.2-10.2A4.1 4.1 0 0 1 12 7.4a4.1 4.1 0 0 1 7.2 2.4C19.2 15.5 12 20 12 20z"/></symbol>
+    <symbol id="i-download" viewBox="0 0 24 24"><path d="M12 4v11m0 0l-4.2-4.2M12 15l4.2-4.2M5 20h14"/></symbol>
+    <symbol id="i-eye" viewBox="0 0 24 24"><path d="M2 12s3.8-7 10-7 10 7 10 7-3.8 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></symbol>
+    <symbol id="i-speaker" viewBox="0 0 24 24"><path d="M4 9.5v5h3.8L13 19V5L7.8 9.5z"/><path d="M16 9.2a4 4 0 0 1 0 5.6M18.6 6.6a7.8 7.8 0 0 1 0 10.8"/></symbol>
+    <symbol id="i-code" viewBox="0 0 24 24"><path d="M8 8l-4 4 4 4M16 8l4 4-4 4M13.6 5l-3.2 14"/></symbol>
+    <symbol id="i-stop" viewBox="0 0 24 24"><rect x="6" y="6" width="12" height="12" rx="1.5"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></symbol>
+    <symbol id="i-arrow-up" viewBox="0 0 24 24"><path d="M12 19V5m0 0l-5 5m5-5l5 5"/></symbol>
+  </defs>
+</svg>
+
+<a class="skip" href="#addons" data-i18n="skip">Skip to the addons</a>
+
+<header class="topbar">
+  <p class="brand" aria-hidden="true"><svg class="brand-flame" viewBox="0 0 64 64"><path d="M32 8c4 9 14 14 14 27a14 14 0 0 1-28 0c0-6 3-9 6-13 1 4 3 6 5 6-2-7-1-14 3-20z"/></svg><span>WowVision &times; Forever</span></p>
+  <div class="langs" role="group" aria-labelledby="lang-label">
+    <span id="lang-label" class="langs-label" data-i18n="lang.label">Language</span>
+    <button type="button" class="lang-btn" data-lang="fr" lang="fr" aria-pressed="false">Français</button>
+    <button type="button" class="lang-btn" data-lang="en" lang="en" aria-pressed="true">English</button>
+    <button type="button" class="lang-btn" data-lang="de" lang="de" aria-pressed="false">Deutsch</button>
+  </div>
+</header>
+
+<main id="main">
+
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="hero-art" aria-hidden="true">
+      <svg viewBox="0 0 520 300" class="hero-svg" focusable="false">
+        <defs>
+          <radialGradient id="glow" cx="50%" cy="60%" r="55%">
+            <stop offset="0" stop-color="#ff9a3c" stop-opacity=".55"/>
+            <stop offset=".55" stop-color="#c0561a" stop-opacity=".18"/>
+            <stop offset="1" stop-color="#0b0806" stop-opacity="0"/>
+          </radialGradient>
+          <linearGradient id="flameOuter" x1="0" y1="1" x2="0" y2="0">
+            <stop offset="0" stop-color="#d9531e"/><stop offset=".6" stop-color="#ff9a2f"/><stop offset="1" stop-color="#ffd978"/>
+          </linearGradient>
+          <linearGradient id="flameInner" x1="0" y1="1" x2="0" y2="0">
+            <stop offset="0" stop-color="#ffb02e"/><stop offset="1" stop-color="#fff2b8"/>
+          </linearGradient>
+          <linearGradient id="metal" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#6d5a3c"/><stop offset="1" stop-color="#2c2216"/>
+          </linearGradient>
+          <linearGradient id="bannerRed" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#a7261d"/><stop offset="1" stop-color="#5e130f"/></linearGradient>
+          <linearGradient id="bannerBlue" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2a5fb0"/><stop offset="1" stop-color="#12295a"/></linearGradient>
+        </defs>
+        <ellipse cx="260" cy="190" rx="230" ry="110" fill="url(#glow)" class="breath"/>
+        <!-- rune ring: the forever -->
+        <g transform="translate(260 150)">
+          <g class="rune-ring">
+            <circle r="118" fill="none" stroke="#c58f2c" stroke-width="1.5" stroke-opacity=".7"/>
+            <circle r="104" fill="none" stroke="#f2c75c" stroke-width="5" stroke-opacity=".35" stroke-dasharray="2 13.4"/>
+            <circle r="130" fill="none" stroke="#c58f2c" stroke-width="1" stroke-opacity=".45" stroke-dasharray="34 9 6 9"/>
+          </g>
+          <!-- the lemniscate, the sign of forever, stands still inside the turning ring -->
+          <path d="M-92 0c0-26 22-38 46-22l46 44c24 16 46 4 46-22s-22-38-46-22l-46 44c-24 16-46 4-46-22z" fill="none" stroke="#f2c75c" stroke-width="3" stroke-opacity=".75" stroke-linecap="round" transform="scale(.62 .62)"/>
+        </g>
+        <!-- banners -->
+        <g transform="translate(60 18)">
+          <rect x="-2" y="0" width="64" height="5" rx="2" fill="url(#metal)"/>
+          <path d="M2 5h56v140l-28-26-28 26z" fill="url(#bannerRed)" stroke="#c58f2c" stroke-width="2"/>
+          <path d="M30 40l11 18-11 18-11-18z" fill="none" stroke="#f2c75c" stroke-width="3"/>
+          <circle cx="30" cy="58" r="3" fill="#f2c75c"/>
+        </g>
+        <g transform="translate(398 18)">
+          <rect x="-2" y="0" width="64" height="5" rx="2" fill="url(#metal)"/>
+          <path d="M2 5h56v140l-28-26-28 26z" fill="url(#bannerBlue)" stroke="#c58f2c" stroke-width="2"/>
+          <path d="M30 38l6 14h14l-11 9 4 15-13-9-13 9 4-15-11-9h14z" fill="none" stroke="#f2c75c" stroke-width="2.6" stroke-linejoin="round"/>
+        </g>
+        <!-- brazier -->
+        <g transform="translate(260 0)">
+          <path d="M-62 196h124l-10 26h-104z" fill="url(#metal)" stroke="#c58f2c" stroke-width="2"/>
+          <path d="M-70 196a70 34 0 0 0 140 0z" fill="url(#metal)" stroke="#c58f2c" stroke-width="2.4"/>
+          <path d="M-8 222h16l6 54h-28z" fill="url(#metal)" stroke="#c58f2c" stroke-width="2"/>
+          <path d="M-44 288h88l-8-12h-72z" fill="url(#metal)" stroke="#c58f2c" stroke-width="2"/>
+          <g class="flame">
+            <path d="M0 80c11 28 44 46 44 86a44 44 0 0 1-88 0c0-20 9-30 18-42 3 12 9 18 15 18-6-22-3-44 11-62z" fill="url(#flameOuter)"/>
+            <path d="M0 118c7 17 26 26 26 50a26 26 0 0 1-52 0c0-12 6-18 11-25 2 7 6 10 9 10-4-13-2-26 6-35z" fill="url(#flameInner)" class="flame-inner"/>
+          </g>
+        </g>
+        <!-- embers -->
+        <g class="embers" fill="#ffb347">
+          <circle class="e e1" cx="236" cy="130" r="2"/><circle class="e e2" cx="284" cy="120" r="1.6"/><circle class="e e3" cx="256" cy="100" r="2.2"/>
+          <circle class="e e4" cx="300" cy="140" r="1.4"/><circle class="e e5" cx="222" cy="150" r="1.6"/><circle class="e e6" cx="272" cy="90" r="1.3"/>
+        </g>
+      </svg>
+    </div>
+
+    <div class="hero-text">
+      <p class="eyebrow" data-i18n="hero.eyebrow">Addons for WoW: Forever</p>
+      <h1 id="hero-title" data-i18n="hero.title">WowVision, forged for Forever</h1>
+      <p class="lead" data-i18n="hero.lead">Free addons that let blind and visually impaired players follow the leveling guide, handle their bags, target their quests and more, by ear, with the WowVision screen reader addon. Pick one, preview what it says, download it.</p>
+      <p class="cta">
+        <a class="btn btn-gold" id="download-all" href="downloads/wowvision-forever-addons.zip" download>
+          <svg class="icon" aria-hidden="true"><use href="#i-download"/></svg><span data-i18n="hero.all">Download everything</span>
+        </a>
+        <a class="btn btn-ghost" href="#addons"><span data-i18n="hero.browse">Browse the addons</span></a>
+      </p>
+      <p class="fine" id="all-note"></p>
+      <ul class="stats" aria-label="WowVision addons in numbers">
+        <li><strong id="stat-addons">9</strong> <span data-i18n="stats.addons">addons</span></li>
+        <li><strong>3</strong> <span data-i18n="stats.langs">languages</span> <span class="stat-langs" aria-hidden="true">FR&nbsp;EN&nbsp;DE</span></li>
+        <li><strong id="stat-tests">775</strong> <span data-i18n="stats.tests">offline tests</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="install" aria-labelledby="install-title">
+    <h2 id="install-title" class="h2" data-i18n="install.title">Install in three steps</h2>
+    <ol class="steps">
+      <li>
+        <h3 data-i18n="install.1.title">Get WowVision</h3>
+        <p data-i18n="install.1.text">All these addons work through WowVision, the screen reader addon. Install it first.</p>
+        <p><a class="link" id="wowvision-link" href="https://github.com/wow-vision/WowVision"><span data-i18n="install.1.link">WowVision on GitHub</span></a></p>
+      </li>
+      <li>
+        <h3 data-i18n="install.2.title">Download</h3>
+        <p data-i18n="install.2.text">Take the addons you want below, or the one archive with all of them.</p>
+      </li>
+      <li>
+        <h3 data-i18n="install.3.title">Unzip, then reload</h3>
+        <p data-i18n="install.3.text">Unzip into the AddOns folder, so that each addon keeps its own folder, then type /reload in the game:</p>
+        <p><code class="path" data-i18n="install.3.path">World of Warcraft\_forever_\Interface\AddOns</code></p>
+      </li>
+    </ol>
+  </section>
+
+  <section class="addons" id="addons" aria-labelledby="addons-title" tabindex="-1">
+    <h2 id="addons-title" class="h2" data-i18n="addons.title">The addons</h2>
+    <p class="intro" data-i18n="addons.intro">Each one is free and changes none of WowVision's files, so a WowVision update never removes it.</p>
+
+    <div class="filters" role="group" aria-labelledby="filter-label">
+      <span id="filter-label" class="filters-label" data-i18n="filter.label">Show</span>
+      <div class="filter-buttons" id="filter-buttons"></div>
+    </div>
+    <p class="filter-help" id="filter-help"></p>
+    <p class="count" id="count" role="status" aria-live="polite"></p>
+
+    <ul class="grid" id="grid" role="list"></ul>
+
+    <noscript>
+      <p class="fine"><span data-i18n="noscript">This page needs JavaScript to filter and preview. The downloads work without it:</span></p>
+      <ul class="plain">
+        <li><a href="downloads/wowvision-forever-addons.zip">wowvision-forever-addons.zip</a></li>
+        <li><a href="downloads/WowVision_RestedXP.zip">WowVision_RestedXP.zip</a></li>
+        <li><a href="downloads/WowVision_Bags.zip">WowVision_Bags.zip</a></li>
+        <li><a href="downloads/WowVision_QuestTargets.zip">WowVision_QuestTargets.zip</a></li>
+        <li><a href="downloads/WowVision_ItemCompare.zip">WowVision_ItemCompare.zip</a></li>
+        <li><a href="downloads/WowVision_LocalizedNames.zip">WowVision_LocalizedNames.zip</a></li>
+        <li><a href="downloads/WowVision_Quests.zip">WowVision_Quests.zip</a></li>
+        <li><a href="downloads/WowVision_PetTraining.zip">WowVision_PetTraining.zip</a></li>
+        <li><a href="downloads/WowVision_Probe.zip">WowVision_Probe.zip</a></li>
+      </ul>
+    </noscript>
+  </section>
+
+  <section class="upstream" aria-labelledby="upstream-title">
+    <h2 id="upstream-title" class="h2" data-i18n="upstream.title">Already part of WowVision</h2>
+    <p class="intro" data-i18n="upstream.intro">Some of this work was sent to WowVision as pull requests and merged. Thank you to the WowVision team.</p>
+    <ul class="pr-list" id="pr-list" role="list"></ul>
+  </section>
+
+  <section class="notes" aria-labelledby="notes-title">
+    <h2 id="notes-title" class="h2" data-i18n="notes.title">Good to know</h2>
+    <ul class="notes-list">
+      <li data-i18n="notes.1">Honest status.</li>
+      <li data-i18n="notes.2">German is a translation by the author.</li>
+      <li data-i18n="notes.3">No licence has been chosen yet.</li>
+    </ul>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <p data-i18n="footer.disclaimer">Not affiliated with or endorsed by Blizzard Entertainment. World of Warcraft is a trademark of Blizzard Entertainment, Inc. This page uses no Blizzard artwork.</p>
+  <ul class="footer-links">
+    <li><a class="link" id="repo-link" href="https://github.com/ZenqFR/wowvision-addons"><span data-i18n="footer.repo">Source code and issues on GitHub</span></a></li>
+    <li><a class="link" href="https://zenqfr.github.io/"><span data-i18n="footer.home">More accessibility projects</span></a></li>
+    <li><a class="link" href="#main"><span data-i18n="footer.top">Back to the top</span></a></li>
+  </ul>
+</footer>
+
+<dialog id="preview" class="preview" aria-labelledby="preview-title">
+  <div class="preview-head">
+    <div class="preview-icon" id="preview-icon" aria-hidden="true"></div>
+    <div class="preview-titles">
+      <h2 id="preview-title" class="preview-title"></h2>
+      <p class="preview-badge" id="preview-badge"></p>
+    </div>
+    <button type="button" class="btn btn-ghost btn-close" id="preview-close">
+      <svg class="icon" aria-hidden="true"><use href="#i-close"/></svg><span data-i18n="dialog.close">Close</span>
+    </button>
+  </div>
+  <div class="preview-body" id="preview-body"></div>
+</dialog>
+
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
+<div id="announce" class="sr-only" role="status" aria-live="polite"></div>
+
+<script src="js/i18n.js"></script>
+<script src="js/data.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

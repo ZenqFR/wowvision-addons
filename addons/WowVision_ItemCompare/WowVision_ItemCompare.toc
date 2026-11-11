@@ -1,0 +1,15 @@
+## Interface: 16001, 120005, 120007
+## Title: WowVision Item Compare
+## Title-frFR: WowVision - Comparaison d'objets
+## Notes: Adds Pawn's upgrade summary and a comparison with your equipped item to WowVision's tooltip reading (Shift+Down line by line, Space all at once).
+## Notes-frFR: Ajoute le résumé d'amélioration de Pawn et la comparaison avec l'objet équipé à la lecture des infobulles de WowVision (Shift+Bas ligne par ligne, Espace tout d'un coup).
+## Title-deDE: WowVision - Gegenstandsvergleich
+## Notes-deDE: Ergänzt das Vorlesen der Tooltips von WowVision um die Pawn-Verbesserungszusammenfassung und einen Vergleich mit dem angelegten Gegenstand (Umschalt+Runter Zeile für Zeile, Leertaste alles auf einmal).
+## Version: 0.1.0
+## Dependencies: WowVision
+## OptionalDeps: Pawn
+## SavedVariables: WowVisionItemCompareDB
+
+Locale.lua
+Core.lua
+Main.lua

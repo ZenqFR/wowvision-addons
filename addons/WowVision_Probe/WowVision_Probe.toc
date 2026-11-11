@@ -1,0 +1,12 @@
+## Interface: 16001, 120005, 120007
+## Title: WowVision Probe
+## Title-frFR: WowVision - Relevé de fenêtres
+## Notes: Writes the structure of the windows that are open on screen (names, texts, lists, buttons) to a saved variable, so a window WowVision cannot read yet can be built from what the game really holds. Type /wvprobe with the window open, then /reload.
+## Notes-frFR: Écrit la structure des fenêtres ouvertes (noms, textes, listes, boutons) dans une variable enregistrée, pour construire dans WowVision une fenêtre qu'il ne sait pas encore lire d'après ce que le jeu contient vraiment. Tapez /wvprobe avec la fenêtre ouverte, puis /reload.
+## Title-deDE: WowVision - Fensteraufnahme
+## Notes-deDE: Schreibt die Struktur der geöffneten Fenster (Namen, Texte, Listen, Schaltflächen) in eine gespeicherte Variable, damit ein Fenster, das WowVision noch nicht lesen kann, nach dem aufgebaut werden kann, was das Spiel wirklich enthält. Gib /wvprobe bei geöffnetem Fenster ein, dann /reload.
+## Version: 0.1.0
+## OptionalDeps: WowVision
+## SavedVariables: WowVisionProbeDB
+
+Probe.lua

@@ -1,0 +1,15 @@
+## Interface: 16001, 120005, 120007
+## Title: WowVision Quest Targets
+## Title-frFR: WowVision - Cibles de quête
+## Notes: Targets, with one key, the creatures near you that your quests still need (a kill or an item they drop that you have not finished), nearest first. Alt+Q targets the next one, Alt+Shift+Q the previous one, Ctrl+Alt+Q says them all.
+## Notes-frFR: Cible, avec une seule touche, les créatures proches dont vos quêtes ont encore besoin (un monstre à tuer ou un objet qu'il laisse tomber, pas encore terminé), de la plus proche à la plus lointaine. Alt+Q cible la suivante, Alt+Maj+Q la précédente, Ctrl+Alt+Q les dit toutes.
+## Title-deDE: WowVision - Questziele
+## Notes-deDE: Anvisiert mit einer einzigen Taste die Kreaturen in deiner Nähe, die deine Quests noch brauchen (ein Kill oder ein Gegenstand, den sie fallen lassen und den du noch nicht fertig hast), die nächste zuerst. Alt+Q visiert die nächste an, Alt+Umschalt+Q die vorherige, Strg+Alt+Q nennt alle.
+## Version: 0.1.0
+## Dependencies: WowVision
+## SavedVariables: WowVisionQuestTargetsDB
+
+Locale.lua
+Targets.lua
+Game.lua
+Main.lua

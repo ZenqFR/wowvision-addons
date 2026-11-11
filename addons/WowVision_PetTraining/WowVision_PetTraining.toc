@@ -1,0 +1,14 @@
+## Interface: 16001, 120005, 120007
+## Title: WowVision Pet Training
+## Title-frFR: WowVision - Dressage du familier
+## Notes: Makes the hunter's pet training window (opened by the Beast Training spell on WoW: Forever) usable with WowVision: the pet's skills, the training points left, the cost in training points and the Train button.
+## Notes-frFR: Rend utilisable avec WowVision la fenêtre de dressage du familier du chasseur (ouverte par le sort Dressage de bête sur WoW: Forever) : les compétences du familier, les points d'entraînement restants, le coût en points d'entraînement et le bouton Entraîner.
+## Title-deDE: WowVision - Tiertraining
+## Notes-deDE: Macht das Tiertrainingsfenster des Jägers (geöffnet durch den Zauber „Tiertraining“ auf WoW: Forever) mit WowVision nutzbar: die Fähigkeiten des Tiers, die verbleibenden Trainingspunkte, die Kosten in Trainingspunkten und die Schaltfläche „Trainieren“.
+## Version: 0.1.0
+## Dependencies: WowVision
+
+Locale.lua
+Pet.lua
+Window.lua
+Main.lua

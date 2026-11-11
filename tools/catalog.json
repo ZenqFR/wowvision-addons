@@ -1,0 +1,352 @@
+{
+  "repo": "ZenqFR/wowvision-addons",
+  "site": "https://zenqfr.github.io/wowvision-addons/",
+  "wowvision": "https://github.com/wow-vision/WowVision",
+  "testsAsOf": "2026-11-11",
+  "tests": { "WowVision_RestedXP": 432, "WowVision_Bags": 115, "WowVision_QuestTargets": 67, "WowVision_ItemCompare": 35, "WowVision_LocalizedNames": 29, "WowVision_Quests": 20, "WowVision_PetTraining": 20, "WowVision_Probe": 16, "WowVision_Vitals": 41 },
+  "order": ["WowVision_RestedXP", "WowVision_Bags", "WowVision_QuestTargets", "WowVision_ItemCompare", "WowVision_LocalizedNames", "WowVision_Quests", "WowVision_PetTraining", "WowVision_Probe", "WowVision_Vitals"],
+  "addons": {
+    "WowVision_RestedXP": {
+      "group": "active",
+      "icon": "compass",
+      "featured": true,
+      "path": "addons/WowVision_RestedXP",
+      "title": { "en": "RestedXP", "fr": "RestedXP", "de": "RestedXP" },
+      "requires": ["WowVision"],
+      "optional": ["RXPGuides"],
+      "tagline": {
+        "en": "Makes the RestedXP leveling guide usable with a screen reader: menu, arrow, sound beacon, WowVision route and guide import.",
+        "fr": "Rend le guide de niveau RestedXP utilisable au lecteur d'écran : menu, flèche, balise sonore, itinéraire WowVision et import de guide.",
+        "de": "Macht den RestedXP-Levelguide mit einem Screenreader nutzbar: Menü, Pfeil, Klangsignal, WowVision-Route und Guide-Import."
+      },
+      "description": {
+        "en": "Shift+F2 opens RestedXP as a WowVision screen: the guide and its active steps (each line a check box), the arrow, moving in the guide, all of RestedXP's settings (also its page in the game's options window) and the guide import. A sound beacon or a WowVision route leads to the arrow's destination and follows the arrow when RestedXP moves it; a check box turns that recalculation off, and drifts under 10 yards are ignored. New steps are read out as they come.",
+        "fr": "Maj+F2 ouvre RestedXP comme un écran de WowVision : le guide et ses étapes actives (chaque ligne est une case), la flèche, le déplacement dans le guide, tous les réglages de RestedXP (aussi sa page dans la fenêtre des options du jeu) et l'import de guide. Une balise sonore ou un itinéraire WowVision mène à la destination de la flèche et la suit quand RestedXP la déplace ; une case à cocher coupe ce recalcul, et les dérives de moins de 10 mètres sont ignorées. Les nouvelles étapes sont lues au fur et à mesure.",
+        "de": "Umschalt+F2 öffnet RestedXP als WowVision-Bildschirm: den Guide und seine aktiven Schritte (jede Zeile ein Kästchen), den Pfeil, das Bewegen im Guide, alle Einstellungen von RestedXP (auch seine Seite im Optionsfenster des Spiels) und den Guide-Import. Ein Klangsignal oder eine WowVision-Route führt zum Ziel des Pfeils und folgt dem Pfeil, wenn RestedXP ihn verschiebt; ein Kästchen schaltet diese Neuberechnung ab, und Verschiebungen unter 10 Metern werden ignoriert. Neue Schritte werden vorgelesen."
+      },
+      "keys": [
+        { "keys": { "en": "Shift+F2", "fr": "Maj+F2", "de": "Umschalt+F2" }, "does": { "en": "open the RestedXP menu", "fr": "ouvrir le menu RestedXP", "de": "das RestedXP-Menü öffnen" } },
+        { "keys": { "en": "Alt+F2", "fr": "Alt+F2", "de": "Alt+F2" }, "does": { "en": "say the current step", "fr": "dire l'étape en cours", "de": "den aktuellen Schritt sagen" } },
+        { "keys": { "en": "Ctrl+F2", "fr": "Ctrl+F2", "de": "Strg+F2" }, "does": { "en": "say where the arrow points", "fr": "dire où pointe la flèche", "de": "sagen, wohin der Pfeil zeigt" } },
+        { "keys": { "en": "Ctrl+Shift+F2", "fr": "Ctrl+Maj+F2", "de": "Strg+Umschalt+F2" }, "does": { "en": "sound beacon to the arrow", "fr": "balise sonore vers la flèche", "de": "Klangsignal zum Pfeil" } },
+        { "keys": { "en": "Alt+Shift+F2", "fr": "Alt+Maj+F2", "de": "Alt+Umschalt+F2" }, "does": { "en": "WowVision route to the arrow", "fr": "itinéraire WowVision vers la flèche", "de": "WowVision-Route zum Pfeil" } },
+        { "keys": { "en": "Alt+Ctrl+F2", "fr": "Alt+Ctrl+F2", "de": "Alt+Strg+F2" }, "does": { "en": "RestedXP's right-click menu", "fr": "le menu du clic droit de RestedXP", "de": "das Rechtsklick-Menü von RestedXP" } }
+      ],
+      "commands": {
+        "en": ["/wvrxp", "/wvrxp step", "/wvrxp arrow", "/wvrxp beacon", "/wvrxp route", "/wvrxp stop", "/wvrxp perf"],
+        "fr": ["/wvrxp", "/wvrxp etape", "/wvrxp fleche", "/wvrxp balise", "/wvrxp itineraire", "/wvrxp stop", "/wvrxp temps"],
+        "de": ["/wvrxp", "/wvrxp schritt", "/wvrxp pfeil", "/wvrxp signal", "/wvrxp route", "/wvrxp stopp", "/wvrxp zeit"]
+      },
+      "status": {
+        "en": "The first version (menu, arrow, beacon, route, options page) was confirmed working in the game. The guide import, the recalculation check box and the 10-yard tolerance are checked by offline tests only so far.",
+        "fr": "La première version (menu, flèche, balise, itinéraire, page des options) a été confirmée en jeu. L'import de guide, la case de recalcul et la tolérance de 10 mètres ne sont vérifiés que par des tests hors jeu pour l'instant.",
+        "de": "Die erste Version (Menü, Pfeil, Signal, Route, Optionsseite) wurde im Spiel als funktionierend bestätigt. Der Guide-Import, das Kästchen zur Neuberechnung und die Toleranz von 10 Metern sind bisher nur durch Tests außerhalb des Spiels geprüft."
+      },
+      "note": {
+        "en": "Guide texts, menus and settings come from RestedXP itself, in the game's language.",
+        "fr": "Les textes des guides, les menus et les réglages viennent de RestedXP lui-même, dans la langue du jeu.",
+        "de": "Guidetexte, Menüs und Einstellungen kommen von RestedXP selbst, in der Sprache des Spiels."
+      },
+      "preview": {
+        "en": ["RestedXP", "1-12 Durotar. Step 2 of 4", "Accept Ailee's quest, to do", "Talk to Ailee, at 3 o'clock, to your right, 35 yards", "Sound beacon toward the destination", "Import a guide", "52000 characters pasted. You can now import them.", "Importing 12 guides.", "3 of 12 guides loaded."],
+        "fr": ["RestedXP", "1-12 Durotar. Étape 2 sur 4", "Accepter la quête d'Ailee, à faire", "Parler à Ailee, à 3 heures, à droite, 35 mètres", "Balise sonore vers la destination", "Importer un guide", "52000 caractères collés. Vous pouvez maintenant les importer.", "Import de 12 guides.", "3 guides chargés sur 12."],
+        "de": ["RestedXP", "1-12 Durotar. Schritt 2 von 4", "Nimm Ailees Quest an, zu erledigen", "Sprich mit Ailee, auf 3 Uhr, rechts, 35 Meter", "Klangsignal zum Ziel", "Guide importieren", "52000 Zeichen eingefügt. Du kannst sie jetzt importieren.", "Import von 12 Guides.", "3 von 12 Guides geladen."]
+      }
+    },
+
+    "WowVision_Bags": {
+      "group": "active",
+      "icon": "bag",
+      "path": "addons/WowVision_Bags",
+      "title": { "en": "Bags", "fr": "Sacs", "de": "Taschen" },
+      "requires": ["WowVision"],
+      "optional": [],
+      "tagline": {
+        "en": "An Item Lists stop in WowVision's bags: new items, junk sold by itself at the merchant, and favorites.",
+        "fr": "Un arrêt « Listes d'objets » dans les sacs de WowVision : nouveaux objets, camelote vendue toute seule chez le marchand, et favoris.",
+        "de": "Ein Halt „Gegenstandslisten“ in den Taschen von WowVision: neue Gegenstände, Plunder, der beim Händler von selbst verkauft wird, und Favoriten."
+      },
+      "description": {
+        "en": "Right after the bags, so opening them lands on their items: New Items (what the game flags, plus what the addon sees arrive by counting each item after every change, such as a quest reward), Junk and Favorites. Shift+Enter marks the item under the cursor as junk, said as \"[Junk]\" before its name and sold by itself when a merchant window opens; Shift+Backspace marks a favorite, never sold. Marks belong to the item, not the slot, and are kept per character.",
+        "fr": "Juste après les sacs, pour qu'en les ouvrant on tombe sur les objets : Nouveaux objets (ce que le jeu signale, plus ce que l'extension voit arriver en comptant chaque objet après chaque changement, comme la récompense d'une quête), Camelote et Favoris. Maj+Entrée marque l'objet sous le curseur comme camelote, dite « [Camelote] » avant son nom et vendue toute seule à l'ouverture d'un marchand ; Maj+Retour arrière marque un favori, jamais vendu. Les marques suivent l'objet, pas l'emplacement, et sont gardées par personnage.",
+        "de": "Direkt nach den Taschen, sodass man beim Öffnen bei den Gegenständen landet: Neue Gegenstände (was das Spiel meldet, dazu was das Addon ankommen sieht, indem es nach jeder Änderung jeden Gegenstand zählt, etwa die Belohnung einer Quest), Plunder und Favoriten. Umschalt+Eingabe markiert den Gegenstand unter dem Cursor als Plunder, gesagt als „[Plunder]“ vor seinem Namen und verkauft, sobald ein Händlerfenster aufgeht; Umschalt+Rücktaste markiert einen Favoriten, der nie verkauft wird. Die Markierungen gehören zum Gegenstand, nicht zum Platz, und gelten pro Charakter."
+      },
+      "keys": [
+        { "keys": { "en": "Shift+Enter", "fr": "Maj+Entrée", "de": "Umschalt+Eingabe" }, "does": { "en": "mark or unmark junk", "fr": "marquer ou démarquer la camelote", "de": "Plunder markieren oder entmarkieren" } },
+        { "keys": { "en": "Shift+Backspace", "fr": "Maj+Retour arrière", "de": "Umschalt+Rücktaste" }, "does": { "en": "mark or unmark a favorite", "fr": "marquer ou démarquer un favori", "de": "einen Favoriten markieren oder entmarkieren" } }
+      ],
+      "commands": {
+        "en": ["/wvbags", "/wvbags new", "/wvbags sell off", "/wvbags forget junk"],
+        "fr": ["/wvbags", "/wvbags nouveaux", "/wvbags vente non", "/wvbags oublier camelote"],
+        "de": ["/wvbags", "/wvbags neu", "/wvbags verkauf nein", "/wvbags vergessen plunder"]
+      },
+      "status": {
+        "en": "The item lists and the junk marks were used in the game while they lived inside WowVision. Favorites and the detection of new arrivals are checked by offline tests only so far. A version of this work is a draft pull request to WowVision.",
+        "fr": "Les listes d'objets et les marques de camelote ont été utilisées en jeu quand elles vivaient dans WowVision. Les favoris et la détection des nouvelles arrivées ne sont vérifiés que par des tests hors jeu pour l'instant. Une version de ce travail est une pull request en brouillon vers WowVision.",
+        "de": "Die Gegenstandslisten und die Plundermarkierungen wurden im Spiel benutzt, als sie noch in WowVision steckten. Favoriten und die Erkennung neuer Gegenstände sind bisher nur durch Tests außerhalb des Spiels geprüft. Eine Fassung dieser Arbeit ist ein Pull-Request-Entwurf für WowVision."
+      },
+      "preview": {
+        "en": ["Item Lists", "New Items", "Junk", "Favorites", "[Junk] Linen Cloth", "Linen Cloth: marked as junk", "Sold marked junk for 2 silver 35 copper: Linen Cloth."],
+        "fr": ["Listes d'objets", "Nouveaux objets", "Camelote", "Favoris", "[Camelote] Toile de lin", "Toile de lin : marqué comme camelote", "Camelote marquée vendue pour 2 argent 35 cuivre : Toile de lin."],
+        "de": ["Gegenstandslisten", "Neue Gegenstände", "Plunder", "Favoriten", "[Plunder] Leinenstoff", "Leinenstoff: als Plunder markiert", "Markierter Plunder für 2 Silber 35 Kupfer verkauft: Leinenstoff."]
+      }
+    },
+
+    "WowVision_QuestTargets": {
+      "group": "active",
+      "icon": "target",
+      "path": "addons/WowVision_QuestTargets",
+      "title": { "en": "Quest Targets", "fr": "Cibles de quête", "de": "Questziele" },
+      "requires": ["WowVision"],
+      "optional": [],
+      "tagline": {
+        "en": "Targets, with one key, the creatures near you that your quests still need, nearest first.",
+        "fr": "Cible, avec une seule touche, les créatures proches dont vos quêtes ont encore besoin, de la plus proche à la plus lointaine.",
+        "de": "Anvisiert mit einer einzigen Taste die Kreaturen in deiner Nähe, die deine Quests noch brauchen, die nächste zuerst."
+      },
+      "description": {
+        "en": "A kill, or an item a creature drops, that you have not finished: Alt+Q targets the next creature that serves your quests, Alt+Shift+Q the previous one, Ctrl+Alt+Q says them all with their distance and what is left. It needs enemy nameplates, which it turns on by itself out of combat. A dead creature is never targeted. If a creature is not offered, /wvqt why reads out the nearest six it sees and why each was kept or left out.",
+        "fr": "Un monstre à tuer, ou un objet qu'une créature laisse tomber, pas encore terminé : Alt+Q cible la prochaine créature utile à vos quêtes, Alt+Maj+Q la précédente, Ctrl+Alt+Q les dit toutes avec leur distance et ce qu'il reste à faire. Il a besoin des barres de vie des ennemis, qu'il active tout seul hors combat. Une créature morte n'est jamais ciblée. Si une créature n'est pas proposée, /wvqt pourquoi lit les six plus proches qu'il voit et pourquoi chacune est gardée ou écartée.",
+        "de": "Ein Kill oder ein Gegenstand, den eine Kreatur fallen lässt und den du noch nicht fertig hast: Alt+Q visiert die nächste Kreatur an, die deinen Quests dient, Alt+Umschalt+Q die vorherige, Strg+Alt+Q nennt alle mit Entfernung und dem, was noch fehlt. Es braucht die Namensplaketten der Gegner, die es außerhalb des Kampfes von selbst einschaltet. Eine tote Kreatur wird nie anvisiert. Wird eine Kreatur nicht angeboten, liest /wvqt warum die sechs nächsten vor, die es sieht, und warum jede behalten oder ausgelassen wurde."
+      },
+      "keys": [
+        { "keys": { "en": "Alt+Q", "fr": "Alt+Q", "de": "Alt+Q" }, "does": { "en": "target the next quest target", "fr": "cibler la cible de quête suivante", "de": "das nächste Questziel anvisieren" } },
+        { "keys": { "en": "Alt+Shift+Q", "fr": "Alt+Maj+Q", "de": "Alt+Umschalt+Q" }, "does": { "en": "target the previous one", "fr": "cibler la précédente", "de": "das vorherige anvisieren" } },
+        { "keys": { "en": "Ctrl+Alt+Q", "fr": "Ctrl+Alt+Q", "de": "Strg+Alt+Q" }, "does": { "en": "say them all", "fr": "les dire toutes", "de": "alle nennen" } }
+      ],
+      "commands": {
+        "en": ["/wvqt", "/wvqt why", "/wvqt plates", "/wvqt auto off"],
+        "fr": ["/wvqt", "/wvqt pourquoi", "/wvqt plaques", "/wvqt auto non"],
+        "de": ["/wvqt", "/wvqt warum", "/wvqt plaketten", "/wvqt auto nein"]
+      },
+      "status": {
+        "en": "Checked by offline tests and against WowVision's real input manager; not yet confirmed in the game. It covers creatures only (no quest objects, no people to talk to) and does nothing in combat.",
+        "fr": "Vérifié par des tests hors jeu et contre le vrai gestionnaire d'entrées de WowVision ; pas encore confirmé en jeu. Il ne couvre que les créatures (ni objets de quête, ni personnes à qui parler) et ne fait rien en combat.",
+        "de": "Durch Tests außerhalb des Spiels und gegen den echten Eingabemanager von WowVision geprüft; im Spiel noch nicht bestätigt. Es deckt nur Kreaturen ab (keine Quest-Objekte, keine Personen zum Ansprechen) und tut im Kampf nichts."
+      },
+      "preview": {
+        "en": ["1 of 3", "2 of 3", "No quest target nearby.", "Enemy nameplates were off: I turned them on to find the enemies near you. Press again."],
+        "fr": ["1 sur 3", "2 sur 3", "Aucune cible de quête à proximité.", "Les barres de vie des ennemis étaient désactivées : je les ai activées pour trouver les ennemis proches. Appuyez encore."],
+        "de": ["1 von 3", "2 von 3", "Kein Questziel in der Nähe.", "Die Namensplaketten der Feinde waren aus: Ich habe sie eingeschaltet, um Feinde in deiner Nähe zu finden. Drücke noch einmal."]
+      }
+    },
+
+    "WowVision_ItemCompare": {
+      "group": "merged",
+      "icon": "scales",
+      "path": "addons/WowVision_ItemCompare",
+      "mergedPr": { "number": 114, "locale": 69 },
+      "title": { "en": "Item Compare", "fr": "Comparaison d'objets", "de": "Gegenstandsvergleich" },
+      "requires": ["WowVision"],
+      "optional": ["Pawn"],
+      "tagline": {
+        "en": "Pawn's upgrade summary and a comparison with the item you wear, in WowVision's tooltip reading.",
+        "fr": "Le résumé d'amélioration de Pawn et la comparaison avec l'objet équipé, dans la lecture des infobulles de WowVision.",
+        "de": "Pawns Verbesserungszusammenfassung und der Vergleich mit dem angelegten Gegenstand beim Vorlesen der Tooltips von WowVision."
+      },
+      "description": {
+        "en": "On a piece of gear, WowVision's tooltip reading also says Pawn's upgrade summary (one line per scale, with the percentage and the item it would replace) and a comparison with what you wear in that slot: the item level difference, then every stat that changes, in words (\"5 more\", \"3 less\"). Shift+Down reads one line at a time, Space reads everything.",
+        "fr": "Sur une pièce d'équipement, la lecture des infobulles de WowVision dit aussi le résumé d'amélioration de Pawn (une ligne par échelle, avec le pourcentage et l'objet remplacé) et la comparaison avec ce que vous portez à cet emplacement : la différence de niveau d'objet, puis chaque statistique qui change, en toutes lettres (« 5 de plus », « 3 de moins »). Maj+Bas lit une ligne à la fois, Espace lit tout.",
+        "de": "Bei einem Ausrüstungsgegenstand sagt das Vorlesen der Tooltips von WowVision auch Pawns Verbesserungszusammenfassung (eine Zeile pro Profil, mit Prozent und dem ersetzten Gegenstand) und den Vergleich mit dem, was du an diesem Platz trägst: den Unterschied der Gegenstandsstufe, dann jeden Wert, der sich ändert, in Worten („5 mehr“, „3 weniger“). Umschalt+Runter liest eine Zeile nach der anderen, die Leertaste liest alles."
+      },
+      "keys": [
+        { "keys": { "en": "Shift+Down", "fr": "Maj+Bas", "de": "Umschalt+Runter" }, "does": { "en": "read the tooltip line by line (WowVision's key)", "fr": "lire l'infobulle ligne par ligne (touche de WowVision)", "de": "den Tooltip Zeile für Zeile lesen (Taste von WowVision)" } },
+        { "keys": { "en": "Space", "fr": "Espace", "de": "Leertaste" }, "does": { "en": "read it all at once (WowVision's key)", "fr": "tout lire d'un coup (touche de WowVision)", "de": "alles auf einmal lesen (Taste von WowVision)" } }
+      ],
+      "commands": {
+        "en": ["/wvcompare", "/wvcompare pawn", "/wvcompare equipped"],
+        "fr": ["/wvcompare", "/wvcompare pawn", "/wvcompare equipped"],
+        "de": ["/wvcompare", "/wvcompare pawn", "/wvcompare equipped"]
+      },
+      "status": {
+        "en": "Merged into WowVision itself (pull request #114). With a recent WowVision this addon steps aside and does nothing, so every line is read once; it stays useful with an older WowVision.",
+        "fr": "Intégré à WowVision lui-même (pull request n° 114). Avec un WowVision récent, cet addon se met en retrait et ne fait rien, pour que chaque ligne soit lue une seule fois ; il reste utile avec un WowVision plus ancien.",
+        "de": "In WowVision selbst übernommen (Pull Request Nr. 114). Mit einem aktuellen WowVision hält sich dieses Addon zurück und tut nichts, damit jede Zeile nur einmal gelesen wird; mit einem älteren WowVision bleibt es nützlich."
+      },
+      "preview": {
+        "en": ["Pawn: Mage: Fire, upgrade of 20 percent", "Compared to equipped: Old Helm", "Item level: 2 less", "Armor: 2 less", "Stamina: 3 more"],
+        "fr": ["Pawn : Mage : Feu, amélioration de 20 pour cent", "Comparé à l'objet équipé : Casque ancien", "Niveau d'objet : 5 de plus", "Armure : 10 de plus", "Intelligence : 4 de moins"],
+        "de": ["Pawn: Magier: Feuer, Verbesserung um 20 Prozent", "Verglichen mit dem angelegten Gegenstand: Alter Helm", "Gegenstandsstufe: 2 weniger", "Rüstung: 2 weniger", "Ausdauer: 3 mehr"]
+      }
+    },
+
+    "WowVision_LocalizedNames": {
+      "group": "merged",
+      "icon": "globe",
+      "path": "addons/WowVision_LocalizedNames",
+      "mergedPr": { "number": 113, "locale": 68 },
+      "title": { "en": "Localized Names", "fr": "Noms localisés", "de": "Lokalisierte Namen" },
+      "requires": ["WowVision"],
+      "optional": ["Questie", "QuestieDB"],
+      "tagline": {
+        "en": "Speaks the names of creatures and objects in WowVision's navigation in your game language, using Questie's database.",
+        "fr": "Dit les noms des créatures et des objets de la navigation de WowVision dans la langue du jeu, grâce à la base de Questie.",
+        "de": "Spricht die Namen von Kreaturen und Objekten in der Navigation von WowVision in der Spielsprache, mithilfe der Datenbank von Questie."
+      },
+      "description": {
+        "en": "WowNav's catalogues name creatures and objects in English and German only, so a client in another language heard English names in the navigation list (F10) and in route announcements. Each target carries its ID, and Questie's database knows the name in the game's language. English and German clients are left alone, since WowNav already names everything for them.",
+        "fr": "Les catalogues de WowNav ne nomment les créatures et les objets qu'en anglais et en allemand : un client dans une autre langue entendait donc des noms anglais dans la liste de navigation (F10) et dans les annonces de trajet. Chaque cible porte son identifiant, et la base de Questie connaît le nom dans la langue du jeu. Les clients anglais et allemands sont laissés tranquilles : WowNav leur nomme déjà tout.",
+        "de": "Die Kataloge von WowNav nennen Kreaturen und Objekte nur auf Englisch und Deutsch; ein Client in einer anderen Sprache hörte deshalb englische Namen in der Navigationsliste (F10) und in den Routenansagen. Jedes Ziel trägt seine ID, und die Datenbank von Questie kennt den Namen in der Spielsprache. Englische und deutsche Clients bleiben unberührt, denn WowNav nennt dort schon alles in der eigenen Sprache."
+      },
+      "keys": [],
+      "commands": {
+        "en": ["/wvnames", "/wvnames off"],
+        "fr": ["/wvnames", "/wvnames non"],
+        "de": ["/wvnames", "/wvnames nein"]
+      },
+      "status": {
+        "en": "Merged into WowVision itself (pull request #113, the \"Names in Your Language\" setting). With a recent WowVision this addon steps aside, so that WowVision's own setting is the only one that counts; it stays useful with an older WowVision.",
+        "fr": "Intégré à WowVision lui-même (pull request n° 113, réglage « Names in Your Language »). Avec un WowVision récent, cet addon se met en retrait, pour que le réglage de WowVision soit le seul qui compte ; il reste utile avec un WowVision plus ancien.",
+        "de": "In WowVision selbst übernommen (Pull Request Nr. 113, Einstellung „Names in Your Language“). Mit einem aktuellen WowVision hält sich dieses Addon zurück, damit nur die Einstellung von WowVision zählt; mit einem älteren WowVision bleibt es nützlich."
+      },
+      "preview": {
+        "en": ["On a French client, the list reads:", "Lazy Peon  →  Péon fainéant", "Minor Manifestation of Fire  →  Manifestation de feu mineure", "Localized navigation names: on"],
+        "fr": ["Sur un client français, la liste lit :", "Lazy Peon  →  Péon fainéant", "Minor Manifestation of Fire  →  Manifestation de feu mineure", "Noms localisés de la navigation : activés"],
+        "de": ["Auf einem französischen Client liest die Liste:", "Lazy Peon  →  Péon fainéant", "Minor Manifestation of Fire  →  Manifestation de feu mineure", "Lokalisierte Namen in der Navigation: an"]
+      }
+    },
+
+    "WowVision_Quests": {
+      "group": "merged",
+      "icon": "scroll",
+      "path": "addons/WowVision_Quests",
+      "mergedPr": { "number": 112, "locale": 67 },
+      "title": { "en": "Quests", "fr": "Quêtes", "de": "Quests" },
+      "requires": ["WowVision"],
+      "optional": [],
+      "tagline": {
+        "en": "In WowVision's scanner (F9), quests in progress say their level and come nearest first.",
+        "fr": "Dans le scanner de WowVision (F9), les quêtes en cours disent leur niveau et sont classées de la plus proche à la plus lointaine.",
+        "de": "Im Scanner von WowVision (F9) nennen die laufenden Quests ihre Stufe und stehen von der nächsten bis zur entferntesten."
+      },
+      "description": {
+        "en": "In the scanner, Quests, In Progress: each quest says its level after its title and the list comes nearest first, by where Enter would take you (the next open objective, or the turn-in once a quest is complete). /wvquests turns the sorting on or off.",
+        "fr": "Dans le scanner, Quêtes, En cours : chaque quête dit son niveau après son titre et la liste vient de la plus proche à la plus lointaine, selon l'endroit où Entrée vous emmènerait (le prochain objectif ouvert, ou le rendu une fois la quête terminée). /wvquests active ou coupe le tri.",
+        "de": "Im Scanner, Quests, In Bearbeitung: Jede Quest nennt ihre Stufe nach dem Titel, und die Liste kommt von der nächsten zur entferntesten, danach, wohin die Eingabetaste dich bringen würde (das nächste offene Ziel, oder die Abgabe, sobald die Quest fertig ist). /wvquests schaltet die Sortierung an oder aus."
+      },
+      "keys": [
+        { "keys": { "en": "F9", "fr": "F9", "de": "F9" }, "does": { "en": "open WowVision's scanner (WowVision's key)", "fr": "ouvrir le scanner de WowVision (touche de WowVision)", "de": "den Scanner von WowVision öffnen (Taste von WowVision)" } }
+      ],
+      "commands": {
+        "en": ["/wvquests", "/wvquests off"],
+        "fr": ["/wvquests", "/wvquests non"],
+        "de": ["/wvquests", "/wvquests nein"]
+      },
+      "status": {
+        "en": "Merged into WowVision itself (pull request #112, the \"Sort Quests by Proximity\" setting). With a recent WowVision this addon steps aside and does nothing; it stays useful with an older WowVision.",
+        "fr": "Intégré à WowVision lui-même (pull request n° 112, réglage « Sort Quests by Proximity »). Avec un WowVision récent, cet addon se met en retrait et ne fait rien ; il reste utile avec un WowVision plus ancien.",
+        "de": "In WowVision selbst übernommen (Pull Request Nr. 112, Einstellung „Sort Quests by Proximity“). Mit einem aktuellen WowVision hält sich dieses Addon zurück und tut nichts; mit einem älteren WowVision bleibt es nützlich."
+      },
+      "preview": {
+        "en": ["In Progress", "Quest title, Level 5", "Another quest title, Level 6", "Sort Quests by Proximity: on"],
+        "fr": ["En cours", "Titre de la quête, Niveau 5", "Titre d'une autre quête, Niveau 6", "Trier les quêtes par proximité : activé"],
+        "de": ["In Bearbeitung", "Questtitel, Stufe 5", "Titel einer anderen Quest, Stufe 6", "Quests nach Entfernung sortieren: an"]
+      }
+    },
+
+    "WowVision_PetTraining": {
+      "group": "merged",
+      "icon": "paw",
+      "path": "addons/WowVision_PetTraining",
+      "mergedPr": { "number": 121, "locale": 74 },
+      "title": { "en": "Pet Training", "fr": "Dressage du familier", "de": "Tiertraining" },
+      "requires": ["WowVision"],
+      "optional": [],
+      "tagline": {
+        "en": "Makes the hunter's pet training window usable with WowVision: skills, training points left, their cost and the Train button.",
+        "fr": "Rend utilisable avec WowVision la fenêtre de dressage du familier du chasseur : compétences, points d'entraînement restants, leur coût et le bouton Entraîner.",
+        "de": "Macht das Tiertrainingsfenster des Jägers mit WowVision nutzbar: Fähigkeiten, verbleibende Trainingspunkte, ihre Kosten und die Schaltfläche Trainieren."
+      },
+      "description": {
+        "en": "On WoW: Forever the hunter's Beast Training spell opens the pet's skills in the class trainer window with no trainer to talk to, which WowVision did not read. This adds a window for it: the training points left, the filter, the skills (each with its cost in training points), the details and the Train button.",
+        "fr": "Sur WoW: Forever, le sort Dressage de bête du chasseur ouvre les compétences du familier dans la fenêtre du maître de classe, sans maître à qui parler, ce que WowVision ne lisait pas. Cette extension ajoute une fenêtre pour cela : les points d'entraînement restants, le filtre, les compétences (chacune avec son coût en points d'entraînement), les détails et le bouton Entraîner.",
+        "de": "Auf WoW: Forever öffnet der Jäger-Zauber „Tiertraining“ die Fähigkeiten des Tiers im Klassenlehrerfenster, ohne dass ein Lehrer zum Ansprechen da ist; das las WowVision nicht. Diese Erweiterung fügt dafür ein Fenster hinzu: die verbleibenden Trainingspunkte, den Filter, die Fähigkeiten (jede mit ihren Kosten in Trainingspunkten), die Details und die Schaltfläche „Trainieren“."
+      },
+      "keys": [],
+      "commands": { "en": [], "fr": [], "de": [] },
+      "status": {
+        "en": "Merged into WowVision itself (pull request #121). With a recent WowVision (the one that has WowVision.petTraining) this addon steps aside and does nothing; it stays useful with an older WowVision.",
+        "fr": "Intégré à WowVision lui-même (pull request n° 121). Avec un WowVision récent (celui qui a WowVision.petTraining), cet addon se met en retrait et ne fait rien ; il reste utile avec un WowVision plus ancien.",
+        "de": "In WowVision selbst übernommen (Pull Request Nr. 121). Mit einem aktuellen WowVision (dem mit WowVision.petTraining) hält sich dieses Addon zurück und tut nichts; mit einem älteren WowVision bleibt es nützlich."
+      },
+      "preview": {
+        "en": ["Training", "Filter", "Details", "Training point cost: 5", "Known", "Unavailable"],
+        "fr": ["Entraînement", "Filtre", "Détails", "Coût en points d'entraînement : 5", "Connu", "Indisponible"],
+        "de": ["Ausbildung", "Filter", "Details", "Kosten in Trainingspunkten: 5", "Bekannt", "Nicht verfügbar"]
+      }
+    },
+
+    "WowVision_Probe": {
+      "group": "tool",
+      "icon": "lens",
+      "path": "addons/WowVision_Probe",
+      "title": { "en": "Probe", "fr": "Relevé de fenêtres", "de": "Fensteraufnahme" },
+      "requires": [],
+      "optional": ["WowVision"],
+      "tagline": {
+        "en": "A diagnostic tool: writes the structure of the windows that are open, so a window WowVision cannot read yet can be built from it.",
+        "fr": "Un outil de diagnostic : écrit la structure des fenêtres ouvertes, pour construire une fenêtre que WowVision ne sait pas encore lire.",
+        "de": "Ein Diagnosewerkzeug: schreibt die Struktur der geöffneten Fenster auf, damit ein Fenster gebaut werden kann, das WowVision noch nicht lesen kann."
+      },
+      "description": {
+        "en": "Type /wvprobe with the window open, or /wvprobe watch 20 and open the window while it watches, then /reload: the names, texts, lists and buttons the game really holds are saved to a file. It only reads: no clicks, no scripts run, nothing the game's windows could be tainted by. It is a tool for addon authors, not a feature for everyday play.",
+        "fr": "Tapez /wvprobe avec la fenêtre ouverte, ou /wvprobe watch 20 et ouvrez la fenêtre pendant la surveillance, puis /reload : les noms, textes, listes et boutons que le jeu contient vraiment sont enregistrés dans un fichier. Il ne fait que lire : aucun clic, aucun script lancé, rien qui puisse polluer les fenêtres du jeu. C'est un outil pour les auteurs d'addons, pas une fonction pour le jeu de tous les jours.",
+        "de": "Gib /wvprobe bei geöffnetem Fenster ein, oder /wvprobe watch 20 und öffne das Fenster während der Beobachtung, dann /reload: Die Namen, Texte, Listen und Schaltflächen, die das Spiel wirklich enthält, werden in einer Datei gespeichert. Es liest nur: keine Klicks, keine ausgeführten Skripte, nichts, womit die Fenster des Spiels verunreinigt werden könnten. Ein Werkzeug für Addon-Autoren, keine Funktion für das tägliche Spiel."
+      },
+      "keys": [],
+      "commands": {
+        "en": ["/wvprobe", "/wvprobe watch 20"],
+        "fr": ["/wvprobe", "/wvprobe watch 20"],
+        "de": ["/wvprobe", "/wvprobe watch 20"]
+      },
+      "status": {
+        "en": "Checked by offline tests with a fake window tree. It reads and never writes to the game. Its spoken messages come in French, English and German; the record it writes is a technical log in English.",
+        "fr": "Vérifié par des tests hors jeu sur un faux arbre de fenêtres. Il lit et n'écrit jamais dans le jeu. Ses messages parlés sont en français, anglais et allemand ; le relevé qu'il écrit est un journal technique en anglais.",
+        "de": "Durch Tests außerhalb des Spiels mit einem falschen Fensterbaum geprüft. Es liest und schreibt nie ins Spiel. Seine gesprochenen Meldungen kommen auf Französisch, Englisch und Deutsch; die Aufnahme ist ein technisches Protokoll auf Englisch."
+      },
+      "preview": {
+        "en": ["Probe watching for 20 seconds. Open the window now.", "Probe captured window 1", "Probe watch done: 1 window captured, 240 lines. Type slash reload to save it."],
+        "fr": ["Surveillance pendant 20 secondes. Ouvrez la fenêtre maintenant.", "Fenêtre 1 relevée", "Surveillance terminée : 1 fenêtre relevée, 240 lignes. Tapez slash reload pour l'enregistrer."],
+        "de": ["Beobachtung für 20 Sekunden. Öffne das Fenster jetzt.", "Fenster 1 erfasst", "Beobachtung beendet: 1 Fenster erfasst, 240 Zeilen. Gib slash reload ein, um sie zu speichern."]
+      }
+    },
+
+    "WowVision_Vitals": {
+      "group": "retired",
+      "icon": "heart",
+      "path": "addons/retired/WowVision_Vitals",
+      "title": { "en": "Vitals", "fr": "Vie et ressource", "de": "Leben und Ressource" },
+      "requires": ["WowVision"],
+      "optional": [],
+      "tagline": {
+        "en": "Retired: health and mana in percent on Alt+Left and Alt+Right. The game hides those values from addons.",
+        "fr": "Retiré : la vie et la mana en pourcentage sur Alt+Gauche et Alt+Droite. Le jeu cache ces valeurs aux addons.",
+        "de": "Eingestellt: Leben und Mana in Prozent auf Alt+Links und Alt+Rechts. Das Spiel verbirgt diese Werte vor Addons."
+      },
+      "description": {
+        "en": "Alt+Left was meant to say your health in percent and Alt+Right your mana or main resource. On WoW: Forever the game hides the player's health and resource from addons, so the addon can only answer \"The game hides this value.\" It also moves WowVision's buffer keys to Alt+Shift+Left/Right, which has to be undone by hand. Do not install it; it is kept here for the record.",
+        "fr": "Alt+Gauche devait dire votre vie en pourcentage et Alt+Droite votre mana ou ressource principale. Sur WoW: Forever, le jeu cache la vie et la ressource du joueur aux addons : l'extension ne peut répondre que « Le jeu cache cette valeur ». Elle déplace aussi les touches de buffer de WowVision vers Alt+Maj+Gauche/Droite, ce qu'il faut défaire à la main. Ne l'installez pas ; elle est gardée ici pour mémoire.",
+        "de": "Alt+Links sollte dein Leben in Prozent sagen und Alt+Rechts deine Mana oder Hauptressource. Auf WoW: Forever verbirgt das Spiel Leben und Ressource des Spielers vor Addons, deshalb kann das Addon nur „Das Spiel verbirgt diesen Wert.“ antworten. Außerdem verschiebt es die Buffer-Tasten von WowVision auf Alt+Umschalt+Links/Rechts, was von Hand rückgängig gemacht werden muss. Nicht installieren; es ist nur zur Dokumentation hier."
+      },
+      "keys": [],
+      "commands": { "en": ["/wvvitals"], "fr": ["/wvvitals"], "de": ["/wvvitals"] },
+      "status": {
+        "en": "Retired: it ran in the game, and the game hid the values. Not part of the \"download everything\" archive.",
+        "fr": "Retiré : elle a tourné en jeu, et le jeu cachait les valeurs. Absente de l'archive « tout télécharger ».",
+        "de": "Eingestellt: Es lief im Spiel, und das Spiel verbarg die Werte. Nicht im Archiv „Alles herunterladen“ enthalten."
+      },
+      "preview": {
+        "en": ["Health 85 percent. Mana 72 percent", "The game hides this value."],
+        "fr": ["Vie 85 pour cent. Mana 72 pour cent", "Le jeu cache cette valeur."],
+        "de": ["Leben 85 Prozent. Mana 72 Prozent", "Das Spiel verbirgt diesen Wert."]
+      }
+    }
+  },
+  "upstream": [
+    { "repo": "wow-vision/WowVision", "number": 112, "state": "merged", "what": { "en": "Scanner: quest level in the title, nearest first", "fr": "Scanner : niveau de la quête dans le titre, la plus proche d'abord", "de": "Scanner: Questlevel im Titel, nächste zuerst" } },
+    { "repo": "wow-vision/WowVision", "number": 113, "state": "merged", "what": { "en": "WowNav: creature and object names in the game language from Questie", "fr": "WowNav : noms des créatures et objets dans la langue du jeu, d'après Questie", "de": "WowNav: Namen von Kreaturen und Objekten in der Spielsprache aus Questie" } },
+    { "repo": "wow-vision/WowVision", "number": 114, "state": "merged", "what": { "en": "Item tooltips: Pawn's summary and comparison with the equipped item", "fr": "Infobulles d'objets : résumé de Pawn et comparaison avec l'objet équipé", "de": "Gegenstands-Tooltips: Pawn-Zusammenfassung und Vergleich mit dem angelegten Gegenstand" } },
+    { "repo": "wow-vision/WowVision", "number": 121, "state": "merged", "what": { "en": "Training: the hunter's pet training window on WoW: Forever", "fr": "Entraînement : la fenêtre de dressage du familier du chasseur sur WoW: Forever", "de": "Training: das Tiertrainingsfenster des Jägers auf WoW: Forever" } },
+    { "repo": "wow-vision/WowVision", "number": 123, "state": "draft", "what": { "en": "Bags: Item Lists stop (new items, junk, favorites), junk sold at a merchant", "fr": "Sacs : arrêt Listes d'objets (nouveaux objets, camelote, favoris), camelote vendue chez un marchand", "de": "Taschen: Halt Gegenstandslisten (neue Gegenstände, Plunder, Favoriten), Plunder beim Händler verkauft" } }
+  ]
+}

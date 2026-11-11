@@ -1,0 +1,14 @@
+## Interface: 16001, 120005, 120007
+## Title: WowVision Quests
+## Title-frFR: WowVision - Quêtes
+## Notes: In WowVision's scanner (F9), the quests in progress say their level and come nearest first.
+## Notes-frFR: Dans le scanner de WowVision (F9), les quêtes en cours disent leur niveau et sont classées de la plus proche à la plus lointaine.
+## Title-deDE: WowVision - Quests
+## Notes-deDE: Im Scanner von WowVision (F9) nennen die laufenden Quests ihre Stufe und stehen von der nächsten bis zur entferntesten.
+## Version: 0.1.0
+## Dependencies: WowVision
+## SavedVariables: WowVisionQuestsDB
+
+Locale.lua
+Sort.lua
+Main.lua

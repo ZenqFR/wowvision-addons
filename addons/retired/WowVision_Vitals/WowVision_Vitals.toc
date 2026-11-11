@@ -1,0 +1,14 @@
+## Interface: 16001, 120005, 120007
+## Title: WowVision Vitals (retired, do not install)
+## Title-frFR: WowVision - Vie et ressource en pourcentage (retiré, ne pas installer)
+## Title-deDE: WowVision - Leben und Ressource in Prozent (eingestellt, nicht installieren)
+## Notes: RETIRED: on WoW: Forever the game hides health and resource values from addons, so this cannot read them. Kept for the record. Alt+Left says your health in percent, Alt+Right says your mana (or main resource) in percent. WowVision's buffer keys that used Alt+Left/Right move to Alt+Shift+Left/Right.
+## Notes-frFR: RETIRÉ : sur WoW: Forever le jeu cache la vie et la ressource aux addons, celui-ci ne peut donc pas les lire. Gardé pour mémoire. Alt+Gauche dit votre vie en pourcentage, Alt+Droite dit votre mana (ou ressource principale) en pourcentage. Les touches de changement de buffer de WowVision qui utilisaient Alt+Gauche/Droite passent sur Alt+Maj+Gauche/Droite.
+## Notes-deDE: EINGESTELLT: Auf WoW: Forever verbirgt das Spiel Leben und Ressource vor Addons, deshalb kann dieses Addon sie nicht lesen. Nur zur Dokumentation aufbewahrt. Alt+Links sagt dein Leben in Prozent, Alt+Rechts deine Mana (oder Hauptressource) in Prozent. Die Tasten von WowVision zum Wechseln des Buffers, die Alt+Links/Rechts benutzten, wandern auf Alt+Umschalt+Links/Rechts.
+## Version: 0.1.0
+## Dependencies: WowVision
+
+Locale.lua
+Vitals.lua
+Game.lua
+Main.lua

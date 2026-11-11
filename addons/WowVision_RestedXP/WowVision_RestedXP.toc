@@ -1,0 +1,23 @@
+## Interface: 16001, 120005, 120007
+## Title: WowVision RestedXP
+## Title-frFR: WowVision - RestedXP
+## Notes: Makes the RestedXP leveling guide usable with a screen reader through WowVision: Shift+F2 opens its menu (step, arrow, guide, settings), a sound beacon or a WowVision route leads to the arrow's destination, new steps are read out.
+## Notes-frFR: Rend le guide de niveau RestedXP utilisable au lecteur d'écran avec WowVision : Maj+F2 ouvre son menu (étape, flèche, guide, réglages), une balise sonore ou un itinéraire WowVision mène à la destination de la flèche, les nouvelles étapes sont lues.
+## Title-deDE: WowVision - RestedXP
+## Notes-deDE: Macht den RestedXP-Levelguide mit einem Screenreader über WowVision nutzbar: Umschalt+F2 öffnet sein Menü (Schritt, Pfeil, Guide, Einstellungen), ein Klangsignal oder eine WowVision-Route führt zum Ziel des Pfeils, neue Schritte werden vorgelesen.
+## Version: 0.1.0
+## Dependencies: WowVision
+## OptionalDeps: RXPGuides
+## SavedVariables: WowVisionRestedXPDB
+
+Locale.lua
+Text.lua
+Perf.lua
+Source.lua
+Options.lua
+Menu.lua
+Guidance.lua
+Import.lua
+Game.lua
+Screens.lua
+Main.lua

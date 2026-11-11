@@ -1,0 +1,15 @@
+## Interface: 16001, 120005, 120007
+## Title: WowVision Localized Names
+## Title-frFR: WowVision - Noms localisés
+## Notes: Speaks the names of NPCs, mobs and objects in WowVision's navigation (F10, routes) in your game language, using Questie's database. WowNav's data only has English and German names.
+## Notes-frFR: Dit les noms des PNJ, monstres et objets de la navigation de WowVision (F10, trajets) dans la langue du jeu, grâce à la base de Questie. Les données de WowNav n'ont que l'anglais et l'allemand.
+## Title-deDE: WowVision - Lokalisierte Namen
+## Notes-deDE: Spricht die Namen von NPCs, Monstern und Objekten in der Navigation von WowVision (F10, Routen) in der Spielsprache, mithilfe der Datenbank von Questie. Die Daten von WowNav kennen nur Englisch und Deutsch.
+## Version: 0.1.0
+## Dependencies: WowVision
+## OptionalDeps: Questie, QuestieDB
+## SavedVariables: WowVisionLocalizedNamesDB
+
+Locale.lua
+Names.lua
+Main.lua

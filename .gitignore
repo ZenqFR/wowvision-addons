@@ -1,0 +1,5 @@
+__pycache__/
+*.pyc
+*.avant-nettoyage
+.DS_Store
+Thumbs.db
