@@ -7,8 +7,8 @@ window.WVA = {
   "testsAsOf": "2026-11-11",
   "all": {
     "file": "downloads/wowvision-forever-addons.zip",
-    "bytes": 132525,
-    "sha256": "60e1629b31cd4d92100c50b405fd15eb7175176feb7f14daa5502b53f1580250",
+    "bytes": 139923,
+    "sha256": "4236cbae82b0f60711cc9ba301a45cfc78461c82163e847e3c27fbc85379dbff",
     "count": 8
   },
   "addons": [
@@ -194,8 +194,8 @@ window.WVA = {
       "tests": 432,
       "zip": {
         "file": "downloads/WowVision_RestedXP.zip",
-        "bytes": 48408,
-        "sha256": "fb9420739ebfe4e455946bc007ce5a3cb27bb2dc63be635522e0c51724e895a1"
+        "bytes": 49331,
+        "sha256": "24b4642b6d2d03ac2802f8c00b89dd605ba15494bfadb4b653e63c2f34300d1e"
       },
       "links": {
         "source": "https://github.com/ZenqFR/wowvision-addons/tree/main/addons/WowVision_RestedXP",
@@ -315,8 +315,8 @@ window.WVA = {
       "tests": 115,
       "zip": {
         "file": "downloads/WowVision_Bags.zip",
-        "bytes": 24351,
-        "sha256": "d65b15af16eb04a8c579f7baffa16a4d440ffdb286a695db6a71e8c057a73635"
+        "bytes": 25266,
+        "sha256": "479d9eca9af2f98906dfbaf59602a01b8913e6e7357ce7ddbbe0c5de5fe5e28b"
       },
       "links": {
         "source": "https://github.com/ZenqFR/wowvision-addons/tree/main/addons/WowVision_Bags",
@@ -439,8 +439,8 @@ window.WVA = {
       "tests": 67,
       "zip": {
         "file": "downloads/WowVision_QuestTargets.zip",
-        "bytes": 15619,
-        "sha256": "f53998edd9c2ff4bb0741f56399dd5251af546467848bcb61a64bfd1a56985ae"
+        "bytes": 16550,
+        "sha256": "9dce47016ff1b7b1015c1dc72b29444c00852634236390cf7766cc784ea517be"
       },
       "links": {
         "source": "https://github.com/ZenqFR/wowvision-addons/tree/main/addons/WowVision_QuestTargets",
@@ -556,8 +556,8 @@ window.WVA = {
       "tests": 35,
       "zip": {
         "file": "downloads/WowVision_ItemCompare.zip",
-        "bytes": 12244,
-        "sha256": "a1f638ad1a8a501ec0f71227c43a8c726e0ceed9d4b60c031c1dad0a2d925e01"
+        "bytes": 13173,
+        "sha256": "54fc3a12368c6c5fa0210cbee569b99d2e046ad4ae1fa22808c170b5facd3639"
       },
       "links": {
         "source": "https://github.com/ZenqFR/wowvision-addons/tree/main/addons/WowVision_ItemCompare",
@@ -643,8 +643,8 @@ window.WVA = {
       "tests": 29,
       "zip": {
         "file": "downloads/WowVision_LocalizedNames.zip",
-        "bytes": 7648,
-        "sha256": "d2ab73e9fcf2a75f0e30d66b2332335c70f6b35a21d32f6291860afe8070b5f7"
+        "bytes": 8583,
+        "sha256": "178dbe49a3698eb17b96fd019d4333b0f2dce1d93b13128f2ba04dcea657dd27"
       },
       "links": {
         "source": "https://github.com/ZenqFR/wowvision-addons/tree/main/addons/WowVision_LocalizedNames",
@@ -740,8 +740,8 @@ window.WVA = {
       "tests": 20,
       "zip": {
         "file": "downloads/WowVision_Quests.zip",
-        "bytes": 6509,
-        "sha256": "5d89d0da4310a6fe8b74a79fec34889bb18d0a295ddb80ca64dda1f1919944cb"
+        "bytes": 7428,
+        "sha256": "1950c37e815964d6941610ae7f93f935ddff7f096ea472f2d201d6e740a4553e"
       },
       "links": {
         "source": "https://github.com/ZenqFR/wowvision-addons/tree/main/addons/WowVision_Quests",
@@ -821,8 +821,8 @@ window.WVA = {
       "tests": 20,
       "zip": {
         "file": "downloads/WowVision_PetTraining.zip",
-        "bytes": 8594,
-        "sha256": "eb6aeb6ecde99094075a85f64b13a0c184f5370a73b2f63d03f44be6c82d1a2e"
+        "bytes": 9523,
+        "sha256": "0cc55ab1794b656a710586bf8c9c63cc07eb3e17e507cc2927e448a53d4809df"
       },
       "links": {
         "source": "https://github.com/ZenqFR/wowvision-addons/tree/main/addons/WowVision_PetTraining",
@@ -899,8 +899,8 @@ window.WVA = {
       "tests": 16,
       "zip": {
         "file": "downloads/WowVision_Probe.zip",
-        "bytes": 9306,
-        "sha256": "4ce57ac551e113be14c499fa8ec0637d05fc5a8bb456af8fe63ad0bac5dc18bf"
+        "bytes": 10223,
+        "sha256": "3feb2976b0af2a792d3423946a257d1aeccce84433dc01f681b0d017856c7149"
       },
       "links": {
         "source": "https://github.com/ZenqFR/wowvision-addons/tree/main/addons/WowVision_Probe",
@@ -971,8 +971,8 @@ window.WVA = {
       "tests": 41,
       "zip": {
         "file": "downloads/WowVision_Vitals.zip",
-        "bytes": 9546,
-        "sha256": "b15b1b44e308bbdc6f7f5a353fd6676060d94664fa62558d43e69bc04040fc10"
+        "bytes": 10465,
+        "sha256": "f0f3e6d0accb7e6c65bb3bccedb668f3e42fd4ce900173e21714826e7079ab8b"
       },
       "links": {
         "source": "https://github.com/ZenqFR/wowvision-addons/tree/main/addons/retired/WowVision_Vitals",
