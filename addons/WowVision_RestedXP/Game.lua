@@ -199,6 +199,8 @@ local DEFAULTS = {
     announceDestination = false,
     -- the beacon or the route is redone toward the new destination when RestedXP's arrow moves to one
     recalculate = true,
+    -- off: any move of the arrow counts; on: only a move of more than 10 yards from where the guidance was aimed
+    ignoreSmallMoves = false,
 }
 Game.defaults = DEFAULTS
 

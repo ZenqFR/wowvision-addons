@@ -80,8 +80,9 @@ runner:addSuite("Guidance: the destination", {
         t:assertNil(ns.Guidance.point({ title = "No place" }))
         t:assertEqual(ns.Guidance.point({ wx = 3 }).y, 0)
     end,
-    ["the tolerance is ten yards"] = function(t)
-        t:assertEqual(fresh().Guidance.tolerance, 10)
+    ["a small move is ten yards, and 'the same place' is a centimetre"] = function(t)
+        t:assertEqual(fresh().Guidance.smallMove, 10)
+        t:assertEqual(fresh().Guidance.exact, 0.01)
     end,
 })
 
@@ -98,44 +99,56 @@ runner:addSuite("Guidance: when the destination counts as another", {
         local ns = fresh()
         t:assertFalse(ns.Guidance.moved(point(ns, 5, 5), point(ns, 5, 5)))
     end,
-    ["a drift inside the tolerance is not, in any direction"] = function(t)
+    ["with no tolerance given, any move of the arrow counts, down to a centimetre"] = function(t)
         local ns = fresh()
         local before = point(ns, 100, 100)
-        t:assertFalse(ns.Guidance.moved(before, point(ns, 109, 100)))
-        t:assertFalse(ns.Guidance.moved(before, point(ns, 91, 100)))
-        t:assertFalse(ns.Guidance.moved(before, point(ns, 100, 109)))
-        t:assertFalse(ns.Guidance.moved(before, point(ns, 100, 91)))
+        t:assertTrue(ns.Guidance.moved(before, point(ns, 100, 100.5)))
+        t:assertTrue(ns.Guidance.moved(before, point(ns, 101, 100)))
+        t:assertTrue(ns.Guidance.moved(before, point(ns, 100, 99.9)))
+        t:assertFalse(ns.Guidance.moved(before, point(ns, 100.005, 100)))
+        t:assertFalse(ns.Guidance.moved(before, point(ns, 100, 100.009)))
+        t:assertTrue(ns.Guidance.moved(before, point(ns, 100.02, 100)))
     end,
-    ["further than the tolerance is, in any direction"] = function(t)
+    ["a drift inside the small move is not, in any direction"] = function(t)
         local ns = fresh()
+        local small = ns.Guidance.smallMove
         local before = point(ns, 100, 100)
-        t:assertTrue(ns.Guidance.moved(before, point(ns, 111, 100)))
-        t:assertTrue(ns.Guidance.moved(before, point(ns, 89, 100)))
-        t:assertTrue(ns.Guidance.moved(before, point(ns, 100, 111)))
-        t:assertTrue(ns.Guidance.moved(before, point(ns, 100, 89)))
+        t:assertFalse(ns.Guidance.moved(before, point(ns, 109, 100), small))
+        t:assertFalse(ns.Guidance.moved(before, point(ns, 91, 100), small))
+        t:assertFalse(ns.Guidance.moved(before, point(ns, 100, 109), small))
+        t:assertFalse(ns.Guidance.moved(before, point(ns, 100, 91), small))
+    end,
+    ["further than the small move is, in any direction"] = function(t)
+        local ns = fresh()
+        local small = ns.Guidance.smallMove
+        local before = point(ns, 100, 100)
+        t:assertTrue(ns.Guidance.moved(before, point(ns, 111, 100), small))
+        t:assertTrue(ns.Guidance.moved(before, point(ns, 89, 100), small))
+        t:assertTrue(ns.Guidance.moved(before, point(ns, 100, 111), small))
+        t:assertTrue(ns.Guidance.moved(before, point(ns, 100, 89), small))
     end,
     ["the distance is the straight one, across both axes"] = function(t)
         local ns = fresh()
+        local small = ns.Guidance.smallMove
         local before = point(ns, 0, 0)
         -- 6 and 8 make exactly 10: still the same; a hair more is another
-        t:assertFalse(ns.Guidance.moved(before, point(ns, 6, 8)))
-        t:assertTrue(ns.Guidance.moved(before, point(ns, 6, 8.1)))
-        t:assertFalse(ns.Guidance.moved(before, point(ns, -6, -8)))
-        t:assertTrue(ns.Guidance.moved(before, point(ns, -7, -8)))
+        t:assertFalse(ns.Guidance.moved(before, point(ns, 6, 8), small))
+        t:assertTrue(ns.Guidance.moved(before, point(ns, 6, 8.1), small))
+        t:assertFalse(ns.Guidance.moved(before, point(ns, -6, -8), small))
+        t:assertTrue(ns.Guidance.moved(before, point(ns, -7, -8), small))
     end,
-    ["another instance is another, at the same place"] = function(t)
+    ["another instance is another, at the same place, whatever the tolerance"] = function(t)
         local ns = fresh()
         t:assertTrue(ns.Guidance.moved(point(ns, 5, 5, 1), point(ns, 5, 5, 2)))
+        t:assertTrue(ns.Guidance.moved(point(ns, 5, 5, 1), point(ns, 5, 5, 2), ns.Guidance.smallMove))
         t:assertFalse(ns.Guidance.moved(point(ns, 5, 5, nil), point(ns, 5, 5, nil)))
     end,
-    ["the tolerance can be changed"] = function(t)
+    ["any tolerance can be given"] = function(t)
         local ns = fresh()
-        ns.Guidance.tolerance = 0
-        t:assertTrue(ns.Guidance.moved(point(ns, 0, 0), point(ns, 0, 0.5)))
-        t:assertFalse(ns.Guidance.moved(point(ns, 0, 0), point(ns, 0, 0)))
-        ns.Guidance.tolerance = 50
-        t:assertFalse(ns.Guidance.moved(point(ns, 0, 0), point(ns, 30, 30)))
-        t:assertTrue(ns.Guidance.moved(point(ns, 0, 0), point(ns, 40, 40)))
+        t:assertTrue(ns.Guidance.moved(point(ns, 0, 0), point(ns, 0, 0.5), 0))
+        t:assertFalse(ns.Guidance.moved(point(ns, 0, 0), point(ns, 0, 0), 0))
+        t:assertFalse(ns.Guidance.moved(point(ns, 0, 0), point(ns, 30, 30), 50))
+        t:assertTrue(ns.Guidance.moved(point(ns, 0, 0), point(ns, 40, 40), 50))
     end,
 })
 
@@ -216,28 +229,42 @@ runner:addSuite("Guidance: following the arrow", {
         t:assertFalse(ns.Guidance.follow(maps, arrow({ wx = 99, title = "Next" })))
         t:assertEqual(#maps.calls, 2)
     end,
-    ["a small drift of the arrow does not redo the guidance"] = function(t)
+    ["by default even a small move of the arrow redoes the guidance"] = function(t)
         local ns = fresh()
         local maps = fakeMaps()
         ns.Guidance.start(maps, arrow(), "route")
-        t:assertFalse(ns.Guidance.follow(maps, arrow({ wx = 15 })))
-        t:assertFalse(ns.Guidance.follow(maps, arrow({ wy = 25, title = "Same place, another name" })))
+        t:assertTrue(ns.Guidance.follow(maps, arrow({ wx = 15 })))
+        t:assertEqual(#maps.calls, 2)
+        t:assertTrue(ns.Guidance.follow(maps, arrow({ wx = 15, wy = 25 })))
+        t:assertEqual(#maps.calls, 3)
+        -- but not an arrow that stayed where it was
+        t:assertFalse(ns.Guidance.follow(maps, arrow({ wx = 15, wy = 25, title = "Same place, another name" })))
+        t:assertEqual(#maps.calls, 3)
+    end,
+    ["asked to ignore small moves, a small drift of the arrow does not redo the guidance"] = function(t)
+        local ns = fresh()
+        local maps = fakeMaps()
+        local small = ns.Guidance.smallMove
+        ns.Guidance.start(maps, arrow(), "route")
+        t:assertFalse(ns.Guidance.follow(maps, arrow({ wx = 15 }), small))
+        t:assertFalse(ns.Guidance.follow(maps, arrow({ wy = 25, title = "Same place, another name" }), small))
         t:assertEqual(#maps.calls, 1)
         t:assertEqual(ns.Guidance.following, "route")
     end,
     ["small drifts add up against where the guidance was aimed, and then it is redone, once"] = function(t)
         local ns = fresh()
         local maps = fakeMaps()
+        local small = ns.Guidance.smallMove
         ns.Guidance.start(maps, arrow({ wx = 0, wy = 0 }), "beacon")
         for _, x in ipairs({ 3, 6, 9, 10 }) do
-            t:assertFalse(ns.Guidance.follow(maps, arrow({ wx = x, wy = 0 })), "at " .. x)
+            t:assertFalse(ns.Guidance.follow(maps, arrow({ wx = x, wy = 0 }), small), "at " .. x)
         end
         t:assertEqual(#maps.calls, 1)
-        t:assertTrue(ns.Guidance.follow(maps, arrow({ wx = 12, wy = 0, title = "Drifted" })))
+        t:assertTrue(ns.Guidance.follow(maps, arrow({ wx = 12, wy = 0, title = "Drifted" }), small))
         t:assertEqual(#maps.calls, 2)
         t:assertEqual(maps.calls[2][4], "Drifted")
         -- aimed at 12 now: 15 is a small move from there
-        t:assertFalse(ns.Guidance.follow(maps, arrow({ wx = 15, wy = 0 })))
+        t:assertFalse(ns.Guidance.follow(maps, arrow({ wx = 15, wy = 0 }), small))
         t:assertEqual(#maps.calls, 2)
     end,
     ["another instance redoes the guidance at the same place"] = function(t)

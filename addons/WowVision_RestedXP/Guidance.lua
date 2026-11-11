@@ -25,10 +25,13 @@ function Guidance.destination(arrow)
     }
 end
 
--- How far, in yards, the arrow's destination has to move before it counts as another destination. RestedXP's arrow
--- can drift by a few yards (a creature that walks, a point worked out from where the player stands); a guidance
--- that is redone, and a destination that is said again, at every drift is only noise.
-Guidance.tolerance = 10
+-- How far, in yards, the arrow's destination has to move before it counts as another destination. By default only an
+-- arrow that did not move at all (a centimetre) is the same destination. RestedXP's arrow can drift by a few yards (a
+-- creature that walks, a point worked out from where the player stands) and a guidance that is redone, and a
+-- destination that is said again, at every drift is noise for some players: for them there is an option, "Ignore
+-- small moves of the arrow", and then a destination under `smallMove` yards from the one aimed at is the same.
+Guidance.exact = 0.01
+Guidance.smallMove = 10
 
 -- Where the arrow's destination is, kept to compare with a later one; nil when the arrow has none.
 function Guidance.point(arrow)
@@ -39,8 +42,8 @@ function Guidance.point(arrow)
 end
 
 -- Whether `now` is another destination than `before` (both from Guidance.point): in another instance, or further
--- than the tolerance. With nothing before, it is another.
-function Guidance.moved(before, now)
+-- than `tolerance` yards (Guidance.exact when none is given). With nothing before, it is another.
+function Guidance.moved(before, now, tolerance)
     if before == nil then
         return true
     end
@@ -48,7 +51,7 @@ function Guidance.moved(before, now)
         return true
     end
     local dx, dy = now.x - before.x, now.y - before.y
-    return math.sqrt(dx * dx + dy * dy) > Guidance.tolerance
+    return math.sqrt(dx * dx + dy * dy) > (tolerance or Guidance.exact)
 end
 
 -- What guides now: "beacon", "route", or nil. following is the same, kept while the arrow is followed.
@@ -102,16 +105,16 @@ function Guidance.stop(maps)
 end
 
 -- Called every moment while the arrow is followed: when RestedXP's arrow has gone to another destination (see
--- Guidance.moved), guides there. Returns true when it did. Does nothing when no guidance was asked, when the arrow has
--- no destination (the guidance already running goes on), when it is on another continent, or when it has only
--- drifted a little from where the guidance was last aimed.
-function Guidance.follow(maps, arrow)
+-- Guidance.moved, with `tolerance`), guides there. Returns true when it did. Does nothing when no guidance was asked,
+-- when the arrow has no destination (the guidance already running goes on), when it is on another continent, or when
+-- it has not moved further than the tolerance from where the guidance was last aimed.
+function Guidance.follow(maps, arrow, tolerance)
     local mode = Guidance.following
     if mode == nil then
         return false
     end
     local point = Guidance.point(arrow)
-    if point == nil or arrow.otherContinent or not Guidance.moved(Guidance.lastPoint, point) then
+    if point == nil or arrow.otherContinent or not Guidance.moved(Guidance.lastPoint, point, tolerance) then
         return false
     end
     -- Asked once per destination: a start that fails is not tried again every moment.

@@ -390,10 +390,11 @@ end
 -- Where the arrow last pointed that the player knows of: said, or guided to.
 local lastDestination = nil
 
--- Every half second: when the arrow points somewhere else (more than Guidance.tolerance yards from where the
--- guidance last aimed), the guidance goes there too (unless the player turned that off: then the beacon or the route
--- keeps the destination it was started with); and, if asked, the new destination is said, except while the guidance
--- goes there by itself, since WowVision says it then.
+-- Every half second: when the arrow points somewhere else, the guidance goes there too (unless the player turned
+-- that off: then the beacon or the route keeps the destination it was started with); and, if asked, the new
+-- destination is said, except while the guidance goes there by itself, since WowVision says it then. "Somewhere
+-- else" is any move of the arrow, or only a move of more than Guidance.smallMove yards from where the guidance last
+-- aimed when the player asked to ignore small moves.
 function ns.follow()
     local rxp = Game.rxp()
     if rxp == nil then
@@ -404,16 +405,17 @@ function ns.follow()
     if not recalculating and not announcing then
         return
     end
+    local tolerance = Game.getSetting("ignoreSmallMoves") == true and Guidance.smallMove or nil
     local arrow = Source.arrow(rxp, Game.hbd(), Game.facing())
     if recalculating then
-        Guidance.follow(Game.maps(), arrow)
+        Guidance.follow(Game.maps(), arrow, tolerance)
     end
     local point = Guidance.point(arrow)
     if point == nil then
         lastDestination = nil
     elseif recalculating then
         lastDestination = point
-    elseif Guidance.moved(lastDestination, point) then
+    elseif Guidance.moved(lastDestination, point, tolerance) then
         -- (only here, so that small drifts add up against what was last said)
         Game.speak(Text.arrow(arrow))
         lastDestination = point

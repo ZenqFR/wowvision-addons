@@ -252,6 +252,18 @@ local function renderArrow(builder, rxp)
             end,
         })
     )
+    builder:addItem(
+        id("arrow:smallMoves"),
+        nodes.toggle({
+            label = string.format(L["Ignore small moves of the arrow (under %s)"], Text.yards(Guidance.smallMove)),
+            get = function()
+                return Game.getSetting("ignoreSmallMoves") == true
+            end,
+            set = function(value)
+                Game.setSetting("ignoreSmallMoves", value)
+            end,
+        })
+    )
     builder:popContext()
 end
 

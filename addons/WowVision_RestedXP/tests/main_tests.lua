@@ -638,8 +638,40 @@ runner:addSuite("Main: following the arrow", {
             t:assertEqual(#w.mapsCalls, 2)
         end)
     end,
-    ["a small drift of the arrow does not redo the beacon or the route"] = function(t)
+    ["by default even a small move of the arrow redoes the beacon and the route"] = function(t)
         withWorld(nil, function(w)
+            t:assertEqual(w.ns.Game.getSetting("ignoreSmallMoves"), false)
+            for _, key in ipairs({ "restedxp/beacon", "restedxp/route" }) do
+                w.mapsCalls = {}
+                w.ns.Guidance.following = nil
+                w.rxp.arrowFrame.element = { wx = 10.5, wy = 20.25, title = "Talk to Ailee", instance = 1 }
+                WowVision.input:getBinding(key).info.func()
+                t:assertEqual(#w.mapsCalls, 1, key)
+                w.rxp.arrowFrame.element = { wx = 14.5, wy = 24.25, title = "Talk to Ailee", instance = 1 }
+                w.tick()
+                t:assertEqual(#w.mapsCalls, 2, key)
+                -- an arrow that did not move is not a new destination
+                w.tick()
+                t:assertEqual(#w.mapsCalls, 2, key)
+            end
+        end)
+    end,
+    ["by default a small move of the arrow is said again, when asked to say it"] = function(t)
+        withWorld(nil, function(w)
+            w.ns.Game.setSetting("recalculate", false)
+            w.ns.Game.setSetting("announceDestination", true)
+            w.tick()
+            t:assertEqual(#w.spoken, 1)
+            w.rxp.arrowFrame.element = { wx = 14, wy = 20.25, title = "Talk to Ailee", instance = 1 }
+            w.tick()
+            t:assertEqual(#w.spoken, 2)
+            w.tick()
+            t:assertEqual(#w.spoken, 2)
+        end)
+    end,
+    ["asked to ignore small moves, a small drift of the arrow does not redo the beacon or the route"] = function(t)
+        withWorld(nil, function(w)
+            w.ns.Game.setSetting("ignoreSmallMoves", true)
             for _, key in ipairs({ "restedxp/beacon", "restedxp/route" }) do
                 w.mapsCalls = {}
                 w.ns.Guidance.following = nil
@@ -654,8 +686,9 @@ runner:addSuite("Main: following the arrow", {
             end
         end)
     end,
-    ["drifts that add up past ten yards redo it once"] = function(t)
+    ["asked to ignore small moves, drifts that add up past ten yards redo it once"] = function(t)
         withWorld(nil, function(w)
+            w.ns.Game.setSetting("ignoreSmallMoves", true)
             WowVision.input:getBinding("restedxp/beacon").info.func()
             for _, wx in ipairs({ 14, 18, 20 }) do
                 w.rxp.arrowFrame.element = { wx = wx, wy = 20.25, title = "Drifting", instance = 1 }
@@ -669,8 +702,9 @@ runner:addSuite("Main: following the arrow", {
             t:assertEqual(w.mapsCalls[2][4], "Drifting")
         end)
     end,
-    ["a small drift is not said again either, but drifts that add up are, once"] = function(t)
+    ["asked to ignore small moves, a small drift is not said again either, but drifts that add up are, once"] = function(t)
         withWorld(nil, function(w)
+            w.ns.Game.setSetting("ignoreSmallMoves", true)
             w.ns.Game.setSetting("recalculate", false)
             w.ns.Game.setSetting("announceDestination", true)
             w.tick()

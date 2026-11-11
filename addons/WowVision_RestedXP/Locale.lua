@@ -86,6 +86,7 @@ local TRANSLATIONS = {
         ["The destination is on another continent."] = "La destination est sur un autre continent.",
         ["No route found."] = "Aucun itinéraire trouvé.",
         ["Recalculate the guidance when the arrow changes destination"] = "Recalculer le guidage quand la flèche change de destination",
+        ["Ignore small moves of the arrow (under %s)"] = "Ignorer les petits déplacements de la flèche (moins de %s)",
 
         -- importing a guide
         ["Import a guide"] = "Importer un guide",
@@ -222,6 +223,7 @@ local TRANSLATIONS = {
         ["The destination is on another continent."] = "Das Ziel liegt auf einem anderen Kontinent.",
         ["No route found."] = "Keine Route gefunden.",
         ["Recalculate the guidance when the arrow changes destination"] = "Führung neu berechnen, wenn der Pfeil das Ziel wechselt",
+        ["Ignore small moves of the arrow (under %s)"] = "Kleine Verschiebungen des Pfeils ignorieren (unter %s)",
 
         ["Import a guide"] = "Guide importieren",
         ["Paste and import"] = "Einfügen und importieren",

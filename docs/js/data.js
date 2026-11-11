@@ -7,8 +7,8 @@ window.WVA = {
   "testsAsOf": "2026-11-11",
   "all": {
     "file": "downloads/wowvision-forever-addons.zip",
-    "bytes": 139923,
-    "sha256": "4236cbae82b0f60711cc9ba301a45cfc78461c82163e847e3c27fbc85379dbff",
+    "bytes": 140698,
+    "sha256": "5d7912e2bbd8e335e7d97f1520377e86a3a88ebc8a2de515c2ada045209e29db",
     "count": 8
   },
   "addons": [
@@ -28,14 +28,14 @@ window.WVA = {
         "de": "Macht den RestedXP-Levelguide mit einem Screenreader nutzbar: Menü, Pfeil, Klangsignal, WowVision-Route und Guide-Import."
       },
       "description": {
-        "en": "Shift+F2 opens RestedXP as a WowVision screen: the guide and its active steps (each line a check box), the arrow, moving in the guide, all of RestedXP's settings (also its page in the game's options window) and the guide import. A sound beacon or a WowVision route leads to the arrow's destination and follows the arrow when RestedXP moves it; a check box turns that recalculation off, and drifts under 10 yards are ignored. New steps are read out as they come.",
-        "fr": "Maj+F2 ouvre RestedXP comme un écran de WowVision : le guide et ses étapes actives (chaque ligne est une case), la flèche, le déplacement dans le guide, tous les réglages de RestedXP (aussi sa page dans la fenêtre des options du jeu) et l'import de guide. Une balise sonore ou un itinéraire WowVision mène à la destination de la flèche et la suit quand RestedXP la déplace ; une case à cocher coupe ce recalcul, et les dérives de moins de 10 mètres sont ignorées. Les nouvelles étapes sont lues au fur et à mesure.",
-        "de": "Umschalt+F2 öffnet RestedXP als WowVision-Bildschirm: den Guide und seine aktiven Schritte (jede Zeile ein Kästchen), den Pfeil, das Bewegen im Guide, alle Einstellungen von RestedXP (auch seine Seite im Optionsfenster des Spiels) und den Guide-Import. Ein Klangsignal oder eine WowVision-Route führt zum Ziel des Pfeils und folgt dem Pfeil, wenn RestedXP ihn verschiebt; ein Kästchen schaltet diese Neuberechnung ab, und Verschiebungen unter 10 Metern werden ignoriert. Neue Schritte werden vorgelesen."
+        "en": "Shift+F2 opens RestedXP as a WowVision screen: the guide and its active steps (each line a check box), the arrow, moving in the guide, all of RestedXP's settings (also its page in the game's options window) and the guide import. A sound beacon or a WowVision route leads to the arrow's destination and follows the arrow when RestedXP moves it; a check box turns that recalculation off, and another one (off by default) ignores drifts under 10 yards. New steps are read out as they come.",
+        "fr": "Maj+F2 ouvre RestedXP comme un écran de WowVision : le guide et ses étapes actives (chaque ligne est une case), la flèche, le déplacement dans le guide, tous les réglages de RestedXP (aussi sa page dans la fenêtre des options du jeu) et l'import de guide. Une balise sonore ou un itinéraire WowVision mène à la destination de la flèche et la suit quand RestedXP la déplace ; une case à cocher coupe ce recalcul, et une autre (décochée par défaut) ignore les dérives de moins de 10 mètres. Les nouvelles étapes sont lues au fur et à mesure.",
+        "de": "Umschalt+F2 öffnet RestedXP als WowVision-Bildschirm: den Guide und seine aktiven Schritte (jede Zeile ein Kästchen), den Pfeil, das Bewegen im Guide, alle Einstellungen von RestedXP (auch seine Seite im Optionsfenster des Spiels) und den Guide-Import. Ein Klangsignal oder eine WowVision-Route führt zum Ziel des Pfeils und folgt dem Pfeil, wenn RestedXP ihn verschiebt; ein Kästchen schaltet diese Neuberechnung ab, und ein weiteres (standardmäßig aus) ignoriert Verschiebungen unter 10 Metern. Neue Schritte werden vorgelesen."
       },
       "status": {
-        "en": "The first version (menu, arrow, beacon, route, options page) was confirmed working in the game. The guide import, the recalculation check box and the 10-yard tolerance are checked by offline tests only so far.",
-        "fr": "La première version (menu, flèche, balise, itinéraire, page des options) a été confirmée en jeu. L'import de guide, la case de recalcul et la tolérance de 10 mètres ne sont vérifiés que par des tests hors jeu pour l'instant.",
-        "de": "Die erste Version (Menü, Pfeil, Signal, Route, Optionsseite) wurde im Spiel als funktionierend bestätigt. Der Guide-Import, das Kästchen zur Neuberechnung und die Toleranz von 10 Metern sind bisher nur durch Tests außerhalb des Spiels geprüft."
+        "en": "The first version (menu, arrow, beacon, route, options page) was confirmed working in the game. The guide import, the recalculation check box and the check box that ignores small moves of the arrow are checked by offline tests only so far.",
+        "fr": "La première version (menu, flèche, balise, itinéraire, page des options) a été confirmée en jeu. L'import de guide, la case de recalcul et la case qui ignore les petits déplacements de la flèche ne sont vérifiés que par des tests hors jeu pour l'instant.",
+        "de": "Die erste Version (Menü, Pfeil, Signal, Route, Optionsseite) wurde im Spiel als funktionierend bestätigt. Der Guide-Import, das Kästchen zur Neuberechnung und das Kästchen, das kleine Verschiebungen des Pfeils ignoriert, sind bisher nur durch Tests außerhalb des Spiels geprüft."
       },
       "note": {
         "en": "Guide texts, menus and settings come from RestedXP itself, in the game's language.",
@@ -190,12 +190,12 @@ window.WVA = {
       "version": "0.1.0",
       "interface": "16001, 120005, 120007",
       "files": 13,
-      "sourceBytes": 163821,
-      "tests": 432,
+      "sourceBytes": 166393,
+      "tests": 439,
       "zip": {
         "file": "downloads/WowVision_RestedXP.zip",
-        "bytes": 49331,
-        "sha256": "24b4642b6d2d03ac2802f8c00b89dd605ba15494bfadb4b653e63c2f34300d1e"
+        "bytes": 50106,
+        "sha256": "c6b331e5c1f0189d437a9a1513c0706018a6076617240f4f8acde95235f9789a"
       },
       "links": {
         "source": "https://github.com/ZenqFR/wowvision-addons/tree/main/addons/WowVision_RestedXP",

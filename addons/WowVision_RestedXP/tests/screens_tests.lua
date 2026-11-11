@@ -442,7 +442,7 @@ runner:addSuite("Screens: the arrow", {
     ["the arrow reads its destination, direction and distance"] = function(t)
         withWorld(nil, function(w)
             local node = go(t, w.driver, "Talk to Ailee")
-            t:assertEqual(w.driver.say(node), "Talk to Ailee, at 3 o'clock, to your right, 35 yards, 1 of 4")
+            t:assertEqual(w.driver.say(node), "Talk to Ailee, at 3 o'clock, to your right, 35 yards, 1 of 5")
         end)
     end,
     ["the arrow reads again as the player walks"] = function(t)
@@ -521,6 +521,36 @@ runner:addSuite("Screens: the arrow", {
             d.enter()
             t:assertEqual(w.settings.recalculate, true)
             t:assertMatch(d.say(node), "Checked")
+        end)
+    end,
+    ["a second box ignores small moves of the arrow: unticked to start with, and it says how far"] = function(t)
+        withWorld(nil, function(w)
+            local d = w.driver
+            local node = go(t, d, "Ignore small moves of the arrow")
+            t:assertEqual(node.vtable.controlType, w.g.graph.controlTypes.toggle)
+            t:assertMatch(d.say(node), "^Ignore small moves of the arrow %(under 10 yards%), Checkbox, Unchecked")
+        end)
+    end,
+    ["Enter ticks it and unticks it again, and the setting follows"] = function(t)
+        withWorld(nil, function(w)
+            local d = w.driver
+            local node = go(t, d, "Ignore small moves of the arrow")
+            d.enter()
+            t:assertEqual(w.settings.ignoreSmallMoves, true)
+            t:assertMatch(d.say(node), "Checked")
+            t:assertFalse(d.say(node):find("Unchecked", 1, true) ~= nil)
+            d.enter()
+            t:assertEqual(w.settings.ignoreSmallMoves, false)
+            t:assertMatch(d.say(node), "Unchecked")
+        end)
+    end,
+    ["that box says metres in French and Meter in German"] = function(t)
+        withWorld(nil, function(w)
+            w.ns.useLocale("frFR")
+            t:assertMatch(w.driver.say(go(t, w.driver, "Ignorer les petits déplacements de la flèche")), "moins de 10 mètres")
+            w.ns.useLocale("deDE")
+            t:assertMatch(w.driver.say(go(t, w.driver, "Kleine Verschiebungen des Pfeils ignorieren")), "unter 10 Meter")
+            w.ns.useLocale("enUS")
         end)
     end,
     ["the box sits in the arrow part, after the guiding items and the stop"] = function(t)

@@ -29,15 +29,17 @@ runner:addSuite("Game: the settings", {
             t:assertEqual(ns.Game.getSetting("announceSteps"), true)
             t:assertEqual(ns.Game.getSetting("announceDestination"), false)
             t:assertEqual(ns.Game.getSetting("recalculate"), true)
+            t:assertEqual(ns.Game.getSetting("ignoreSmallMoves"), false)
             t:assertNil(ns.Game.getSetting("unknown"))
         end)
     end,
     ["a saved value, false included, wins over the default"] = function(t)
         local ns = loadAddon(FILES)
-        withGlobals({ WowVisionRestedXPDB = { announceSteps = false, announceDestination = true, recalculate = false } }, function()
+        withGlobals({ WowVisionRestedXPDB = { announceSteps = false, announceDestination = true, recalculate = false, ignoreSmallMoves = true } }, function()
             t:assertEqual(ns.Game.getSetting("announceSteps"), false)
             t:assertEqual(ns.Game.getSetting("announceDestination"), true)
             t:assertEqual(ns.Game.getSetting("recalculate"), false)
+            t:assertEqual(ns.Game.getSetting("ignoreSmallMoves"), true)
         end)
     end,
     ["setting one creates the saved table"] = function(t)

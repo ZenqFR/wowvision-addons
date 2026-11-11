@@ -3,7 +3,7 @@
   "site": "https://zenqfr.github.io/wowvision-addons/",
   "wowvision": "https://github.com/wow-vision/WowVision",
   "testsAsOf": "2026-11-11",
-  "tests": { "WowVision_RestedXP": 432, "WowVision_Bags": 115, "WowVision_QuestTargets": 67, "WowVision_ItemCompare": 35, "WowVision_LocalizedNames": 29, "WowVision_Quests": 20, "WowVision_PetTraining": 20, "WowVision_Probe": 16, "WowVision_Vitals": 41 },
+  "tests": { "WowVision_RestedXP": 439, "WowVision_Bags": 115, "WowVision_QuestTargets": 67, "WowVision_ItemCompare": 35, "WowVision_LocalizedNames": 29, "WowVision_Quests": 20, "WowVision_PetTraining": 20, "WowVision_Probe": 16, "WowVision_Vitals": 41 },
   "order": ["WowVision_RestedXP", "WowVision_Bags", "WowVision_QuestTargets", "WowVision_ItemCompare", "WowVision_LocalizedNames", "WowVision_Quests", "WowVision_PetTraining", "WowVision_Probe", "WowVision_Vitals"],
   "addons": {
     "WowVision_RestedXP": {
@@ -20,9 +20,9 @@
         "de": "Macht den RestedXP-Levelguide mit einem Screenreader nutzbar: Menü, Pfeil, Klangsignal, WowVision-Route und Guide-Import."
       },
       "description": {
-        "en": "Shift+F2 opens RestedXP as a WowVision screen: the guide and its active steps (each line a check box), the arrow, moving in the guide, all of RestedXP's settings (also its page in the game's options window) and the guide import. A sound beacon or a WowVision route leads to the arrow's destination and follows the arrow when RestedXP moves it; a check box turns that recalculation off, and drifts under 10 yards are ignored. New steps are read out as they come.",
-        "fr": "Maj+F2 ouvre RestedXP comme un écran de WowVision : le guide et ses étapes actives (chaque ligne est une case), la flèche, le déplacement dans le guide, tous les réglages de RestedXP (aussi sa page dans la fenêtre des options du jeu) et l'import de guide. Une balise sonore ou un itinéraire WowVision mène à la destination de la flèche et la suit quand RestedXP la déplace ; une case à cocher coupe ce recalcul, et les dérives de moins de 10 mètres sont ignorées. Les nouvelles étapes sont lues au fur et à mesure.",
-        "de": "Umschalt+F2 öffnet RestedXP als WowVision-Bildschirm: den Guide und seine aktiven Schritte (jede Zeile ein Kästchen), den Pfeil, das Bewegen im Guide, alle Einstellungen von RestedXP (auch seine Seite im Optionsfenster des Spiels) und den Guide-Import. Ein Klangsignal oder eine WowVision-Route führt zum Ziel des Pfeils und folgt dem Pfeil, wenn RestedXP ihn verschiebt; ein Kästchen schaltet diese Neuberechnung ab, und Verschiebungen unter 10 Metern werden ignoriert. Neue Schritte werden vorgelesen."
+        "en": "Shift+F2 opens RestedXP as a WowVision screen: the guide and its active steps (each line a check box), the arrow, moving in the guide, all of RestedXP's settings (also its page in the game's options window) and the guide import. A sound beacon or a WowVision route leads to the arrow's destination and follows the arrow when RestedXP moves it; a check box turns that recalculation off, and another one (off by default) ignores drifts under 10 yards. New steps are read out as they come.",
+        "fr": "Maj+F2 ouvre RestedXP comme un écran de WowVision : le guide et ses étapes actives (chaque ligne est une case), la flèche, le déplacement dans le guide, tous les réglages de RestedXP (aussi sa page dans la fenêtre des options du jeu) et l'import de guide. Une balise sonore ou un itinéraire WowVision mène à la destination de la flèche et la suit quand RestedXP la déplace ; une case à cocher coupe ce recalcul, et une autre (décochée par défaut) ignore les dérives de moins de 10 mètres. Les nouvelles étapes sont lues au fur et à mesure.",
+        "de": "Umschalt+F2 öffnet RestedXP als WowVision-Bildschirm: den Guide und seine aktiven Schritte (jede Zeile ein Kästchen), den Pfeil, das Bewegen im Guide, alle Einstellungen von RestedXP (auch seine Seite im Optionsfenster des Spiels) und den Guide-Import. Ein Klangsignal oder eine WowVision-Route führt zum Ziel des Pfeils und folgt dem Pfeil, wenn RestedXP ihn verschiebt; ein Kästchen schaltet diese Neuberechnung ab, und ein weiteres (standardmäßig aus) ignoriert Verschiebungen unter 10 Metern. Neue Schritte werden vorgelesen."
       },
       "keys": [
         { "keys": { "en": "Shift+F2", "fr": "Maj+F2", "de": "Umschalt+F2" }, "does": { "en": "open the RestedXP menu", "fr": "ouvrir le menu RestedXP", "de": "das RestedXP-Menü öffnen" } },
@@ -38,9 +38,9 @@
         "de": ["/wvrxp", "/wvrxp schritt", "/wvrxp pfeil", "/wvrxp signal", "/wvrxp route", "/wvrxp stopp", "/wvrxp zeit"]
       },
       "status": {
-        "en": "The first version (menu, arrow, beacon, route, options page) was confirmed working in the game. The guide import, the recalculation check box and the 10-yard tolerance are checked by offline tests only so far.",
-        "fr": "La première version (menu, flèche, balise, itinéraire, page des options) a été confirmée en jeu. L'import de guide, la case de recalcul et la tolérance de 10 mètres ne sont vérifiés que par des tests hors jeu pour l'instant.",
-        "de": "Die erste Version (Menü, Pfeil, Signal, Route, Optionsseite) wurde im Spiel als funktionierend bestätigt. Der Guide-Import, das Kästchen zur Neuberechnung und die Toleranz von 10 Metern sind bisher nur durch Tests außerhalb des Spiels geprüft."
+        "en": "The first version (menu, arrow, beacon, route, options page) was confirmed working in the game. The guide import, the recalculation check box and the check box that ignores small moves of the arrow are checked by offline tests only so far.",
+        "fr": "La première version (menu, flèche, balise, itinéraire, page des options) a été confirmée en jeu. L'import de guide, la case de recalcul et la case qui ignore les petits déplacements de la flèche ne sont vérifiés que par des tests hors jeu pour l'instant.",
+        "de": "Die erste Version (Menü, Pfeil, Signal, Route, Optionsseite) wurde im Spiel als funktionierend bestätigt. Der Guide-Import, das Kästchen zur Neuberechnung und das Kästchen, das kleine Verschiebungen des Pfeils ignoriert, sind bisher nur durch Tests außerhalb des Spiels geprüft."
       },
       "note": {
         "en": "Guide texts, menus and settings come from RestedXP itself, in the game's language.",
