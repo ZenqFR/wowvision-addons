@@ -7,9 +7,9 @@ window.WVA = {
   "testsAsOf": "2026-11-20",
   "all": {
     "file": "downloads/wowvision-forever-addons.zip",
-    "bytes": 256327,
-    "sha256": "68942ba4924b32c715b5d9c0d985f51da6a6c7672b418e9ee89f5a84d8c18f13",
-    "count": 13
+    "bytes": 277841,
+    "sha256": "faad28d53e41d085dc7eab096f87b5343e5507b5ffacfd8c0cd140e275f773a0",
+    "count": 14
   },
   "addons": [
     {
@@ -817,6 +817,104 @@ window.WVA = {
       "links": {
         "source": "https://github.com/ZenqFR/wowvision-addons/tree/main/addons/WowVision_TargetDirection",
         "readme": "https://github.com/ZenqFR/wowvision-addons/blob/main/addons/WowVision_TargetDirection/README.md"
+      }
+    },
+    {
+      "id": "WowVision_LFGForever",
+      "group": "active",
+      "icon": "people",
+      "featured": false,
+      "title": {
+        "en": "LFG Forever",
+        "fr": "LFG Forever",
+        "de": "LFG Forever"
+      },
+      "tagline": {
+        "en": "Makes the LFG Forever group finder usable by ear: search, filters, the groups and players found, whispers and player ratings.",
+        "fr": "Rend le chercheur de groupe LFG Forever utilisable à l'oreille : recherche, filtres, groupes et joueurs trouvés, chuchotements et notes des joueurs.",
+        "de": "Macht die Gruppensuche LFG Forever nach Gehör nutzbar: Suche, Filter, die gefundenen Gruppen und Spieler, Flüstern und Spielerbewertungen."
+      },
+      "description": {
+        "en": "When LFG Forever's window opens (/lfg or Alt+Ctrl+G) WowVision reads it. Tab goes from the tabs to the search (category and activity menus, Search), the results (Groups and Players, one line each: leader, what for, members and their roles, note) and the filters of the open tab. Enter on a group asks to join it, on a player invites; Backspace is the game's right-click menu. Every control is LFG Forever's own and every word comes from it.",
+        "fr": "Quand la fenêtre de LFG Forever s'ouvre (/lfg ou Alt+Ctrl+G), WowVision la lit. Tab passe des onglets à la recherche (menus de catégorie et d'activité, Recherche), aux résultats (Groupes et Joueurs, une ligne chacun : chef, but, membres et leurs rôles, note) et aux filtres de l'onglet ouvert. Entrée sur un groupe demande à le rejoindre, sur un joueur l'invite ; Retour arrière est le menu du clic droit du jeu. Chaque contrôle est celui de LFG Forever et chaque mot vient de lui.",
+        "de": "Öffnet sich das Fenster von LFG Forever (/lfg oder Alt+Strg+G), liest WowVision es. Tab wechselt von den Reitern zur Suche (Menüs für Kategorie und Aktivität, Suchen), zu den Ergebnissen (Gruppen und Spieler, je eine Zeile: Anführer, Ziel, Mitglieder und ihre Rollen, Notiz) und zu den Filtern des offenen Reiters. Eingabe bei einer Gruppe fragt den Beitritt an, bei einem Spieler lädt sie ein; die Rücktaste ist das Rechtsklick-Menü des Spiels. Jedes Bedienelement ist das von LFG Forever und jedes Wort kommt von ihm."
+      },
+      "status": {
+        "en": "Not tried in the game yet. Tested offline with WowVision's real screen engine and window classes, on stand-ins shaped after LFG Forever's own source, and against the source of the installed LFG Forever 2.3.0 (every name it reads is checked).",
+        "fr": "Pas encore essayée en jeu. Testée hors du jeu avec le vrai moteur d'écrans et les vraies classes de fenêtres de WowVision, sur des fenêtres simulées d'après le code de LFG Forever, et contre les sources du LFG Forever 2.3.0 installé (chaque nom qu'elle lit est vérifié).",
+        "de": "Noch nicht im Spiel ausprobiert. Außerhalb des Spiels getestet mit dem echten Bildschirmsystem und den echten Fensterklassen von WowVision, an Nachbildungen nach dem Quelltext von LFG Forever, und gegen den Quelltext des installierten LFG Forever 2.3.0 (jeder gelesene Name wird geprüft)."
+      },
+      "note": null,
+      "keys": [
+        {
+          "keys": {
+            "en": "Alt+Ctrl+G",
+            "fr": "Alt+Ctrl+G",
+            "de": "Alt+Strg+G"
+          },
+          "does": {
+            "en": "open or close LFG Forever",
+            "fr": "ouvrir ou fermer LFG Forever",
+            "de": "LFG Forever öffnen oder schließen"
+          }
+        }
+      ],
+      "commands": {
+        "en": [
+          "/wvlfg",
+          "/wvlfg help"
+        ],
+        "fr": [
+          "/wvlfg",
+          "/wvgroupe",
+          "/wvlfg aide"
+        ],
+        "de": [
+          "/wvlfg",
+          "/wvgruppe",
+          "/wvlfg hilfe"
+        ]
+      },
+      "preview": {
+        "en": [
+          "Tabs: Filters, selected. Whispers. Player ratings.",
+          "Search. Category, Dungeons. Activity, All activities. Search.",
+          "Thrall, Deadmines, 3 members (1 Tank, 2 Damage), LF healer, Ask to join",
+          "Jaina, level 17 Mage, roles: Damage, Deadmines, in Westfall, Invite"
+        ],
+        "fr": [
+          "Onglets : Filtres, sélectionné. Chuchotements. Notes des joueurs.",
+          "Recherche. Catégorie, Donjons. Activité, Toutes les activités. Recherche.",
+          "Thrall, Mortemines, 3 membres (1 Tank, 2 Dégâts), cherche soigneur, Demander à rejoindre",
+          "Jaina, niveau 17 Mage, rôles : Dégâts, Mortemines, à Marche de l'Ouest, Inviter"
+        ],
+        "de": [
+          "Reiter: Filter, ausgewählt. Flüstern. Spielerbewertungen.",
+          "Suche. Kategorie, Dungeons. Aktivität, Alle Aktivitäten. Suchen.",
+          "Thrall, Todesminen, 3 Mitglieder (1 Tank, 2 Schaden), sucht Heiler, Beitritt anfragen",
+          "Jaina, Stufe 17 Mage, Rollen: Schaden, Todesminen, in Westfall, Einladen"
+        ]
+      },
+      "requires": [
+        "WowVision"
+      ],
+      "optional": [
+        "LFGForever"
+      ],
+      "mergedPr": null,
+      "version": "0.1.0",
+      "interface": "16001, 120005, 120007",
+      "files": 7,
+      "sourceBytes": 64433,
+      "tests": 55,
+      "zip": {
+        "file": "downloads/WowVision_LFGForever.zip",
+        "bytes": 21536,
+        "sha256": "b76560664169c6c3c6a1cd6e77aad692483cc1a18b5220656cd13acaeb29b900"
+      },
+      "links": {
+        "source": "https://github.com/ZenqFR/wowvision-addons/tree/main/addons/WowVision_LFGForever",
+        "readme": "https://github.com/ZenqFR/wowvision-addons/blob/main/addons/WowVision_LFGForever/README.md"
       }
     },
     {

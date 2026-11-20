@@ -1,0 +1,16 @@
+## Interface: 16001, 120005, 120007
+## Title: WowVision LFG Forever
+## Title-frFR: WowVision - LFG Forever
+## Title-deDE: WowVision - LFG Forever
+## Notes: Makes the LFG Forever group finder usable with WowVision: the category and activity menus, Search, the filters, the groups and players the search found (Enter asks a group to take you or invites a player), the whispers and the player ratings. Alt+Ctrl+G opens it.
+## Notes-frFR: Rend utilisable avec WowVision le chercheur de groupe LFG Forever : les menus de catégorie et d'activité, la recherche, les filtres, les groupes et joueurs trouvés (Entrée demande à un groupe de vous prendre ou invite un joueur), les chuchotements et les notes des joueurs. Alt+Ctrl+G l'ouvre.
+## Notes-deDE: Macht die Gruppensuche LFG Forever mit WowVision nutzbar: die Menüs für Kategorie und Aktivität, die Suche, die Filter, die gefundenen Gruppen und Spieler (Eingabe fragt eine Gruppe an oder lädt einen Spieler ein), die Flüsternachrichten und die Spielerbewertungen. Alt+Strg+G öffnet es.
+## Version: 0.1.0
+## Dependencies: WowVision
+## OptionalDeps: LFGForever
+
+Locale.lua
+Game.lua
+Labels.lua
+Screen.lua
+Main.lua
