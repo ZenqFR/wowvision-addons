@@ -1,0 +1,14 @@
+## Interface: 16001, 120005, 120007
+## Title: WowVision Roll Judge
+## Title-frFR: WowVision - Avis sur les jets de butin
+## Title-deDE: WowVision - Urteil zu Beutewürfen
+## Notes: One key (Alt+Ctrl+J by default) says what Sharpie's Gear Judge thinks of the item up for a loot roll: whether it improves what you wear, and by how many percent. /wvjuge all says it for every item up for a roll.
+## Notes-frFR: Une touche (Alt+Ctrl+J par défaut) dit ce que Sharpie's Gear Judge pense de l'objet proposé au jet de butin : s'il améliore ce que vous portez, et de combien de pour cent. /wvjuge tout le dit pour tous les objets proposés.
+## Notes-deDE: Eine Taste (standardmäßig Alt+Strg+J) sagt, was Sharpie's Gear Judge vom Gegenstand hält, um den gewürfelt wird: ob er verbessert, was du trägst, und um wie viel Prozent. /wvjuge alle sagt es für jeden Gegenstand, um den gewürfelt wird.
+## Version: 0.1.0
+## Dependencies: WowVision
+## OptionalDeps: SharpiesGearJudge
+
+Locale.lua
+Judge.lua
+Main.lua

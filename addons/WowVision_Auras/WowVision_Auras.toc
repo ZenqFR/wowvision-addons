@@ -1,0 +1,15 @@
+## Interface: 16001, 120005, 120007
+## Title: WowVision Auras
+## Title-frFR: WowVision - Améliorations et affaiblissements
+## Title-deDE: WowVision - Buffs und Debuffs
+## Notes: Hear or browse every buff and debuff on your character with one key: Alt+Ctrl+B says them all (buffs, then debuffs, each with its stacks, time left and dispel type), Alt+Shift+B opens a list to walk through line by line, Space reads the description of the one you are on. /wvauras does the same.
+## Notes-frFR: Écoutez ou parcourez toutes les améliorations et tous les affaiblissements de votre personnage avec une touche : Alt+Ctrl+B les dit tous (améliorations, puis affaiblissements, chacun avec ses cumuls, son temps restant et son type de dissipation), Alt+Maj+B ouvre une liste à parcourir ligne par ligne, Espace lit la description de celui où vous êtes. /wvauras fait de même.
+## Notes-deDE: Hören oder durchsuchen Sie alle Buffs und Debuffs Ihres Charakters mit einer Taste: Alt+Strg+B sagt sie alle (erst Buffs, dann Debuffs, jeweils mit Stapeln, Restzeit und Bannart), Alt+Umschalt+B öffnet eine Liste zum zeilenweisen Durchgehen, die Leertaste liest die Beschreibung des gewählten Eintrags. /wvauras tut dasselbe.
+## Version: 0.1.0
+## Dependencies: WowVision
+
+Locale.lua
+Game.lua
+Auras.lua
+Screen.lua
+Main.lua

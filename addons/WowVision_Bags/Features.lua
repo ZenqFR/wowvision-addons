@@ -1,5 +1,6 @@
--- The two things a player can mark in their bags -- junk and favorites -- with their key bindings, their lists in
--- the bags' Item Lists stop, and the sale of junk at a merchant. The game's side (the hooks) is in Hooks.lua.
+-- The two things a player can mark in their bags -- junk and favorites -- with their key bindings and the sale of
+-- junk at a merchant. The game's side (the hooks) is in Hooks.lua. (They no longer have a category of their own in
+-- the Item Lists stop: what is for a merchant is the category of Merchant.lua.)
 local _, ns = ...
 local L = ns.L
 local store = ns.store
@@ -78,24 +79,6 @@ ns.bindings = {
     },
 }
 
--- ------------------------------------------------------------- the lists
-
--- The marked items as categories of the bags' Item Lists stop (Lists.lua): the slots among those given whose
--- item carries a mark. locate(button) is the bags' own way to read a slot's bag and slot id (Hooks.lua sets it).
-local function markedList(part, key, label, order)
-    ns.lists.register({
-        key = key,
-        label = label,
-        order = order,
-        select = function(buttons)
-            return part:markedSlots(buttons, ns.locate)
-        end,
-    })
-end
-
-markedList(junk, "junk", L["Junk"], 20)
-markedList(favorites, "favorites", L["Favorites"], 30)
-
 -- ------------------------------------------------------------ the sale
 
 -- The bags the player carries: the backpack, the bag slots and, where the game has one, the reagent bag. Never
@@ -107,6 +90,7 @@ local function carriedBags()
     end
     return bags
 end
+ns.carriedBags = carriedBags
 
 -- Vendor sell price for a bag item, in copper; nil when the item isn't cached yet or has none.
 local function getSellPrice(itemID)

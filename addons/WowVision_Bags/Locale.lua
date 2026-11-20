@@ -9,7 +9,7 @@ local TRANSLATIONS = {
         ["Item Lists"] = "Listes d'objets",
         ["New Items"] = "Nouveaux objets",
         ["Junk"] = "Camelote",
-        ["Favorites"] = "Favoris",
+        ["For sale to a merchant"] = "À vendre au marchand",
         ["Empty"] = "Vide",
 
         -- said ahead of a slot's name in brackets: [Junk], [Favorite]
@@ -61,7 +61,7 @@ local TRANSLATIONS = {
         ["Item Lists"] = "Gegenstandslisten",
         ["New Items"] = "Neue Gegenstände",
         ["Junk"] = "Plunder",
-        ["Favorites"] = "Favoriten",
+        ["For sale to a merchant"] = "Zum Verkauf beim Händler",
         ["Empty"] = "Leer",
 
         ["Favorite"] = "Favorit",

@@ -11,7 +11,12 @@ Addons gratuits pour les joueurs aveugles et malvoyants de **World of Warcraft: 
 | Addon | État | Ce qu'il fait |
 |---|---|---|
 | [RestedXP](addons/WowVision_RestedXP) ([.zip](https://zenqfr.github.io/wowvision-addons/downloads/WowVision_RestedXP.zip)) | actif | Rend le guide de niveau RestedXP utilisable au lecteur d'écran : menu, flèche, balise sonore, itinéraire WowVision et import de guide. |
-| [Sacs](addons/WowVision_Bags) ([.zip](https://zenqfr.github.io/wowvision-addons/downloads/WowVision_Bags.zip)) | actif | Un arrêt « Listes d'objets » dans les sacs de WowVision : nouveaux objets, camelote vendue toute seule chez le marchand, et favoris. |
+| [Sacs](addons/WowVision_Bags) ([.zip](https://zenqfr.github.io/wowvision-addons/downloads/WowVision_Bags.zip)) | actif | Un arrêt « Listes d'objets » dans les sacs de WowVision : nouveaux objets et ce que rachète un marchand, camelote vendue toute seule chez le marchand, et favoris. |
+| [À vendre à l'hôtel des ventes](addons/WowVision_AuctionHints) ([.zip](https://zenqfr.github.io/wowvision-addons/downloads/WowVision_AuctionHints.zip)) | actif | Le dernier arrêt (Tab) des sacs liste les objets non liés qui se vendent au moins 10 pour cent plus cher à l'hôtel des ventes que chez un marchand. |
+| [Améliorations et affaiblissements](addons/WowVision_Auras) ([.zip](https://zenqfr.github.io/wowvision-addons/downloads/WowVision_Auras.zip)) | actif | Écoutez ou parcourez toutes les améliorations et tous les affaiblissements de votre personnage avec une touche. |
+| [AtlasLoot](addons/WowVision_AtlasLoot) ([.zip](https://zenqfr.github.io/wowvision-addons/downloads/WowVision_AtlasLoot.zip)) | actif | Parcourez les tables de butin d'AtlasLoot à l'oreille : donjon, boss, puis le butin, avec des filtres pour ce que votre classe et votre niveau peuvent utiliser. |
+| [Avis sur les jets](addons/WowVision_RollJudge) ([.zip](https://zenqfr.github.io/wowvision-addons/downloads/WowVision_RollJudge.zip)) | actif | Une touche dit ce que Sharpie's Gear Judge pense de l'objet proposé au jet de butin : mieux ou moins bien, de combien de pour cent, à la place de quoi. |
+| [Direction de la cible](addons/WowVision_TargetDirection) ([.zip](https://zenqfr.github.io/wowvision-addons/downloads/WowVision_TargetDirection.zip)) | actif | Une touche dit où est votre cible et lance une balise sonore vers elle. |
 | [Cibles de quête](addons/WowVision_QuestTargets) ([.zip](https://zenqfr.github.io/wowvision-addons/downloads/WowVision_QuestTargets.zip)) | actif | Cible, avec une seule touche, les créatures proches dont vos quêtes ont encore besoin, de la plus proche à la plus lointaine. |
 | [Comparaison d'objets](addons/WowVision_ItemCompare) ([.zip](https://zenqfr.github.io/wowvision-addons/downloads/WowVision_ItemCompare.zip)) | intégré à WowVision | Le résumé d'amélioration de Pawn et la comparaison avec l'objet équipé, dans la lecture des infobulles de WowVision. |
 | [Noms localisés](addons/WowVision_LocalizedNames) ([.zip](https://zenqfr.github.io/wowvision-addons/downloads/WowVision_LocalizedNames.zip)) | intégré à WowVision | Dit les noms des créatures et des objets de la navigation de WowVision dans la langue du jeu, grâce à la base de Questie. |
@@ -39,7 +44,7 @@ Tout dans une seule archive (sans l'addon retiré) : [wowvision-forever-addons.z
 ### Pour celles et ceux qui travaillent sur les addons
 
 - `python tools/build.py` reconstruit les archives dans `docs/downloads/` et le catalogue que lit la page (`docs/js/data.js`) à partir de `tools/catalog.json` et des fichiers `.toc`. Les archives sont reproductibles.
-- Chaque addon a des tests hors jeu : `lua tests/run.lua` depuis son dossier. La plupart ont besoin d'un dossier WowVision à côté de l'addon (ou de `WOWVISION_DIR` qui le désigne). Les nombres de tests du catalogue sont ceux du 2026-11-11.
+- Chaque addon a des tests hors jeu : `lua tests/run.lua` depuis son dossier. La plupart ont besoin d'un dossier WowVision à côté de l'addon (ou de `WOWVISION_DIR` qui le désigne). Les nombres de tests du catalogue sont ceux du 2026-11-20.
 - La page est du HTML, du CSS et du JavaScript simples dans `docs/` (GitHub Pages), sans bibliothèque et sans requête qui sorte de la page.
 
 *Sans lien avec Blizzard Entertainment et non approuvé par elle. World of Warcraft est une marque de Blizzard Entertainment, Inc. Ce dépôt n'utilise aucune illustration de Blizzard.*
@@ -53,7 +58,12 @@ Free addons for blind and visually impaired players of **World of Warcraft: Fore
 | Addon | State | What it does |
 |---|---|---|
 | [RestedXP](addons/WowVision_RestedXP) ([.zip](https://zenqfr.github.io/wowvision-addons/downloads/WowVision_RestedXP.zip)) | active | Makes the RestedXP leveling guide usable with a screen reader: menu, arrow, sound beacon, WowVision route and guide import. |
-| [Bags](addons/WowVision_Bags) ([.zip](https://zenqfr.github.io/wowvision-addons/downloads/WowVision_Bags.zip)) | active | An Item Lists stop in WowVision's bags: new items, junk sold by itself at the merchant, and favorites. |
+| [Bags](addons/WowVision_Bags) ([.zip](https://zenqfr.github.io/wowvision-addons/downloads/WowVision_Bags.zip)) | active | An Item Lists stop in WowVision's bags: new items and what a merchant buys, junk sold by itself at the merchant, and favorites. |
+| [Auction Hints](addons/WowVision_AuctionHints) ([.zip](https://zenqfr.github.io/wowvision-addons/downloads/WowVision_AuctionHints.zip)) | active | The last Tab stop of the bags lists the unbound items that sell for at least 10 percent more at the auction house than to a vendor. |
+| [Auras](addons/WowVision_Auras) ([.zip](https://zenqfr.github.io/wowvision-addons/downloads/WowVision_Auras.zip)) | active | Hear or browse every buff and debuff on your character with one key. |
+| [AtlasLoot](addons/WowVision_AtlasLoot) ([.zip](https://zenqfr.github.io/wowvision-addons/downloads/WowVision_AtlasLoot.zip)) | active | Browse AtlasLoot's loot tables by ear: dungeon, boss, then the loot, with filters for what your class and level can use. |
+| [Roll Judge](addons/WowVision_RollJudge) ([.zip](https://zenqfr.github.io/wowvision-addons/downloads/WowVision_RollJudge.zip)) | active | One key says what Sharpie's Gear Judge thinks of the item up for a loot roll: better or worse, by how many percent, instead of what. |
+| [Target Direction](addons/WowVision_TargetDirection) ([.zip](https://zenqfr.github.io/wowvision-addons/downloads/WowVision_TargetDirection.zip)) | active | One key says where your target is and starts a sound beacon toward it. |
 | [Quest Targets](addons/WowVision_QuestTargets) ([.zip](https://zenqfr.github.io/wowvision-addons/downloads/WowVision_QuestTargets.zip)) | active | Targets, with one key, the creatures near you that your quests still need, nearest first. |
 | [Item Compare](addons/WowVision_ItemCompare) ([.zip](https://zenqfr.github.io/wowvision-addons/downloads/WowVision_ItemCompare.zip)) | merged into WowVision | Pawn's upgrade summary and a comparison with the item you wear, in WowVision's tooltip reading. |
 | [Localized Names](addons/WowVision_LocalizedNames) ([.zip](https://zenqfr.github.io/wowvision-addons/downloads/WowVision_LocalizedNames.zip)) | merged into WowVision | Speaks the names of creatures and objects in WowVision's navigation in your game language, using Questie's database. |
@@ -81,7 +91,7 @@ Everything in one archive (without the retired addon): [wowvision-forever-addons
 ### For people who work on the addons
 
 - `python tools/build.py` rebuilds the archives in `docs/downloads/` and the catalogue the page reads (`docs/js/data.js`) from `tools/catalog.json` and the `.toc` files. The archives are reproducible.
-- Each addon has offline tests: `lua tests/run.lua` from its folder. Most need a WowVision folder next to the addon (or `WOWVISION_DIR` pointing to one). Test counts in the catalogue are as of 2026-11-11.
+- Each addon has offline tests: `lua tests/run.lua` from its folder. Most need a WowVision folder next to the addon (or `WOWVISION_DIR` pointing to one). Test counts in the catalogue are as of 2026-11-20.
 - The page is plain HTML, CSS and JavaScript in `docs/` (GitHub Pages), with no library and no request leaving the page.
 
 *Not affiliated with or endorsed by Blizzard Entertainment. World of Warcraft is a trademark of Blizzard Entertainment, Inc. This repository uses no Blizzard artwork.*
@@ -95,7 +105,12 @@ Kostenlose Addons für blinde und sehbehinderte Spielerinnen und Spieler von **W
 | Addon | Stand | Was es tut |
 |---|---|---|
 | [RestedXP](addons/WowVision_RestedXP) ([.zip](https://zenqfr.github.io/wowvision-addons/downloads/WowVision_RestedXP.zip)) | aktiv | Macht den RestedXP-Levelguide mit einem Screenreader nutzbar: Menü, Pfeil, Klangsignal, WowVision-Route und Guide-Import. |
-| [Taschen](addons/WowVision_Bags) ([.zip](https://zenqfr.github.io/wowvision-addons/downloads/WowVision_Bags.zip)) | aktiv | Ein Halt „Gegenstandslisten“ in den Taschen von WowVision: neue Gegenstände, Plunder, der beim Händler von selbst verkauft wird, und Favoriten. |
+| [Taschen](addons/WowVision_Bags) ([.zip](https://zenqfr.github.io/wowvision-addons/downloads/WowVision_Bags.zip)) | aktiv | Ein Halt „Gegenstandslisten“ in den Taschen von WowVision: neue Gegenstände und was ein Händler kauft, Plunder, der beim Händler von selbst verkauft wird, und Favoriten. |
+| [Zum Verkauf im Auktionshaus](addons/WowVision_AuctionHints) ([.zip](https://zenqfr.github.io/wowvision-addons/downloads/WowVision_AuctionHints.zip)) | aktiv | Der letzte Halt (Tab) der Taschen listet die ungebundenen Gegenstände auf, die im Auktionshaus mindestens 10 Prozent mehr bringen als beim Händler. |
+| [Buffs und Debuffs](addons/WowVision_Auras) ([.zip](https://zenqfr.github.io/wowvision-addons/downloads/WowVision_Auras.zip)) | aktiv | Hören oder durchsuchen Sie alle Buffs und Debuffs Ihres Charakters mit einer Taste. |
+| [AtlasLoot](addons/WowVision_AtlasLoot) ([.zip](https://zenqfr.github.io/wowvision-addons/downloads/WowVision_AtlasLoot.zip)) | aktiv | Durchsuchen Sie die Beutetabellen von AtlasLoot nach Gehör: Dungeon, Boss, dann die Beute, mit Filtern für das, was Ihre Klasse und Ihre Stufe benutzen können. |
+| [Würfel-Urteil](addons/WowVision_RollJudge) ([.zip](https://zenqfr.github.io/wowvision-addons/downloads/WowVision_RollJudge.zip)) | aktiv | Eine Taste sagt, was Sharpie's Gear Judge vom Gegenstand hält, um den gewürfelt wird: besser oder schlechter, um wie viel Prozent, anstelle wovon. |
+| [Zielrichtung](addons/WowVision_TargetDirection) ([.zip](https://zenqfr.github.io/wowvision-addons/downloads/WowVision_TargetDirection.zip)) | aktiv | Eine Taste sagt, wo Ihr Ziel ist, und startet ein Klangsignal dorthin. |
 | [Questziele](addons/WowVision_QuestTargets) ([.zip](https://zenqfr.github.io/wowvision-addons/downloads/WowVision_QuestTargets.zip)) | aktiv | Anvisiert mit einer einzigen Taste die Kreaturen in deiner Nähe, die deine Quests noch brauchen, die nächste zuerst. |
 | [Gegenstandsvergleich](addons/WowVision_ItemCompare) ([.zip](https://zenqfr.github.io/wowvision-addons/downloads/WowVision_ItemCompare.zip)) | in WowVision übernommen | Pawns Verbesserungszusammenfassung und der Vergleich mit dem angelegten Gegenstand beim Vorlesen der Tooltips von WowVision. |
 | [Lokalisierte Namen](addons/WowVision_LocalizedNames) ([.zip](https://zenqfr.github.io/wowvision-addons/downloads/WowVision_LocalizedNames.zip)) | in WowVision übernommen | Spricht die Namen von Kreaturen und Objekten in der Navigation von WowVision in der Spielsprache, mithilfe der Datenbank von Questie. |
@@ -123,7 +138,7 @@ Alles in einem Archiv (ohne das eingestellte Addon): [wowvision-forever-addons.z
 ### Für alle, die an den Addons arbeiten
 
 - `python tools/build.py` baut die Archive in `docs/downloads/` und den Katalog, den die Seite liest (`docs/js/data.js`), aus `tools/catalog.json` und den `.toc`-Dateien neu. Die Archive sind reproduzierbar.
-- Jedes Addon hat Tests außerhalb des Spiels: `lua tests/run.lua` in seinem Ordner. Die meisten brauchen einen WowVision-Ordner neben dem Addon (oder `WOWVISION_DIR`, der darauf zeigt). Die Testzahlen im Katalog gelten für den 2026-11-11.
+- Jedes Addon hat Tests außerhalb des Spiels: `lua tests/run.lua` in seinem Ordner. Die meisten brauchen einen WowVision-Ordner neben dem Addon (oder `WOWVISION_DIR`, der darauf zeigt). Die Testzahlen im Katalog gelten für den 2026-11-20.
 - Die Seite besteht aus schlichtem HTML, CSS und JavaScript in `docs/` (GitHub Pages), ohne Bibliothek und ohne Anfrage, die die Seite verlässt.
 
 *Nicht mit Blizzard Entertainment verbunden und nicht von ihr unterstützt. World of Warcraft ist eine Marke von Blizzard Entertainment, Inc. Dieses Repository verwendet keine Grafiken von Blizzard.*

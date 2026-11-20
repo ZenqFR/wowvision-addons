@@ -1,0 +1,17 @@
+## Interface: 16001, 120005, 120007
+## Title: WowVision AtlasLoot
+## Title-frFR: WowVision - AtlasLoot
+## Title-deDE: WowVision - AtlasLoot
+## Notes: Browse AtlasLoot with WowVision: pick a category, a dungeon, a boss, then hear its loot, with filters for what your class and your level can use. One key (Alt+L) or /wvloot, and /al when AtlasLoot's own window opens.
+## Notes-frFR: Parcourir AtlasLoot avec WowVision : choisissez une catégorie, un donjon, un boss, puis écoutez son butin, avec des filtres pour ce que votre classe et votre niveau peuvent utiliser. Une touche (Alt+L) ou /wvloot, et /al quand la fenêtre d'AtlasLoot s'ouvre.
+## Notes-deDE: AtlasLoot mit WowVision durchsuchen: Kategorie, Dungeon und Boss wählen und die Beute anhören, mit Filtern für das, was deine Klasse und deine Stufe benutzen können. Eine Taste (Alt+L) oder /wvloot, und /al, wenn sich das Fenster von AtlasLoot öffnet.
+## Version: 0.1.0
+## Dependencies: WowVision
+## OptionalDeps: AtlasLootClassic, AtlasLootContinued
+## SavedVariables: WowVisionAtlasLootDB
+
+Locale.lua
+Game.lua
+Loot.lua
+Screen.lua
+Main.lua

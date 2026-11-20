@@ -125,14 +125,34 @@ local function bagIdOf(itemButton)
 end
 
 -- A slot as the bags read it, with the tags and keys of the marks.
-local function listSlotNode(containers, itemButton)
-    return ns.withDecoration(containers.itemSlotNode, itemButton, function()
-        return containers.getBagItemLabel(itemButton)
-    end, containers.itemClickLabels(itemButton))
+-- A list may say its own sentence for a slot (list.describe(itemButton) answers a function that returns it, or nil
+-- for the bags' own label): the merchant category does, one line per item. The tags of the marks go ahead of it as
+-- they do ahead of any label.
+local function listSlotNode(containers, itemButton, list)
+    local label
+    if list ~= nil and list.describe ~= nil then
+        local ok, described = pcall(list.describe, itemButton)
+        if ok then
+            label = described
+        else
+            report(described)
+        end
+    end
+    if label == nil then
+        label = function()
+            return containers.getBagItemLabel(itemButton)
+        end
+    end
+    return ns.withDecoration(containers.itemSlotNode, itemButton, label, containers.itemClickLabels(itemButton))
 end
 
--- Item Lists: a stop of its own right after the bags, with one category per list (the items the game marks as new,
--- the junk, the favorites...; see Lists.lua). A category reads its name and how many items it holds, opens with
+-- The bags' own label of a slot, for the lists that fall back to it.
+function ns.bagLabel(itemButton)
+    return containersModule().getBagItemLabel(itemButton)
+end
+
+-- Item Lists: a stop of its own right after the bags, with one category per list (the items that are new, the items
+-- for a merchant...; see Lists.lua). A category reads its name and how many items it holds, opens with
 -- Right and closes with Left like the scanner's, and lists the slots the way the bags read them. The same slots
 -- are also in the bags where they sit; here they have control ids of their own. The stop is only there while some
 -- list has something in it.
@@ -166,13 +186,14 @@ function ns.renderLists(builder)
         builder:beginGroup(id, {
             controlType = graph.controlTypes.group,
             announcements = {
-                { text = list.label .. " (" .. #entry.buttons .. ")", kind = graph.kinds.label },
+                -- the name and, unless the list asks not to, how many lines it has: "New Items (1)"
+                { text = list.hideCount and list.label or (list.label .. " (" .. #entry.buttons .. ")"), kind = graph.kinds.label },
             },
         }, nil, list.expanded)
         for _, itemButton in ipairs(entry.buttons) do
             builder:addItem(
                 ControlId.structural("list:" .. list.key .. ":" .. bagIdOf(itemButton) .. ":" .. itemButton:GetID()),
-                listSlotNode(containers, itemButton)
+                listSlotNode(containers, itemButton, list)
             )
         end
         builder:endGroup()

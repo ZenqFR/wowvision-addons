@@ -1,0 +1,18 @@
+## Interface: 16001, 120005, 120007
+## Title: WowVision Auction Hints
+## Title-frFR: WowVision - À vendre à l'hôtel des ventes
+## Title-deDE: WowVision - Zum Verkauf im Auktionshaus
+## Notes: Adds a last stop to WowVision's bags, "For sale at the auction house", listing the unbound items in your bags whose Life on Azeroth Market price is at least 10 percent above what a vendor pays. Each line says the name, the count, the vendor price, the auction house price, the difference in percent and the estimated gain.
+## Notes-frFR: Ajoute un dernier arrêt aux sacs de WowVision, « À vendre à l'hôtel des ventes », qui liste les objets non liés de vos sacs dont le prix de Life on Azeroth Market dépasse d'au moins 10 pour cent ce que paie un marchand. Chaque ligne dit le nom, la quantité, le prix marchand, le prix à l'hôtel des ventes, l'écart en pour cent et le gain estimé.
+## Notes-deDE: Fügt den Taschen von WowVision einen letzten Halt hinzu, „Zum Verkauf im Auktionshaus“, der die ungebundenen Gegenstände in Ihren Taschen auflistet, deren Preis bei Life on Azeroth Market mindestens 10 Prozent über dem liegt, was ein Händler zahlt. Jede Zeile nennt Namen, Anzahl, Händlerpreis, Auktionshauspreis, Unterschied in Prozent und geschätzten Gewinn.
+## Version: 0.1.0
+## Dependencies: WowVision
+## OptionalDeps: WowVision_Bags, LifeOnAzeroth_Market, LifeOnAzeroth_Data
+## SavedVariables: WowVisionAuctionHintsDB
+
+Locale.lua
+Game.lua
+Market.lua
+Hints.lua
+Screen.lua
+Main.lua

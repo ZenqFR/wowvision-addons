@@ -4,12 +4,12 @@ window.WVA = {
   "repoUrl": "https://github.com/ZenqFR/wowvision-addons",
   "site": "https://zenqfr.github.io/wowvision-addons/",
   "wowvision": "https://github.com/wow-vision/WowVision",
-  "testsAsOf": "2026-11-11",
+  "testsAsOf": "2026-11-20",
   "all": {
     "file": "downloads/wowvision-forever-addons.zip",
-    "bytes": 143584,
-    "sha256": "c0bfe424e17093ce0749294f7aae16eaf3ebcdb5364464bf67ae023ddff4fdcc",
-    "count": 8
+    "bytes": 256327,
+    "sha256": "68942ba4924b32c715b5d9c0d985f51da6a6c7672b418e9ee89f5a84d8c18f13",
+    "count": 13
   },
   "addons": [
     {
@@ -213,19 +213,19 @@ window.WVA = {
         "de": "Taschen"
       },
       "tagline": {
-        "en": "An Item Lists stop in WowVision's bags: new items, junk sold by itself at the merchant, and favorites.",
-        "fr": "Un arrêt « Listes d'objets » dans les sacs de WowVision : nouveaux objets, camelote vendue toute seule chez le marchand, et favoris.",
-        "de": "Ein Halt „Gegenstandslisten“ in den Taschen von WowVision: neue Gegenstände, Plunder, der beim Händler von selbst verkauft wird, und Favoriten."
+        "en": "An Item Lists stop in WowVision's bags: new items and what a merchant buys, junk sold by itself at the merchant, and favorites.",
+        "fr": "Un arrêt « Listes d'objets » dans les sacs de WowVision : nouveaux objets et ce que rachète un marchand, camelote vendue toute seule chez le marchand, et favoris.",
+        "de": "Ein Halt „Gegenstandslisten“ in den Taschen von WowVision: neue Gegenstände und was ein Händler kauft, Plunder, der beim Händler von selbst verkauft wird, und Favoriten."
       },
       "description": {
-        "en": "Right after the bags, so opening them lands on their items: New Items (what the game flags, plus what the addon sees arrive by counting each item after every change, such as a quest reward), Junk and Favorites. Shift+Enter marks the item under the cursor as junk, said as \"[Junk]\" before its name and sold by itself when a merchant window opens; Shift+Backspace marks a favorite, never sold. Marks belong to the item, not the slot, and are kept per character.",
-        "fr": "Juste après les sacs, pour qu'en les ouvrant on tombe sur les objets : Nouveaux objets (ce que le jeu signale, plus ce que l'extension voit arriver en comptant chaque objet après chaque changement, comme la récompense d'une quête), Camelote et Favoris. Maj+Entrée marque l'objet sous le curseur comme camelote, dite « [Camelote] » avant son nom et vendue toute seule à l'ouverture d'un marchand ; Maj+Retour arrière marque un favori, jamais vendu. Les marques suivent l'objet, pas l'emplacement, et sont gardées par personnage.",
-        "de": "Direkt nach den Taschen, sodass man beim Öffnen bei den Gegenständen landet: Neue Gegenstände (was das Spiel meldet, dazu was das Addon ankommen sieht, indem es nach jeder Änderung jeden Gegenstand zählt, etwa die Belohnung einer Quest), Plunder und Favoriten. Umschalt+Eingabe markiert den Gegenstand unter dem Cursor als Plunder, gesagt als „[Plunder]“ vor seinem Namen und verkauft, sobald ein Händlerfenster aufgeht; Umschalt+Rücktaste markiert einen Favoriten, der nie verkauft wird. Die Markierungen gehören zum Gegenstand, nicht zum Platz, und gelten pro Charakter."
+        "en": "A stop of its own right after the bags, \"Item Lists\", with two categories: New Items (what the game flags and what the addon sees arrive, such as a quest reward) and For sale to a merchant (what a vendor buys and is not in the auction house tab of WowVision_AuctionHints; bound items, items with no auction price, those under the threshold; one line per item, never a favorite). Shift+Enter marks the item you are on as junk, sold by itself when a merchant window opens; Shift+Backspace marks a favorite, never sold. The tags [Junk] and [Favorite] are said ahead of the name.",
+        "fr": "Un arrêt à part juste après les sacs, « Listes d'objets », avec deux catégories : Nouveaux objets (ce que le jeu signale et ce que l'extension voit arriver, comme la récompense d'une quête) et À vendre au marchand (ce qu'un marchand rachète et qui n'est pas dans l'onglet de l'hôtel des ventes de WowVision_AuctionHints : objets liés, sans prix à l'hôtel des ventes, sous le seuil ; une ligne par objet, jamais un favori). Maj+Entrée marque l'objet où vous êtes comme camelote, vendue toute seule à l'ouverture d'un marchand ; Maj+Retour arrière marque un favori, jamais vendu. Les étiquettes [Camelote] et [Favori] sont dites avant le nom.",
+        "de": "Ein eigener Halt direkt nach den Taschen, „Gegenstandslisten“, mit zwei Kategorien: Neue Gegenstände (was das Spiel meldet und was das Addon ankommen sieht, etwa die Belohnung einer Quest) und Zum Verkauf beim Händler (was ein Händler kauft und nicht im Auktionshaus-Reiter von WowVision_AuctionHints steht: gebundene Gegenstände, solche ohne Auktionshauspreis, solche unter der Schwelle; eine Zeile pro Gegenstand, nie ein Favorit). Umschalt+Eingabe markiert den gewählten Gegenstand als Plunder, der beim Öffnen eines Händlers von selbst verkauft wird; Umschalt+Rücktaste markiert einen Favoriten, der nie verkauft wird. Die Zusätze [Plunder] und [Favorit] werden vor dem Namen gesagt."
       },
       "status": {
-        "en": "The item lists and the junk marks were used in the game while they lived inside WowVision. Favorites and the detection of new arrivals are checked by offline tests only so far. A version of this work is a draft pull request to WowVision.",
-        "fr": "Les listes d'objets et les marques de camelote ont été utilisées en jeu quand elles vivaient dans WowVision. Les favoris et la détection des nouvelles arrivées ne sont vérifiés que par des tests hors jeu pour l'instant. Une version de ce travail est une pull request en brouillon vers WowVision.",
-        "de": "Die Gegenstandslisten und die Plundermarkierungen wurden im Spiel benutzt, als sie noch in WowVision steckten. Favoriten und die Erkennung neuer Gegenstände sind bisher nur durch Tests außerhalb des Spiels geprüft. Eine Fassung dieser Arbeit ist ein Pull-Request-Entwurf für WowVision."
+        "en": "The junk marks were used in the game while they lived inside WowVision. Favorites, the detection of new arrivals and the For sale to a merchant category (added on 2026-11-20, it works with WowVision_AuctionHints) are checked by offline tests only so far. An earlier version of this work is a draft pull request to WowVision.",
+        "fr": "Les marques de camelote ont été utilisées en jeu quand elles vivaient dans WowVision. Les favoris, la détection des nouvelles arrivées et la catégorie À vendre au marchand (ajoutée le 20 novembre 2026, elle marche avec WowVision_AuctionHints) ne sont vérifiés que par des tests hors jeu pour l'instant. Une version antérieure de ce travail est une pull request en brouillon vers WowVision.",
+        "de": "Die Plundermarkierungen wurden im Spiel benutzt, als sie noch in WowVision steckten. Favoriten, die Erkennung neuer Gegenstände und die Kategorie Zum Verkauf beim Händler (am 20.11.2026 hinzugefügt, sie arbeitet mit WowVision_AuctionHints) sind bisher nur durch Tests außerhalb des Spiels geprüft. Eine frühere Fassung dieser Arbeit ist ein Pull-Request-Entwurf für WowVision."
       },
       "note": null,
       "keys": [
@@ -278,29 +278,241 @@ window.WVA = {
         "en": [
           "Item Lists",
           "New Items",
-          "Junk",
-          "Favorites",
+          "For sale to a merchant",
           "[Junk] Linen Cloth",
+          "Linen Cloth, 7 in 2 stacks: vendor 2 Silver each, 14 Silver in all",
           "Linen Cloth: marked as junk",
           "Sold marked junk for 2 silver 35 copper: Linen Cloth."
         ],
         "fr": [
           "Listes d'objets",
           "Nouveaux objets",
-          "Camelote",
-          "Favoris",
+          "À vendre au marchand",
           "[Camelote] Toile de lin",
+          "Toile de lin, 7 au total en 2 piles : marchand 2 Argent l'unité, 14 Argent en tout",
           "Toile de lin : marqué comme camelote",
           "Camelote marquée vendue pour 2 argent 35 cuivre : Toile de lin."
         ],
         "de": [
           "Gegenstandslisten",
           "Neue Gegenstände",
-          "Plunder",
-          "Favoriten",
+          "Zum Verkauf beim Händler",
           "[Plunder] Leinenstoff",
+          "Leinenstoff, 7 insgesamt in 2 Stapeln: Händler 2 Silber pro Stück, 14 Silber insgesamt",
           "Leinenstoff: als Plunder markiert",
           "Markierter Plunder für 2 Silber 35 Kupfer verkauft: Leinenstoff."
+        ]
+      },
+      "requires": [
+        "WowVision"
+      ],
+      "optional": [
+        "WowVision_AuctionHints"
+      ],
+      "mergedPr": null,
+      "version": "0.1.0",
+      "interface": "16001, 120005, 120007",
+      "files": 11,
+      "sourceBytes": 80193,
+      "tests": 131,
+      "zip": {
+        "file": "downloads/WowVision_Bags.zip",
+        "bytes": 30053,
+        "sha256": "a12900916f0c9f099e4469fbad88f98c1bd78fa2afb467fcd1b47772fe8dde64"
+      },
+      "links": {
+        "source": "https://github.com/ZenqFR/wowvision-addons/tree/main/addons/WowVision_Bags",
+        "readme": "https://github.com/ZenqFR/wowvision-addons/blob/main/addons/WowVision_Bags/README.md"
+      }
+    },
+    {
+      "id": "WowVision_AuctionHints",
+      "group": "active",
+      "icon": "coin",
+      "featured": false,
+      "title": {
+        "en": "Auction Hints",
+        "fr": "À vendre à l'hôtel des ventes",
+        "de": "Zum Verkauf im Auktionshaus"
+      },
+      "tagline": {
+        "en": "The last Tab stop of the bags lists the unbound items that sell for at least 10 percent more at the auction house than to a vendor.",
+        "fr": "Le dernier arrêt (Tab) des sacs liste les objets non liés qui se vendent au moins 10 pour cent plus cher à l'hôtel des ventes que chez un marchand.",
+        "de": "Der letzte Halt (Tab) der Taschen listet die ungebundenen Gegenstände auf, die im Auktionshaus mindestens 10 Prozent mehr bringen als beim Händler."
+      },
+      "description": {
+        "en": "From the prices of Life on Azeroth Market (its last price list), one line per item with the total quantity, the vendor price, the auction house price each and in all, the difference in percent and the estimated gain. The auction house's cut (5 percent, 15 at Blackwater) is taken off by default and the summary says so. Nothing bound is ever listed (several checks must all say not bound), nor anything damaged. The summary gives the date and age of the price list. The same classification gives WowVision_Bags its \"For sale to a merchant\" category: an item is in one list or the other, never both. /wvhdv says why an item is not in the list.",
+        "fr": "D'après les prix de Life on Azeroth Market (son dernier relevé), une ligne par objet avec la quantité totale, le prix marchand, le prix à l'hôtel des ventes à l'unité et en tout, l'écart en pour cent et le gain estimé. La commission de l'hôtel des ventes (5 pour cent, 15 à Blackwater) est déduite par défaut et le résumé le dit. Aucun objet lié n'est jamais listé (plusieurs contrôles doivent tous dire « pas lié »), ni aucun objet abîmé. Le résumé donne la date et l'ancienneté du relevé. Le même classement donne à WowVision_Bags sa catégorie « À vendre au marchand » : un objet est dans l'une ou l'autre liste, jamais dans les deux. /wvhdv dit pourquoi un objet n'est pas dans la liste.",
+        "de": "Nach den Preisen von Life on Azeroth Market (seiner letzten Preisliste), eine Zeile pro Gegenstand mit der Gesamtmenge, dem Händlerpreis, dem Auktionshauspreis pro Stück und insgesamt, dem Unterschied in Prozent und dem geschätzten Gewinn. Die Provision des Auktionshauses (5 Prozent, 15 bei Blackwater) wird standardmäßig abgezogen, und die Zusammenfassung sagt es. Nichts Gebundenes wird je aufgelistet (mehrere Prüfungen müssen alle „nicht gebunden“ sagen), ebenso nichts Beschädigtes. Die Zusammenfassung nennt Datum und Alter der Preisliste. Dieselbe Einordnung gibt WowVision_Bags seine Kategorie „Zum Verkauf beim Händler“: ein Gegenstand steht in der einen oder der anderen Liste, nie in beiden. /wvhdv sagt, warum ein Gegenstand nicht in der Liste steht."
+      },
+      "status": {
+        "en": "The last stop of the bags was tried in the game and works. The \"For sale to a merchant\" category (in WowVision_Bags) and the setting that takes the auction house's cut off have not been tried in the game yet.",
+        "fr": "Le dernier arrêt des sacs a été essayé en jeu et marche. La catégorie « À vendre au marchand » (dans WowVision_Bags) et le réglage de la commission de l'hôtel des ventes n'ont pas encore été essayés en jeu.",
+        "de": "Der letzte Halt der Taschen wurde im Spiel ausprobiert und funktioniert. Die Kategorie „Zum Verkauf beim Händler“ (in WowVision_Bags) und die Einstellung für die Provision des Auktionshauses wurden im Spiel noch nicht ausprobiert."
+      },
+      "note": null,
+      "keys": [
+        {
+          "keys": {
+            "en": "Tab",
+            "fr": "Tab",
+            "de": "Tab"
+          },
+          "does": {
+            "en": "reach the last stop of the bags, \"For sale at the auction house\"",
+            "fr": "atteindre le dernier arrêt des sacs, « À vendre à l'hôtel des ventes »",
+            "de": "den letzten Halt der Taschen erreichen, „Zum Verkauf im Auktionshaus“"
+          }
+        }
+      ],
+      "commands": {
+        "en": [
+          "/wvhdv",
+          "/wvhdv fees off",
+          "/wvhdv fees on"
+        ],
+        "fr": [
+          "/wvhdv",
+          "/wvhdv frais non",
+          "/wvhdv frais oui"
+        ],
+        "de": [
+          "/wvhdv",
+          "/wvhdv gebuehren nein",
+          "/wvhdv gebuehren ja"
+        ]
+      },
+      "preview": {
+        "en": [
+          "For sale at the auction house: 2 items sell for at least 10 percent more at the auction house than to a vendor.",
+          "Linen Cloth, 14 in 3 stacks: vendor 2 Silver each, auction house 50 Silver each, 7 Gold in all, 2275 percent more after the cut, estimated gain 6 Gold 37 Silver",
+          "Estimated gain 9 Gold 65 Silver, after the auction house's cut of 5 percent."
+        ],
+        "fr": [
+          "À vendre à l'hôtel des ventes : 2 objets se vendent au moins 10 pour cent plus cher à l'hôtel des ventes que chez un marchand.",
+          "Toile de lin, 14 au total en 3 piles : marchand 2 Argent l'unité, hôtel des ventes 50 Argent l'unité, 7 Or en tout, plus 2275 pour cent après commission, gain estimé 6 Or 37 Argent",
+          "Gain estimé 9 Or 65 Argent, après la commission de 5 pour cent de l'hôtel des ventes."
+        ],
+        "de": [
+          "Zum Verkauf im Auktionshaus: 2 Gegenstände bringen im Auktionshaus mindestens 10 Prozent mehr als beim Händler.",
+          "Leinenstoff, 14 insgesamt in 3 Stapeln: Händler 2 Silber pro Stück, Auktionshaus 50 Silber pro Stück, 7 Gold insgesamt, 2275 Prozent mehr nach Provision, geschätzter Gewinn 6 Gold 37 Silber",
+          "Geschätzter Gewinn 9 Gold 65 Silber, nach Abzug der Provision des Auktionshauses von 5 Prozent."
+        ]
+      },
+      "requires": [
+        "WowVision"
+      ],
+      "optional": [
+        "WowVision_Bags",
+        "LifeOnAzeroth_Market",
+        "LifeOnAzeroth_Data"
+      ],
+      "mergedPr": null,
+      "version": "0.1.0",
+      "interface": "16001, 120005, 120007",
+      "files": 8,
+      "sourceBytes": 83711,
+      "tests": 99,
+      "zip": {
+        "file": "downloads/WowVision_AuctionHints.zip",
+        "bytes": 29683,
+        "sha256": "a944344e812766da1b0f9d537332219b339dc03b3cc9d603f39d0c977326a113"
+      },
+      "links": {
+        "source": "https://github.com/ZenqFR/wowvision-addons/tree/main/addons/WowVision_AuctionHints",
+        "readme": "https://github.com/ZenqFR/wowvision-addons/blob/main/addons/WowVision_AuctionHints/README.md"
+      }
+    },
+    {
+      "id": "WowVision_Auras",
+      "group": "active",
+      "icon": "spark",
+      "featured": false,
+      "title": {
+        "en": "Auras",
+        "fr": "Améliorations et affaiblissements",
+        "de": "Buffs und Debuffs"
+      },
+      "tagline": {
+        "en": "Hear or browse every buff and debuff on your character with one key.",
+        "fr": "Écoutez ou parcourez toutes les améliorations et tous les affaiblissements de votre personnage avec une touche.",
+        "de": "Hören oder durchsuchen Sie alle Buffs und Debuffs Ihres Charakters mit einer Taste."
+      },
+      "description": {
+        "en": "Alt+Ctrl+B says everything: the buffs, then the debuffs, each with its stacks, time left and, for a debuff, its dispel type. Alt+Shift+B opens a list: Tab goes from the buffs to the debuffs, Space reads the description of the aura you are on, Escape closes. It uses WowVision's own Aura buffer, which reads auras even under the game's secret values in combat; two private buffers are made for it, never saved among yours.",
+        "fr": "Alt+Ctrl+B dit tout : les améliorations, puis les affaiblissements, chacun avec ses cumuls, son temps restant et, pour un affaiblissement, son type de dissipation. Alt+Maj+B ouvre une liste : Tab passe des améliorations aux affaiblissements, Espace lit la description de l'aura où vous êtes, Échap ferme. Elle se sert du tampon d'auras de WowVision, qui lit les auras même sous les valeurs secrètes du jeu en combat ; deux tampons privés sont faits pour elle, jamais enregistrés parmi les vôtres.",
+        "de": "Alt+Strg+B sagt alles: die Buffs, dann die Debuffs, jeweils mit Stapeln, Restzeit und bei einem Debuff der Bannart. Alt+Umschalt+B öffnet eine Liste: Tab wechselt von den Buffs zu den Debuffs, die Leertaste liest die Beschreibung der gewählten Aura, Esc schließt. Sie nutzt den Auren-Puffer von WowVision, der Auren auch unter den geheimen Werten des Spiels im Kampf liest; dafür werden zwei private Puffer angelegt, nie unter Ihren gespeichert."
+      },
+      "status": {
+        "en": "Tried in the game: it works. Not checked yet in combat, where the time left and the stacks depend on what the game lets be read (an unreadable value is said as unavailable, never guessed).",
+        "fr": "Essayée en jeu : elle marche. Pas encore vérifiée en combat, où le temps restant et les cumuls dépendent de ce que le jeu laisse lire (une valeur illisible est dite indisponible, jamais devinée).",
+        "de": "Im Spiel ausprobiert: Es funktioniert. Im Kampf noch nicht geprüft, wo Restzeit und Stapel davon abhängen, was das Spiel lesen lässt (ein nicht lesbarer Wert wird als nicht verfügbar gesagt, nie geraten)."
+      },
+      "note": null,
+      "keys": [
+        {
+          "keys": {
+            "en": "Alt+Ctrl+B",
+            "fr": "Alt+Ctrl+B",
+            "de": "Alt+Strg+B"
+          },
+          "does": {
+            "en": "say every buff and debuff",
+            "fr": "dire toutes les améliorations et tous les affaiblissements",
+            "de": "alle Buffs und Debuffs sagen"
+          }
+        },
+        {
+          "keys": {
+            "en": "Alt+Shift+B",
+            "fr": "Alt+Maj+B",
+            "de": "Alt+Umschalt+B"
+          },
+          "does": {
+            "en": "open the list of auras",
+            "fr": "ouvrir la liste des auras",
+            "de": "die Liste der Auren öffnen"
+          }
+        }
+      ],
+      "commands": {
+        "en": [
+          "/wvauras",
+          "/wvauras say",
+          "/wvauras count"
+        ],
+        "fr": [
+          "/wvauras",
+          "/wvauras dire",
+          "/wvauras nombre"
+        ],
+        "de": [
+          "/wvauren",
+          "/wvauren sagen",
+          "/wvauren anzahl"
+        ]
+      },
+      "preview": {
+        "en": [
+          "Player Buffs: 2.",
+          "Power Word: Fortitude, 59 minutes remaining",
+          "Renew, 2 stacks, 12 seconds remaining",
+          "Player Debuffs: 1.",
+          "Deadly Poison, 8 seconds remaining, Poison"
+        ],
+        "fr": [
+          "Améliorations du joueur : 2.",
+          "Mot de pouvoir : Robustesse, 59 minutes restantes",
+          "Rénovation, 2 cumuls, 12 secondes restantes",
+          "Affaiblissements du joueur : 1.",
+          "Poison mortel, 8 secondes restantes, Poison"
+        ],
+        "de": [
+          "Spieler-Buffs: 2.",
+          "Machtwort: Seelenstärke, 59 Minuten verbleibend",
+          "Erneuerung, 2 Stapel, 12 Sekunden verbleibend",
+          "Spieler-Debuffs: 1.",
+          "Tödliches Gift, 8 Sekunden verbleibend, Gift"
         ]
       },
       "requires": [
@@ -310,17 +522,301 @@ window.WVA = {
       "mergedPr": null,
       "version": "0.1.0",
       "interface": "16001, 120005, 120007",
-      "files": 10,
-      "sourceBytes": 68980,
-      "tests": 115,
+      "files": 7,
+      "sourceBytes": 28165,
+      "tests": 43,
       "zip": {
-        "file": "downloads/WowVision_Bags.zip",
-        "bytes": 25617,
-        "sha256": "d764958e79a5a75cd56568fba3c251523e405ba3a22516f26dcdfeb2cce182a9"
+        "file": "downloads/WowVision_Auras.zip",
+        "bytes": 13220,
+        "sha256": "2e10c7be97c9364a25603c2b842170e01a42e6a9051bd79e57b8c60b1f2a5db2"
       },
       "links": {
-        "source": "https://github.com/ZenqFR/wowvision-addons/tree/main/addons/WowVision_Bags",
-        "readme": "https://github.com/ZenqFR/wowvision-addons/blob/main/addons/WowVision_Bags/README.md"
+        "source": "https://github.com/ZenqFR/wowvision-addons/tree/main/addons/WowVision_Auras",
+        "readme": "https://github.com/ZenqFR/wowvision-addons/blob/main/addons/WowVision_Auras/README.md"
+      }
+    },
+    {
+      "id": "WowVision_AtlasLoot",
+      "group": "active",
+      "icon": "scroll",
+      "featured": false,
+      "title": {
+        "en": "AtlasLoot",
+        "fr": "AtlasLoot",
+        "de": "AtlasLoot"
+      },
+      "tagline": {
+        "en": "Browse AtlasLoot's loot tables by ear: dungeon, boss, then the loot, with filters for what your class and level can use.",
+        "fr": "Parcourez les tables de butin d'AtlasLoot à l'oreille : donjon, boss, puis le butin, avec des filtres pour ce que votre classe et votre niveau peuvent utiliser.",
+        "de": "Durchsuchen Sie die Beutetabellen von AtlasLoot nach Gehör: Dungeon, Boss, dann die Beute, mit Filtern für das, was Ihre Klasse und Ihre Stufe benutzen können."
+      },
+      "description": {
+        "en": "AtlasLoot's window is drawn by hand, so WowVision cannot read it. This addon reads AtlasLoot's loot tables and shows them as a WowVision screen: pick a category, a dungeon or raid, a boss, and hear its loot. Enter goes down, Escape goes up, Space reads the whole tooltip. Filters keep what your class can use (by level too: leather before 40 for a hunter), the kinds of items you pick, and the upgrades according to Pawn or Sharpie's Gear Judge. A whole-dungeon list and a search by name are there too.",
+        "fr": "La fenêtre d'AtlasLoot est dessinée sur mesure, WowVision ne peut pas la lire. Cette extension lit les tables de butin d'AtlasLoot et les présente dans un écran WowVision : on choisit une catégorie, un donjon ou un raid, un boss, et on entend son butin. Entrée descend, Échap remonte, Espace lit l'infobulle complète. Des filtres gardent ce que votre classe peut utiliser (selon le niveau aussi : du cuir avant 40 pour un chasseur), les types d'objets choisis, et les améliorations selon Pawn ou Sharpie's Gear Judge. Une liste de tout le donjon et une recherche par nom existent aussi.",
+        "de": "Das Fenster von AtlasLoot ist von Hand gezeichnet, WowVision kann es nicht lesen. Dieses Addon liest die Beutetabellen von AtlasLoot und zeigt sie als WowVision-Bildschirm: Kategorie, Dungeon oder Schlachtzug, Boss wählen und die Beute hören. Eingabe geht hinunter, Esc hinauf, die Leertaste liest den ganzen Tooltip. Filter behalten, was Ihre Klasse benutzen kann (auch nach Stufe: Leder vor 40 für einen Jäger), die gewählten Gegenstandsarten und die Verbesserungen laut Pawn oder Sharpie's Gear Judge. Eine Liste des ganzen Dungeons und eine Suche nach Namen gibt es auch."
+      },
+      "status": {
+        "en": "Used in the game: it works. The latest addition, the upgrades filter judged by Sharpie's Gear Judge, has not been tried in the game yet.",
+        "fr": "Utilisée en jeu : elle marche. La dernière nouveauté, le filtre des améliorations jugées par Sharpie's Gear Judge, n'a pas encore été essayée en jeu.",
+        "de": "Im Spiel benutzt: Es funktioniert. Die neueste Ergänzung, der Verbesserungsfilter nach Sharpie's Gear Judge, wurde im Spiel noch nicht ausprobiert."
+      },
+      "note": null,
+      "keys": [
+        {
+          "keys": {
+            "en": "Alt+L",
+            "fr": "Alt+L",
+            "de": "Alt+L"
+          },
+          "does": {
+            "en": "open or close the loot browser",
+            "fr": "ouvrir ou fermer le navigateur de butin",
+            "de": "den Beutebrowser öffnen oder schließen"
+          }
+        }
+      ],
+      "commands": {
+        "en": [
+          "/wvloot",
+          "/wvloot help",
+          "/al"
+        ],
+        "fr": [
+          "/wvloot",
+          "/wvloot aide",
+          "/al"
+        ],
+        "de": [
+          "/wvbeute",
+          "/wvbeute hilfe",
+          "/al"
+        ]
+      },
+      "preview": {
+        "en": [
+          "Dungeons and Raids",
+          "Rhahk'Zor's Hammer, Rare, Two-Hand, Two-Handed Maces, item level 19, level 15 required, 12.5 percent chance to drop"
+        ],
+        "fr": [
+          "Donjons et raids",
+          "Marteau de Rhahk'Zor, Rare, À deux mains, Masses à deux mains, niveau d'objet 19, niveau 15 requis, 12,5 pour cent de chances de tomber"
+        ],
+        "de": [
+          "Dungeons und Schlachtzüge",
+          "Rhahk'Zors Hammer, Selten, Zweihändig, Zweihandstreitkolben, Gegenstandsstufe 19, Stufe 15 erforderlich, 12,5 Prozent Beutechance"
+        ]
+      },
+      "requires": [
+        "WowVision"
+      ],
+      "optional": [
+        "AtlasLootContinued",
+        "AtlasLootClassic"
+      ],
+      "mergedPr": null,
+      "version": "0.1.0",
+      "interface": "16001, 120005, 120007",
+      "files": 7,
+      "sourceBytes": 140544,
+      "tests": 234,
+      "zip": {
+        "file": "downloads/WowVision_AtlasLoot.zip",
+        "bytes": 41596,
+        "sha256": "b8f516d539e7ee01d31fb41ba9f80871d07cbdbb4bba88a18cba9f565318c8b0"
+      },
+      "links": {
+        "source": "https://github.com/ZenqFR/wowvision-addons/tree/main/addons/WowVision_AtlasLoot",
+        "readme": "https://github.com/ZenqFR/wowvision-addons/blob/main/addons/WowVision_AtlasLoot/README.md"
+      }
+    },
+    {
+      "id": "WowVision_RollJudge",
+      "group": "active",
+      "icon": "scales",
+      "featured": false,
+      "title": {
+        "en": "Roll Judge",
+        "fr": "Avis sur les jets",
+        "de": "Würfel-Urteil"
+      },
+      "tagline": {
+        "en": "One key says what Sharpie's Gear Judge thinks of the item up for a loot roll: better or worse, by how many percent, instead of what.",
+        "fr": "Une touche dit ce que Sharpie's Gear Judge pense de l'objet proposé au jet de butin : mieux ou moins bien, de combien de pour cent, à la place de quoi.",
+        "de": "Eine Taste sagt, was Sharpie's Gear Judge vom Gegenstand hält, um den gewürfelt wird: besser oder schlechter, um wie viel Prozent, anstelle wovon."
+      },
+      "description": {
+        "en": "In a dungeon, when an item is up for a roll (Need, Greed, Pass), one key says what the Gear Judge thinks of it for your character: whether it improves what you wear, by how many percent, and instead of which item. The numbers are the ones in the Gear Judge's own tooltip. A second action, with no key by default, says it for every item up for a roll. Alt+T is WowVision's target menu, which is why the default is Alt+Ctrl+J: free, and next to WowVision's roll keys.",
+        "fr": "En donjon, quand un objet est proposé au jet (Besoin, Cupidité, Passer), une touche dit ce que le Gear Judge en pense pour votre personnage : s'il améliore ce que vous portez, de combien de pour cent, et à la place de quel objet. Les chiffres sont ceux de l'infobulle du Gear Judge. Une seconde action, sans touche par défaut, le dit pour tous les objets proposés. Alt+T est le menu de la cible de WowVision, d'où Alt+Ctrl+J par défaut : libre, et à côté des touches de jet de WowVision.",
+        "de": "Im Dungeon, wenn um einen Gegenstand gewürfelt wird (Bedarf, Gier, Passen), sagt eine Taste, was der Gear Judge für Ihren Charakter davon hält: ob er verbessert, was Sie tragen, um wie viel Prozent und anstelle welches Gegenstands. Die Zahlen sind die aus dem Tooltip des Gear Judge. Eine zweite Aktion, standardmäßig ohne Taste, sagt es für alle Gegenstände, um die gewürfelt wird. Alt+T ist das Zielmenü von WowVision, daher standardmäßig Alt+Strg+J: frei und neben den Würfeltasten von WowVision."
+      },
+      "status": {
+        "en": "Not tried in the game yet: the offline tests simulate the roll windows and the Gear Judge (whose public interface was read, but not run).",
+        "fr": "Pas encore essayée en jeu : les tests hors jeu simulent les fenêtres de jet et le Gear Judge (dont l'interface publique a été lue, mais pas exécutée).",
+        "de": "Im Spiel noch nicht ausprobiert: Die Tests außerhalb des Spiels simulieren die Würfelfenster und den Gear Judge (dessen öffentliche Schnittstelle gelesen, aber nicht ausgeführt wurde)."
+      },
+      "note": null,
+      "keys": [
+        {
+          "keys": {
+            "en": "Alt+Ctrl+J",
+            "fr": "Alt+Ctrl+J",
+            "de": "Alt+Strg+J"
+          },
+          "does": {
+            "en": "say the Gear Judge's verdict on the item up for a roll",
+            "fr": "dire l'avis du Gear Judge sur l'objet proposé au jet",
+            "de": "das Urteil des Gear Judge zum Gegenstand sagen, um den gewürfelt wird"
+          }
+        }
+      ],
+      "commands": {
+        "en": [
+          "/wvjudge",
+          "/wvjudge all",
+          "/wvjudge help"
+        ],
+        "fr": [
+          "/wvjuge",
+          "/wvjuge tout",
+          "/wvjuge aide"
+        ],
+        "de": [
+          "/wvurteil",
+          "/wvurteil alle",
+          "/wvurteil hilfe"
+        ]
+      },
+      "preview": {
+        "en": [
+          "Lion Ring, upgrade of 4.2 percent, instead of Old Ring",
+          "Raid Blade, downgrade of 3.1 percent, instead of Worn Sword",
+          "Lion Ring, no change, instead of Old Ring",
+          "Helmet, your class cannot use it"
+        ],
+        "fr": [
+          "Bague du lion, amélioration de 4,2 pour cent, à la place de Vieille bague",
+          "Lame de raid, régression de 3,1 pour cent, à la place de Épée usée",
+          "Bague du lion, aucun changement, à la place de Vieille bague",
+          "Casque, votre classe ne peut pas l'utiliser"
+        ],
+        "de": [
+          "Löwenring, Aufwertung um 4,2 Prozent, anstelle von Alter Ring",
+          "Schlachtzugsklinge, Verschlechterung um 3,1 Prozent, anstelle von Abgenutztes Schwert",
+          "Löwenring, keine Änderung, anstelle von Alter Ring",
+          "Helm, Ihre Klasse kann ihn nicht benutzen"
+        ]
+      },
+      "requires": [
+        "WowVision"
+      ],
+      "optional": [
+        "SharpiesGearJudge"
+      ],
+      "mergedPr": null,
+      "version": "0.1.0",
+      "interface": "16001, 120005, 120007",
+      "files": 5,
+      "sourceBytes": 28624,
+      "tests": 40,
+      "zip": {
+        "file": "downloads/WowVision_RollJudge.zip",
+        "bytes": 12536,
+        "sha256": "032722b72e8809b71ab57647820cf186010d941fef30a148c4b9e389e9c5d4c8"
+      },
+      "links": {
+        "source": "https://github.com/ZenqFR/wowvision-addons/tree/main/addons/WowVision_RollJudge",
+        "readme": "https://github.com/ZenqFR/wowvision-addons/blob/main/addons/WowVision_RollJudge/README.md"
+      }
+    },
+    {
+      "id": "WowVision_TargetDirection",
+      "group": "active",
+      "icon": "compass",
+      "featured": false,
+      "title": {
+        "en": "Target Direction",
+        "fr": "Direction de la cible",
+        "de": "Zielrichtung"
+      },
+      "tagline": {
+        "en": "One key says where your target is and starts a sound beacon toward it.",
+        "fr": "Une touche dit où est votre cible et lance une balise sonore vers elle.",
+        "de": "Eine Taste sagt, wo Ihr Ziel ist, und startet ein Klangsignal dorthin."
+      },
+      "description": {
+        "en": "Ctrl+C says where your target is (name, distance, direction) and starts a WowVision sound beacon toward it. Again on the same target stops it; another target aims it at the new one. The game hides the real position of almost every creature, so the position comes from WowVision's own finder: a group or raid member's real position, live, or the nearest known spot of a creature that WowNav knows.",
+        "fr": "Ctrl+C dit où est votre cible (nom, distance, direction) et lance une balise sonore WowVision vers elle. Encore sur la même cible : elle s'arrête ; une autre cible : elle vise la nouvelle. Le jeu cache la vraie position de presque toute créature : la position vient donc du chercheur de WowVision lui-même, la vraie position d'un membre du groupe ou du raid, en direct, ou l'endroit connu le plus proche d'une créature que WowNav connaît.",
+        "de": "Strg+C sagt, wo Ihr Ziel ist (Name, Entfernung, Richtung), und startet ein Klangsignal von WowVision dorthin. Nochmal auf dasselbe Ziel beendet es; ein anderes Ziel richtet es neu aus. Das Spiel verbirgt die wahre Position fast jeder Kreatur, daher kommt die Position vom Zielfinder von WowVision selbst: die wahre Position eines Gruppen- oder Schlachtzugsmitglieds, live, oder die nächste bekannte Stelle einer Kreatur, die WowNav kennt."
+      },
+      "status": {
+        "en": "Not tried in the game yet: the offline tests simulate the game and WowVision's maps (WowVision's own target finder and input manager are the real ones).",
+        "fr": "Pas encore essayée en jeu : les tests hors jeu simulent le jeu et les cartes de WowVision (le chercheur de cible et le gestionnaire de touches de WowVision sont les vrais).",
+        "de": "Im Spiel noch nicht ausprobiert: Die Tests außerhalb des Spiels simulieren das Spiel und die Karten von WowVision (Zielfinder und Tastenmanager von WowVision sind die echten)."
+      },
+      "note": null,
+      "keys": [
+        {
+          "keys": {
+            "en": "Ctrl+C",
+            "fr": "Ctrl+C",
+            "de": "Strg+C"
+          },
+          "does": {
+            "en": "say where the target is and start or stop the sound beacon",
+            "fr": "dire où est la cible et lancer ou arrêter la balise sonore",
+            "de": "sagen, wo das Ziel ist, und das Klangsignal starten oder beenden"
+          }
+        }
+      ],
+      "commands": {
+        "en": [
+          "/wvtarget",
+          "/wvtarget say",
+          "/wvtarget stop"
+        ],
+        "fr": [
+          "/wvcible",
+          "/wvcible dire",
+          "/wvcible stop"
+        ],
+        "de": [
+          "/wvziel",
+          "/wvziel sagen",
+          "/wvziel stopp"
+        ]
+      },
+      "preview": {
+        "en": [
+          "Lazy Peon, 50 yards, ahead left",
+          "Guidance stopped"
+        ],
+        "fr": [
+          "Péon fainéant, 50 mètres, devant à gauche",
+          "Guidage arrêté"
+        ],
+        "de": [
+          "Fauler Peon, 50 Meter, voraus links",
+          "Führung beendet"
+        ]
+      },
+      "requires": [
+        "WowVision"
+      ],
+      "optional": [],
+      "mergedPr": null,
+      "version": "0.1.0",
+      "interface": "16001, 120005, 120007",
+      "files": 5,
+      "sourceBytes": 25022,
+      "tests": 31,
+      "zip": {
+        "file": "downloads/WowVision_TargetDirection.zip",
+        "bytes": 11382,
+        "sha256": "28f0bad5cc75d39d7019e46aa2b9978c9a48e643a27533cc1706818e9c3dac87"
+      },
+      "links": {
+        "source": "https://github.com/ZenqFR/wowvision-addons/tree/main/addons/WowVision_TargetDirection",
+        "readme": "https://github.com/ZenqFR/wowvision-addons/blob/main/addons/WowVision_TargetDirection/README.md"
       }
     },
     {

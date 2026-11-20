@@ -1,9 +1,11 @@
--- The lists of items the bags offer as categories of one stop, "Item Lists", ahead of the bags: the items the
--- game marks as new, the items the player marked as junk or as favorites, and whatever else registers.
+-- The lists of items the bags offer as categories of one stop, "Item Lists", after the bags: the items the game
+-- marks as new (NewItems.lua), the items for a merchant (Merchant.lua), and whatever else registers.
 --
--- A list is { key, label, order, expanded, select, reset }: select(buttons) answers the slots of the list out of
--- all the bag slots given (bag by bag, slots ascending), and reset() is called when the bags close. A list with
--- nothing in it is not shown; expanded makes it start open each time the bags open.
+-- A list is { key, label, order, expanded, select, reset, describe, hideCount }: select(buttons) answers the slots of the list out
+-- of all the bag slots given (bag by bag, slots ascending), and reset() is called when the bags close. A list with
+-- nothing in it is not shown; expanded makes it start open each time the bags open. describe(button), optional,
+-- answers a function that returns what is said for that slot (nil: the bags' own label), for a list whose line is
+-- not a slot but an item with several stacks; hideCount says the name alone, without "(how many)".
 local _, ns = ...
 local bagLists = { lists = {}, seeded = {}, reported = {} }
 ns.lists = bagLists

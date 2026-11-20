@@ -1,0 +1,13 @@
+## Interface: 16001, 120005, 120007
+## Title: WowVision Target Direction
+## Title-frFR: WowVision - Direction de la cible
+## Title-deDE: WowVision - Richtung des Ziels
+## Notes: One key (Ctrl+C) says where your target is (distance and direction) and starts a sound beacon toward it; press it again on the same target to stop. Works for a group member (live) and for any creature WowNav knows.
+## Notes-frFR: Une touche (Ctrl+C) dit où est votre cible (distance et direction) et lance une balise sonore vers elle ; appuyez encore sur la même cible pour l'arrêter. Marche pour un membre du groupe (en direct) et pour toute créature que WowNav connaît.
+## Notes-deDE: Eine Taste (Strg+C) sagt, wo dein Ziel ist (Entfernung und Richtung), und startet ein Klangsignal dorthin; nochmal auf dasselbe Ziel drücken beendet es. Funktioniert für ein Gruppenmitglied (live) und für jede Kreatur, die WowNav kennt.
+## Version: 0.1.0
+## Dependencies: WowVision
+
+Locale.lua
+Target.lua
+Main.lua

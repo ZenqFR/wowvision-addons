@@ -104,8 +104,9 @@
     $('download-all').setAttribute('aria-label', T('hero.all') + ' (' + size(DATA.all.bytes) + ')');
     $('all-note').textContent = T('hero.allnote', { n: DATA.all.count, size: size(DATA.all.bytes) });
     var tests = 0;
-    DATA.addons.forEach(function (addon) { tests += addon.tests || 0; });
-    $('stat-addons').textContent = String(DATA.addons.length);
+    var usable = DATA.addons.filter(function (addon) { return addon.group !== 'retired'; });
+    usable.forEach(function (addon) { tests += addon.tests || 0; });
+    $('stat-addons').textContent = String(usable.length);
     $('stat-tests').textContent = number(tests);
     $('wowvision-link').setAttribute('href', DATA.wowvision);
     $('repo-link').setAttribute('href', DATA.repoUrl);

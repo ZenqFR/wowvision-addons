@@ -88,7 +88,7 @@ end
 
 -- ------------------------------------------------------------- the addon
 
-local FILES = { "Locale", "Store", "Lists", "NewItems", "Marks", "Features", "Hooks", "Main" }
+local FILES = { "Locale", "Store", "Lists", "NewItems", "Marks", "Features", "Merchant", "Hooks", "Main" }
 
 -- A fresh copy of the addon: every file loaded in toc order into a new namespace. upTo stops after that file.
 local function loadAddon(upTo)
@@ -193,6 +193,59 @@ local function newWorld(config)
             }
         end
         return buttons[key]
+    end
+
+    WowVisionAuctionHints = nil
+    -- A stand-in for WowVision_AuctionHints' answer: world.vendor["bag:slot"] = "vendor" or "auction" says where a
+    -- slot belongs (anything else: neither). Installed by the tests that need it.
+    function world.installHints()
+        world.vendor = {}
+        world.partitionCalls = 0
+        WowVisionAuctionHints = {
+            version = 2,
+            partition = function(positions)
+                world.partitionCalls = world.partitionCalls + 1
+                world.partitioned = positions
+                if world.partitionNil then
+                    return nil
+                end
+                local answer = { auction = {}, merchant = {}, merchantLines = {} }
+                local byItem = {}
+                for _, position in ipairs(positions) do
+                    local key = position.bag .. ":" .. position.slot
+                    local kind = world.vendor[key]
+                    if kind == "auction" then
+                        tinsert(answer.auction, position)
+                    elseif kind == "vendor" then
+                        tinsert(answer.merchant, position)
+                        -- one line per item, as WowVision_AuctionHints makes them
+                        local info = world.items[key]
+                        local line = byItem[info.itemID]
+                        if line == nil then
+                            line = {
+                                itemID = info.itemID,
+                                name = info.itemName,
+                                count = 0,
+                                bag = position.bag,
+                                slot = position.slot,
+                                button = position.button,
+                                piles = {},
+                            }
+                            byItem[info.itemID] = line
+                            tinsert(answer.merchantLines, line)
+                        end
+                        line.count = line.count + info.stackCount
+                        tinsert(line.piles, { bag = position.bag, slot = position.slot, count = info.stackCount, button = position.button })
+                    end
+                end
+                for _, line in ipairs(answer.merchantLines) do
+                    line.stacks = #line.piles
+                    line.text = line.stacks > 1 and (line.name .. ", " .. line.count .. " in " .. line.stacks .. " stacks")
+                        or (line.count > 1 and (line.name .. ", " .. line.count) or line.name)
+                end
+                return answer
+            end,
+        }
     end
 
     GetLocale = function()
@@ -517,6 +570,21 @@ end
 
 -- ------------------------------------------------------------------ tests
 
+runner:addSuite("Toc", {
+    ["the .toc lists the files the tests load, in the same order"] = function(t)
+        local file = assert(io.open(addonDir .. "/WowVision_Bags.toc", "rb"))
+        local listed = {}
+        for line in file:read("a"):gmatch("[^\r\n]+") do
+            local name = line:match("^([%w_]+)%.lua$")
+            if name ~= nil then
+                tinsert(listed, name)
+            end
+        end
+        file:close()
+        t:assertEqual(table.concat(listed, ","), table.concat(FILES, ","))
+    end,
+})
+
 runner:addSuite("Install", {
     ["the four hooks install"] = function(t)
         local world = newWorld()
@@ -725,29 +793,69 @@ runner:addSuite("Item Lists", {
         t:assertFalse(contains(text, "STOP lists"), text)
     end,
 
-    ["the stop has a category per list that has something"] = function(t)
+    ["the stop has a category per list that has something: the new items, then what is for a merchant"] = function(t)
         local world = newWorld()
+        world.installHints()
         tinsert(world.slots, world.add(0, 1, 2589, "Linen Cloth"))
         tinsert(world.slots, world.add(0, 2, 2592, "Wool Cloth"))
         tinsert(world.slots, world.add(1, 1, 4306, "Silk Cloth"))
-        world.render()
-        bindingFunc(world.lastNodes["object:0:1"], "junk/toggle")()
-        bindingFunc(world.lastNodes["object:1:1"], "favorite/toggle")()
+        world.vendor["0:1"] = "vendor"
         world.flagged["0:2"] = true
         local out = lines(world.render())
         local start = stopIndex(out, "STOP lists")
         t:assertEqual(out[start + 1], "context lists: Item Lists")
         t:assertEqual(out[start + 2], "GROUP New Items (1) [open]")
         t:assertEqual(out[start + 3], "item structural:list:new:0:2 = Wool Cloth")
-        t:assertEqual(out[start + 4], "GROUP Junk (1) [closed]")
-        t:assertEqual(out[start + 5], "GROUP Favorites (1) [closed]")
+        t:assertEqual(out[start + 4], "GROUP For sale to a merchant [closed]", "named just so, without a count")
+        t:assertEqual(out[start + 5], "STOP frame:ContainerFrameCombinedBags:search", "no other category: none for the junk, none for the favorites")
+    end,
+
+    ["the merchant category is named without a count, the others keep theirs"] = function(t)
+        local world = newWorld()
+        world.installHints()
+        tinsert(world.slots, world.add(0, 1, 2589, "Linen Cloth"))
+        tinsert(world.slots, world.add(0, 2, 2592, "Wool Cloth"))
+        tinsert(world.slots, world.add(1, 1, 4306, "Silk Cloth"))
+        world.vendor["0:1"] = "vendor"
+        world.vendor["1:1"] = "vendor"
+        world.flagged["0:2"] = true
+        world.ns.lists.register({ key = "plain", label = "Plain", order = 30, select = function(buttons)
+            return { buttons[1], buttons[2] }
+        end })
+        local text = world.render()
+        t:assertTrue(contains(text, "GROUP New Items (1) [open]"), text)
+        t:assertTrue(contains(text, "GROUP For sale to a merchant [closed]"), text)
+        t:assertFalse(contains(text, "For sale to a merchant ("), text)
+        t:assertTrue(contains(text, "GROUP Plain (2) [closed]"), "a list that does not ask keeps its count: " .. text)
+    end,
+
+    ["the junk and the favorites have no category of their own any more, whatever is marked"] = function(t)
+        local world = newWorld()
+        tinsert(world.slots, world.add(0, 1, 2589, "Linen Cloth"))
+        tinsert(world.slots, world.add(1, 1, 4306, "Silk Cloth"))
+        world.render()
+        bindingFunc(world.lastNodes["object:0:1"], "junk/toggle")()
+        bindingFunc(world.lastNodes["object:1:1"], "favorite/toggle")()
+        world.flagged["0:1"] = true
+        local text = world.render()
+        t:assertFalse(contains(text, "GROUP Junk"), text)
+        t:assertFalse(contains(text, "GROUP Favorites"), text)
+        t:assertFalse(contains(text, "list:junk"), text)
+        t:assertFalse(contains(text, "list:favorites"), text)
+        -- the marks are still there, said ahead of the names in the bags
+        t:assertTrue(contains(text, "item object:0:1 = [Junk] Linen Cloth"), text)
+        t:assertTrue(contains(text, "item object:1:1 = [Favorite] Silk Cloth"), text)
+        local keys = {}
+        for _, list in ipairs(world.ns.lists.lists) do
+            tinsert(keys, list.key)
+        end
+        t:assertEqual(table.concat(keys, ","), "new,merchant")
     end,
 
     ["opening the bags lands on their items: the lists stop is not the first"] = function(t)
         local world = newWorld()
         tinsert(world.slots, world.add(0, 1, 2589, "Linen Cloth"))
-        world.render()
-        bindingFunc(world.lastNodes["object:0:1"], "favorite/toggle")()
+        world.flagged["0:1"] = true
         local out = lines(world.render())
         t:assertEqual(out[1], "STOP frame:ContainerFrameCombinedBags:grid")
         t:assertTrue(stopIndex(out, "STOP lists") > 1)
@@ -756,8 +864,7 @@ runner:addSuite("Item Lists", {
     ["in the combined bag the lists come after the items and the bag slots, before the search box"] = function(t)
         local world = newWorld()
         tinsert(world.slots, world.add(0, 1, 2589, "Linen Cloth"))
-        world.render()
-        bindingFunc(world.lastNodes["object:0:1"], "favorite/toggle")()
+        world.flagged["0:1"] = true
         t:assertEqual(
             stops(lines(world.render())),
             "frame:ContainerFrameCombinedBags:grid,frame:ContainerFrameCombinedBags:bagSlots,lists,"
@@ -768,16 +875,14 @@ runner:addSuite("Item Lists", {
     ["with one frame per bag the lists come after every bag"] = function(t)
         local world = newWorld({ mode = "individual" })
         tinsert(world.slots, world.add(0, 1, 2589, "Linen Cloth"))
-        world.render()
-        bindingFunc(world.lastNodes["object:0:1"], "favorite/toggle")()
+        world.flagged["0:1"] = true
         t:assertEqual(stops(lines(world.render())), "bag:0,frame:ContainerFrame1:controls,bag:1,lists")
     end,
 
     ["a combined bag without a search box or controls gets the lists last"] = function(t)
         local world = newWorld({ noControls = true })
         tinsert(world.slots, world.add(0, 1, 2589, "Linen Cloth"))
-        world.render()
-        bindingFunc(world.lastNodes["object:0:1"], "favorite/toggle")()
+        world.flagged["0:1"] = true
         t:assertEqual(
             stops(lines(world.render())),
             "frame:ContainerFrameCombinedBags:grid,frame:ContainerFrameCombinedBags:bagSlots,lists"
@@ -787,8 +892,7 @@ runner:addSuite("Item Lists", {
     ["when WowVision draws the controls and the search box before the bags, the lists are still after the bags"] = function(t)
         local world = newWorld({ controlsFirst = true })
         tinsert(world.slots, world.add(0, 1, 2589, "Linen Cloth"))
-        world.render()
-        bindingFunc(world.lastNodes["object:0:1"], "favorite/toggle")()
+        world.flagged["0:1"] = true
         t:assertEqual(
             stops(lines(world.render())),
             "frame:ContainerFrameCombinedBags:controls,frame:ContainerFrameCombinedBags:search,"
@@ -811,7 +915,7 @@ runner:addSuite("Item Lists", {
         tinsert(world.slots, world.add(0, 1, 2589, "Linen Cloth"))
         local before = rawget(world.builder, "beginStop")
         world.render()
-        bindingFunc(world.lastNodes["object:0:1"], "favorite/toggle")()
+        world.flagged["0:1"] = true
         world.render()
         t:assertEqual(rawget(world.builder, "beginStop"), before)
     end,
@@ -827,28 +931,291 @@ runner:addSuite("Item Lists", {
         t:assertEqual(rawget(world.builder, "beginStop"), before)
     end,
 
-    ["a closed category opens with its items tagged"] = function(t)
+    ["a closed category opens with its items tagged, in the bags' order"] = function(t)
         local world = newWorld()
-        tinsert(world.slots, world.add(0, 1, 2589, "Linen Cloth"))
+        world.installHints()
         tinsert(world.slots, world.add(1, 1, 4306, "Silk Cloth"))
+        tinsert(world.slots, world.add(0, 2, 2592, "Wool Cloth"))
+        tinsert(world.slots, world.add(0, 1, 2589, "Linen Cloth"))
+        world.vendor["0:1"] = "vendor"
+        world.vendor["0:2"] = "vendor"
+        world.vendor["1:1"] = "vendor"
         world.render()
         bindingFunc(world.lastNodes["object:0:1"], "junk/toggle")()
-        bindingFunc(world.lastNodes["object:1:1"], "favorite/toggle")()
-        world.builder.expansion["structural:list:junk"] = true
-        world.builder.expansion["structural:list:favorites"] = true
+        world.builder.expansion["structural:list:merchant"] = true
         local text = world.render()
-        t:assertTrue(contains(text, "item structural:list:junk:0:1 = [Junk] Linen Cloth"), text)
-        t:assertTrue(contains(text, "item structural:list:favorites:1:1 = [Favorite] Silk Cloth"), text)
+        local first = text:find("item structural:list:merchant:0:1 = [Junk] Linen Cloth", 1, true)
+        local second = text:find("item structural:list:merchant:0:2 = Wool Cloth", 1, true)
+        local third = text:find("item structural:list:merchant:1:1 = Silk Cloth", 1, true)
+        t:assertTrue(first ~= nil and second ~= nil and third ~= nil, text)
+        t:assertTrue(first < second and second < third, "bag by bag")
     end,
 
-    ["the favorites list is in French"] = function(t)
+    ["the merchant category is in French and in German"] = function(t)
         local world = newWorld({ locale = "frFR" })
+        world.installHints()
         tinsert(world.slots, world.add(0, 1, 4306, "Soie"))
-        world.render()
-        bindingFunc(world.lastNodes["object:0:1"], "favorite/toggle")()
+        world.vendor["0:1"] = "vendor"
         local text = world.render()
         t:assertTrue(contains(text, "context lists: Listes d'objets"), text)
-        t:assertTrue(contains(text, "GROUP Favoris (1) [closed]"), text)
+        t:assertTrue(contains(text, "GROUP À vendre au marchand [closed]"), text)
+        world = newWorld({ locale = "deDE" })
+        world.installHints()
+        tinsert(world.slots, world.add(0, 1, 4306, "Seide"))
+        world.vendor["0:1"] = "vendor"
+        text = world.render()
+        t:assertTrue(contains(text, "GROUP Zum Verkauf beim Händler [closed]"), text)
+    end,
+
+    ["what is in the auction house tab is not in the merchant category"] = function(t)
+        local world = newWorld()
+        world.installHints()
+        tinsert(world.slots, world.add(0, 1, 2589, "Linen Cloth"))
+        tinsert(world.slots, world.add(0, 2, 2592, "Wool Cloth"))
+        tinsert(world.slots, world.add(0, 3, 4306, "Silk Cloth"))
+        world.vendor["0:1"] = "auction"
+        world.vendor["0:2"] = "vendor"
+        -- (0, 3) is neither: nothing a vendor buys
+        world.builder.expansion["structural:list:merchant"] = true
+        local text = world.render()
+        t:assertTrue(contains(text, "GROUP For sale to a merchant [open]"), text)
+        t:assertTrue(contains(text, "list:merchant:0:2 = Wool Cloth"), text)
+        t:assertFalse(contains(text, "list:merchant:0:1"), "an auction house item")
+        t:assertFalse(contains(text, "list:merchant:0:3"), "nothing a vendor buys")
+    end,
+
+    ["a favorite is not offered for sale, even with the favorites switched off"] = function(t)
+        local world = newWorld()
+        world.installHints()
+        tinsert(world.slots, world.add(0, 1, 2589, "Linen Cloth"))
+        tinsert(world.slots, world.add(0, 2, 2592, "Wool Cloth"))
+        world.vendor["0:1"] = "vendor"
+        world.vendor["0:2"] = "vendor"
+        world.render()
+        bindingFunc(world.lastNodes["object:0:1"], "favorite/toggle")()
+        world.builder.expansion["structural:list:merchant"] = true
+        local text = world.render()
+        t:assertTrue(contains(text, "GROUP For sale to a merchant [open]"), text)
+        t:assertFalse(contains(text, "list:merchant:0:1"), text)
+        t:assertTrue(contains(text, "list:merchant:0:2"), text)
+        world.ns.favorites:setEnabled(false)
+        text = world.render()
+        t:assertFalse(contains(text, "list:merchant:0:1"), "still kept out with the favorites off")
+        t:assertTrue(contains(text, "list:merchant:0:2"))
+        -- taking the favorite off puts it back
+        world.ns.favorites:setEnabled(true)
+        world.render()
+        bindingFunc(world.lastNodes["object:0:1"], "favorite/toggle")()
+        t:assertTrue(contains(world.render(), "list:merchant:0:1"))
+    end,
+
+    ["one line per item in the merchant category, however many stacks, on the first stack"] = function(t)
+        local world = newWorld()
+        world.installHints()
+        tinsert(world.slots, world.add(1, 1, 2589, "Linen Cloth", { stackCount = 2 }))
+        tinsert(world.slots, world.add(0, 1, 2589, "Linen Cloth", { stackCount = 5 }))
+        tinsert(world.slots, world.add(0, 2, 2592, "Wool Cloth"))
+        world.vendor["0:1"] = "vendor"
+        world.vendor["1:1"] = "vendor"
+        world.vendor["0:2"] = "vendor"
+        world.builder.expansion["structural:list:merchant"] = true
+        local text = world.render()
+        t:assertTrue(contains(text, "GROUP For sale to a merchant [open]"), text)
+        t:assertFalse(contains(text, "GROUP For sale to a merchant ("), "no count: " .. text)
+        t:assertTrue(contains(text, "item structural:list:merchant:0:1 = Linen Cloth, 7 in 2 stacks"), text)
+        t:assertTrue(contains(text, "item structural:list:merchant:0:2 = Wool Cloth"), text)
+        t:assertFalse(contains(text, "list:merchant:1:1"), "the second stack has no line of its own")
+        -- the line is the first stack's slot: the bags' lowest bag and slot
+        t:assertEqual(#world.partitioned, 3, "all three slots were asked about")
+    end,
+
+    ["a line read after a stack changed is the bags' own label of its first stack"] = function(t)
+        local world = newWorld()
+        world.installHints()
+        tinsert(world.slots, world.add(0, 1, 2589, "Linen Cloth", { stackCount = 5 }))
+        tinsert(world.slots, world.add(1, 1, 2589, "Linen Cloth", { stackCount = 2 }))
+        world.vendor["0:1"] = "vendor"
+        world.vendor["1:1"] = "vendor"
+        world.builder.expansion["structural:list:merchant"] = true
+        local text = world.render()
+        t:assertTrue(contains(text, "list:merchant:0:1 = Linen Cloth, 7 in 2 stacks"), text)
+        local label = world.lastNodes["structural:list:merchant:0:1"].label
+        t:assertEqual(label(), "Linen Cloth, 7 in 2 stacks")
+        world.items["1:1"].stackCount = 3
+        local changed = label()
+        t:assertFalse(contains(changed, "in 2 stacks"), changed)
+        t:assertTrue(contains(changed, "Linen Cloth"), changed)
+        world.items["1:1"].stackCount = 2
+        t:assertEqual(label(), "Linen Cloth, 7 in 2 stacks", "back as it was")
+        world.items["1:1"] = nil
+        t:assertFalse(contains(label(), "in 2 stacks"), "a stack gone")
+        world.items["1:1"] = { itemID = 4306, itemName = "Silk Cloth", hyperlink = "|cffffffff|Hitem:4306::::::::60:::::::::|h[Silk Cloth]|h|r", quality = 1, stackCount = 2, hasNoValue = false, isLocked = false }
+        t:assertFalse(contains(label(), "in 2 stacks"), "another item in the stack")
+    end,
+
+    ["the tags of the marks go ahead of a merchant line, and a favorite item has no line"] = function(t)
+        local world = newWorld()
+        world.installHints()
+        tinsert(world.slots, world.add(0, 1, 2589, "Linen Cloth", { stackCount = 5 }))
+        tinsert(world.slots, world.add(1, 1, 2589, "Linen Cloth", { stackCount = 2 }))
+        tinsert(world.slots, world.add(0, 2, 2592, "Wool Cloth", { stackCount = 4 }))
+        tinsert(world.slots, world.add(0, 3, 2592, "Wool Cloth", { stackCount = 1 }))
+        for _, key in ipairs({ "0:1", "1:1", "0:2", "0:3" }) do
+            world.vendor[key] = "vendor"
+        end
+        world.render()
+        bindingFunc(world.lastNodes["object:0:1"], "junk/toggle")()
+        bindingFunc(world.lastNodes["object:0:2"], "favorite/toggle")()
+        world.builder.expansion["structural:list:merchant"] = true
+        local text = world.render()
+        t:assertTrue(contains(text, "list:merchant:0:1 = [Junk] Linen Cloth, 7 in 2 stacks"), text)
+        t:assertFalse(contains(text, "Wool Cloth, 5"), "every stack of the favorite is out: " .. text)
+        t:assertFalse(contains(text, "list:merchant:0:2"), text)
+        t:assertFalse(contains(text, "list:merchant:0:3"), text)
+        t:assertTrue(contains(text, "GROUP For sale to a merchant [open]"), text)
+        -- none of the favorite's slots was asked about
+        for _, position in ipairs(world.partitioned) do
+            t:assertFalse(position.bag == 0 and (position.slot == 2 or position.slot == 3), "a favorite's slot was asked about")
+        end
+    end,
+
+    ["an answer without the merchant lines is no category and no error"] = function(t)
+        local world = newWorld()
+        world.installHints()
+        tinsert(world.slots, world.add(0, 1, 2589, "Linen Cloth"))
+        world.vendor["0:1"] = "vendor"
+        local partition = WowVisionAuctionHints.partition
+        WowVisionAuctionHints.partition = function(positions)
+            local answer = partition(positions)
+            answer.merchantLines = nil
+            return answer
+        end
+        t:assertFalse(contains(world.render(), "For sale to a merchant"))
+        t:assertEqual(#world.errors, 0)
+    end,
+
+    ["a list's own sentence that fails falls back to the bags' label, once reported"] = function(t)
+        local world = newWorld()
+        tinsert(world.slots, world.add(0, 1, 2589, "Linen Cloth"))
+        world.ns.lists.register({
+            key = "described",
+            label = "Described",
+            order = 5,
+            select = function(buttons)
+                return { buttons[1] }
+            end,
+            describe = function()
+                error("describe broke")
+            end,
+        })
+        world.builder.expansion["structural:list:described"] = true
+        local text = world.render()
+        t:assertTrue(contains(text, "item structural:list:described:0:1 = Linen Cloth"), text)
+        world.render()
+        t:assertEqual(#world.errors, 1, "once")
+        t:assertTrue(contains(world.errors[1], "describe broke"), world.errors[1])
+    end,
+
+    ["a list's own sentence is used ahead of the bags' label"] = function(t)
+        local world = newWorld()
+        tinsert(world.slots, world.add(0, 1, 2589, "Linen Cloth"))
+        world.ns.lists.register({
+            key = "described",
+            label = "Described",
+            order = 5,
+            select = function(buttons)
+                return { buttons[1] }
+            end,
+            describe = function()
+                return function()
+                    return "My own sentence"
+                end
+            end,
+        })
+        world.builder.expansion["structural:list:described"] = true
+        t:assertTrue(contains(world.render(), "item structural:list:described:0:1 = My own sentence"))
+    end,
+
+    ["an older answer without lines (version 1) is not used"] = function(t)
+        local world = newWorld()
+        world.installHints()
+        tinsert(world.slots, world.add(0, 1, 2589, "Linen Cloth"))
+        world.vendor["0:1"] = "vendor"
+        WowVisionAuctionHints.version = 1
+        t:assertFalse(contains(world.render(), "For sale to a merchant"))
+        WowVisionAuctionHints.version = 2
+        WowVisionAuctionHints.version = nil
+        t:assertFalse(contains(world.render(), "For sale to a merchant"), "no version")
+        WowVisionAuctionHints.version = 2
+        t:assertTrue(contains(world.render(), "For sale to a merchant"))
+    end,
+
+    ["a junk mark does not take an item out of the merchant category"] = function(t)
+        local world = newWorld()
+        world.installHints()
+        tinsert(world.slots, world.add(0, 1, 2589, "Linen Cloth"))
+        world.vendor["0:1"] = "vendor"
+        world.render()
+        bindingFunc(world.lastNodes["object:0:1"], "junk/toggle")()
+        world.builder.expansion["structural:list:merchant"] = true
+        t:assertTrue(contains(world.render(), "list:merchant:0:1 = [Junk] Linen Cloth"))
+    end,
+
+    ["only the carried bags are asked about"] = function(t)
+        local world = newWorld()
+        world.installHints()
+        world.vendor["6:1"] = "vendor"
+        world.vendor["0:1"] = "vendor"
+        local asked = {}
+        local api = WowVisionAuctionHints.partition
+        WowVisionAuctionHints.partition = function(positions)
+            for _, position in ipairs(positions) do
+                tinsert(asked, position.bag .. ":" .. position.slot)
+            end
+            return api(positions)
+        end
+        tinsert(world.slots, world.add(0, 1, 2589, "Linen Cloth"))
+        tinsert(world.slots, world.add(6, 1, 2592, "Bank Cloth"))
+        local selected = world.ns.merchantList(world.slots)
+        t:assertEqual(table.concat(asked, ","), "0:1")
+        t:assertEqual(#selected, 1)
+        t:assertEqual(selected[1], world.slots[1])
+    end,
+
+    ["without WowVision_AuctionHints the merchant category is empty and the stop shows what else it has"] = function(t)
+        local world = newWorld()
+        tinsert(world.slots, world.add(0, 1, 2589, "Linen Cloth"))
+        local text = world.render()
+        t:assertFalse(contains(text, "STOP lists"), text)
+        world.flagged["0:1"] = true
+        text = world.render()
+        t:assertTrue(contains(text, "GROUP New Items (1)"), text)
+        t:assertFalse(contains(text, "For sale to a merchant"), text)
+        -- a global without the call is no answer either
+        WowVisionAuctionHints = { version = 2 }
+        text = world.render()
+        t:assertFalse(contains(text, "For sale to a merchant"), text)
+        t:assertEqual(#world.errors, 0, "a global without the call is not an error, it is nothing to ask")
+        WowVisionAuctionHints = nil
+    end,
+
+    ["no answer (in combat) leaves the category empty; an answer that fails is reported once"] = function(t)
+        local world = newWorld()
+        world.installHints()
+        tinsert(world.slots, world.add(0, 1, 2589, "Linen Cloth"))
+        world.vendor["0:1"] = "vendor"
+        world.partitionNil = true
+        t:assertFalse(contains(world.render(), "STOP lists"))
+        t:assertEqual(#world.errors, 0, "no answer is not an error")
+        world.partitionNil = false
+        t:assertTrue(contains(world.render(), "GROUP For sale to a merchant [closed]"))
+        WowVisionAuctionHints.partition = function()
+            error("hints broke")
+        end
+        local text = world.render()
+        t:assertTrue(contains(text, "item object:0:1 = Linen Cloth"), "the bags are fine")
+        world.render()
+        t:assertEqual(#world.errors, 1, "once")
     end,
 
     ["a new item stays listed after the game clears its flag, until the bags close"] = function(t)

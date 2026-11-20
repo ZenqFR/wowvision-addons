@@ -1,10 +1,10 @@
 ## Interface: 16001, 120005, 120007
 ## Title: WowVision Bags
 ## Title-frFR: WowVision - Sacs
-## Notes: Adds to WowVision's bags an "Item Lists" stop (new items, junk, favorites), junk marks that are sold by themselves at a merchant, and favorites. Shift+Enter marks junk, Shift+Backspace marks a favorite.
-## Notes-frFR: Ajoute aux sacs de WowVision un arrêt « Listes d'objets » (nouveaux objets, camelote, favoris), des marques de camelote vendue toute seule chez un marchand, et des favoris. Maj+Entrée marque la camelote, Maj+Retour arrière marque un favori.
+## Notes: Adds to WowVision's bags an "Item Lists" stop (new items, items for a merchant), junk marks that are sold by themselves at a merchant, and favorites. Shift+Enter marks junk, Shift+Backspace marks a favorite.
+## Notes-frFR: Ajoute aux sacs de WowVision un arrêt « Listes d'objets » (nouveaux objets, objets à vendre au marchand), des marques de camelote vendue toute seule chez un marchand, et des favoris. Maj+Entrée marque la camelote, Maj+Retour arrière marque un favori.
 ## Title-deDE: WowVision - Taschen
-## Notes-deDE: Fügt den Taschen von WowVision einen Eintrag „Gegenstandslisten“ hinzu (neue Gegenstände, Plunder, Favoriten), Plundermarkierungen, die beim Händler von selbst verkauft werden, und Favoriten. Umschalt+Eingabe markiert Plunder, Umschalt+Rücktaste markiert einen Favoriten.
+## Notes-deDE: Fügt den Taschen von WowVision einen Eintrag „Gegenstandslisten“ hinzu (neue Gegenstände, Gegenstände zum Verkauf beim Händler), Plundermarkierungen, die beim Händler von selbst verkauft werden, und Favoriten. Umschalt+Eingabe markiert Plunder, Umschalt+Rücktaste markiert einen Favoriten.
 ## Version: 0.1.0
 ## Dependencies: WowVision
 ## SavedVariablesPerCharacter: WowVisionBagsDB
@@ -15,5 +15,6 @@ Lists.lua
 NewItems.lua
 Marks.lua
 Features.lua
+Merchant.lua
 Hooks.lua
 Main.lua
