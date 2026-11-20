@@ -7,8 +7,8 @@ window.WVA = {
   "testsAsOf": "2026-11-20",
   "all": {
     "file": "downloads/wowvision-forever-addons.zip",
-    "bytes": 277841,
-    "sha256": "faad28d53e41d085dc7eab096f87b5343e5507b5ffacfd8c0cd140e275f773a0",
+    "bytes": 277919,
+    "sha256": "ee744ef47b31b1a2d1b6d2569a20f74782e61e190249492ccd39e2aa71e9f307",
     "count": 14
   },
   "addons": [
@@ -840,9 +840,9 @@ window.WVA = {
         "de": "Öffnet sich das Fenster von LFG Forever (/lfg oder Alt+Strg+G), liest WowVision es. Tab wechselt von den Reitern zur Suche (Menüs für Kategorie und Aktivität, Suchen), zu den Ergebnissen (Gruppen und Spieler, je eine Zeile: Anführer, Ziel, Mitglieder und ihre Rollen, Notiz) und zu den Filtern des offenen Reiters. Eingabe bei einer Gruppe fragt den Beitritt an, bei einem Spieler lädt sie ein; die Rücktaste ist das Rechtsklick-Menü des Spiels. Jedes Bedienelement ist das von LFG Forever und jedes Wort kommt von ihm."
       },
       "status": {
-        "en": "Not tried in the game yet. Tested offline with WowVision's real screen engine and window classes, on stand-ins shaped after LFG Forever's own source, and against the source of the installed LFG Forever 2.3.0 (every name it reads is checked).",
-        "fr": "Pas encore essayée en jeu. Testée hors du jeu avec le vrai moteur d'écrans et les vraies classes de fenêtres de WowVision, sur des fenêtres simulées d'après le code de LFG Forever, et contre les sources du LFG Forever 2.3.0 installé (chaque nom qu'elle lit est vérifié).",
-        "de": "Noch nicht im Spiel ausprobiert. Außerhalb des Spiels getestet mit dem echten Bildschirmsystem und den echten Fensterklassen von WowVision, an Nachbildungen nach dem Quelltext von LFG Forever, und gegen den Quelltext des installierten LFG Forever 2.3.0 (jeder gelesene Name wird geprüft)."
+        "en": "Tried in the game: it works. Also tested offline with WowVision's real screen engine and window classes, and against the source of the installed LFG Forever 2.3.0 (every name it reads is checked).",
+        "fr": "Essayée en jeu : elle marche. Aussi testée hors du jeu avec le vrai moteur d'écrans et les vraies classes de fenêtres de WowVision, et contre les sources du LFG Forever 2.3.0 installé (chaque nom qu'elle lit est vérifié).",
+        "de": "Im Spiel ausprobiert: Es funktioniert. Außerdem außerhalb des Spiels getestet mit dem echten Bildschirmsystem und den echten Fensterklassen von WowVision und gegen den Quelltext des installierten LFG Forever 2.3.0 (jeder gelesene Name wird geprüft)."
       },
       "note": null,
       "keys": [
@@ -905,12 +905,12 @@ window.WVA = {
       "version": "0.1.0",
       "interface": "16001, 120005, 120007",
       "files": 7,
-      "sourceBytes": 64433,
+      "sourceBytes": 64613,
       "tests": 55,
       "zip": {
         "file": "downloads/WowVision_LFGForever.zip",
-        "bytes": 21536,
-        "sha256": "b76560664169c6c3c6a1cd6e77aad692483cc1a18b5220656cd13acaeb29b900"
+        "bytes": 21614,
+        "sha256": "a1b6465c7c6563fe2e0431d850c38d75df7e3a09f50be72803c5116eb687ef67"
       },
       "links": {
         "source": "https://github.com/ZenqFR/wowvision-addons/tree/main/addons/WowVision_LFGForever",

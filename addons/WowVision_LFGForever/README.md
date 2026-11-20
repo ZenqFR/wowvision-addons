@@ -44,7 +44,7 @@ Dans les **chuchotements** et les **notes des joueurs**, Entrée ouvre le menu d
 
 LFG Forever garde son code privé : on n'atteint que sa fenêtre (`LFGForeverFrame`), les panneaux qu'elle porte et leurs contrôles, par les noms que LFG Forever leur donne. `tests/real_lfg.lua` relit les sources du LFG Forever installé et vérifie que chacun de ces noms y est toujours (écrit pour la **version 2.3.0**) ; si une mise à jour de LFG Forever en change un, ce test dit lequel et l'écran concerné se tait plutôt que de dire n'importe quoi (une erreur dans une partie est signalée une fois, le reste continue).
 
-- **Non essayé en jeu.** Tout est testé hors du jeu avec le vrai moteur d'écrans de WowVision et la vraie classe de fenêtres, sur des fenêtres simulées d'après le code de LFG Forever.
+- **Essayé en jeu : ça marche** (retour du joueur, le 20 novembre 2026, après les premiers essais). Tout est en plus testé hors du jeu avec le vrai moteur d'écrans de WowVision et la vraie classe de fenêtres, sur des fenêtres simulées d'après le code de LFG Forever.
 - La recherche, « Demander à rejoindre » et « Inviter » sont les **vrais clics** sur les vrais boutons, comme le fait WowVision pour les fenêtres du jeu ; le jeu n'accepte la recherche que d'un vrai clic ou d'une vraie touche : si elle était refusée, c'est à signaler.
 - La fenêtre des **réglages** de LFG Forever (l'engrenage) est celle d'Options du jeu.
 - Sku, qui a ses propres fenêtres, est laissé tranquille, comme partout dans WowVision.
@@ -75,7 +75,7 @@ A group's line says its leader, what it is for, how many members and what they a
 
 **Alt+Ctrl+G** opens or closes LFG Forever (listed in WowVision's Bindings screen; LFG Forever's own two keys stay in the game's Keybindings, untouched). `/wvlfg` does the same, `/wvlfg help` says so.
 
-It reaches LFG Forever only through the names it gives its frames (it keeps its code private); `tests/real_lfg.lua` reads the installed LFG Forever's source and checks each name (written for **version 2.3.0**). Tests: `lua tests/run.lua` (WowVision's real graph framework), `lua tests/real_core.lua` (the real input manager and window classes), `lua tests/real_lfg.lua`; 135 mutations, 7 equivalent survivors. **Not tried in game yet.** German is my own translation.
+It reaches LFG Forever only through the names it gives its frames (it keeps its code private); `tests/real_lfg.lua` reads the installed LFG Forever's source and checks each name (written for **version 2.3.0**). Tests: `lua tests/run.lua` (WowVision's real graph framework), `lua tests/real_core.lua` (the real input manager and window classes), `lua tests/real_lfg.lua`; 135 mutations, 7 equivalent survivors. **Tried in game: it works** (the player's report, 20 November 2026). German is my own translation.
 
 ## Deutsch
 
@@ -89,4 +89,4 @@ Die Zeile einer Gruppe nennt den Anführer, wofür sie sucht, wie viele Mitglied
 
 **Alt+Strg+G** öffnet oder schließt LFG Forever (in der Tastenbelegung von WowVision aufgeführt; die zwei eigenen Tasten von LFG Forever bleiben in der Tastenbelegung des Spiels unberührt). `/wvlfg` tut dasselbe, `/wvlfg hilfe` sagt es.
 
-Es erreicht LFG Forever nur über die Namen, die es seinen Frames gibt (der Code ist privat); `tests/real_lfg.lua` liest den Quelltext des installierten LFG Forever und prüft jeden Namen (geschrieben für **Version 2.3.0**). Tests: `lua tests/run.lua` (das echte Graph-Framework von WowVision), `lua tests/real_core.lua` (der echte Tastenmanager und die echten Fensterklassen), `lua tests/real_lfg.lua`; 135 Mutationen, 7 äquivalente Überlebende. **Noch nicht im Spiel ausprobiert.** Das Deutsche ist meine eigene Übersetzung.
+Es erreicht LFG Forever nur über die Namen, die es seinen Frames gibt (der Code ist privat); `tests/real_lfg.lua` liest den Quelltext des installierten LFG Forever und prüft jeden Namen (geschrieben für **Version 2.3.0**). Tests: `lua tests/run.lua` (das echte Graph-Framework von WowVision), `lua tests/real_core.lua` (der echte Tastenmanager und die echten Fensterklassen), `lua tests/real_lfg.lua`; 135 Mutationen, 7 äquivalente Überlebende. **Im Spiel ausprobiert: es funktioniert** (Rückmeldung des Spielers, 20. November 2026). Das Deutsche ist meine eigene Übersetzung.

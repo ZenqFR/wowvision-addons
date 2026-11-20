@@ -1325,9 +1325,9 @@
         ]
       },
       "status": {
-        "en": "Not tried in the game yet. Tested offline with WowVision's real screen engine and window classes, on stand-ins shaped after LFG Forever's own source, and against the source of the installed LFG Forever 2.3.0 (every name it reads is checked).",
-        "fr": "Pas encore essayée en jeu. Testée hors du jeu avec le vrai moteur d'écrans et les vraies classes de fenêtres de WowVision, sur des fenêtres simulées d'après le code de LFG Forever, et contre les sources du LFG Forever 2.3.0 installé (chaque nom qu'elle lit est vérifié).",
-        "de": "Noch nicht im Spiel ausprobiert. Außerhalb des Spiels getestet mit dem echten Bildschirmsystem und den echten Fensterklassen von WowVision, an Nachbildungen nach dem Quelltext von LFG Forever, und gegen den Quelltext des installierten LFG Forever 2.3.0 (jeder gelesene Name wird geprüft)."
+        "en": "Tried in the game: it works. Also tested offline with WowVision's real screen engine and window classes, and against the source of the installed LFG Forever 2.3.0 (every name it reads is checked).",
+        "fr": "Essayée en jeu : elle marche. Aussi testée hors du jeu avec le vrai moteur d'écrans et les vraies classes de fenêtres de WowVision, et contre les sources du LFG Forever 2.3.0 installé (chaque nom qu'elle lit est vérifié).",
+        "de": "Im Spiel ausprobiert: Es funktioniert. Außerdem außerhalb des Spiels getestet mit dem echten Bildschirmsystem und den echten Fensterklassen von WowVision und gegen den Quelltext des installierten LFG Forever 2.3.0 (jeder gelesene Name wird geprüft)."
       },
       "preview": {
         "en": [
